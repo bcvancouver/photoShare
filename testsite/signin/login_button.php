@@ -18,11 +18,10 @@ $username = stripslashes($username);
 $password = stripslashes($password);
 $username = mysql_real_escape_string($username);
 $password = mysql_real_escape_string($password);
-// Selecting Database
-$db = mysql_select_db("company", $connection);
 // SQL query to fetch information of registerd users and finds user match.
-$query = mysql_query("select * from login where password='$password' AND username='$username'", $connection);
-$rows = mysql_num_rows($query);
+$query = oci_parse($connection,"select * from users where password='$password' AND username='$username'");
+oci_execute($query);
+$rows = oci_num_rows($query);
 if ($rows == 1) {
 $_SESSION['login_user']=$username; // Initializing Session
 header("location: profile.php"); // Redirecting To Other Page
