@@ -17,7 +17,8 @@ if ($rows == 1) {
 $_SESSION['login_user']=$username; // Initializing Session
     print("You have loged in"); 
 } else {
-header("location: signin.html");// Redirecting back to log in page
+    print("not working");
+//header("location: signin.html");// Redirecting back to log in page
 }
 }
 ?>
