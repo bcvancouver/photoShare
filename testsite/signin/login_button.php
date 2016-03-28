@@ -10,6 +10,7 @@ $password=$_POST['inputPassword'];
 $connection = connect();
 // SQL query to fetch information of registerd users and finds user match.
 $query = oci_parse($connection,"select * from users where password='$password' AND user_name='$username'");
+print($query);
 print($password);
 print($username);
 oci_execute($query);
