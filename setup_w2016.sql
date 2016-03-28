@@ -4,15 +4,12 @@
  *              Winter, 2016
  *  Author:     Prof. Li-Yan Yuan
  */
-DROP database photoshare;
 DROP TABLE images;
 DROP TABLE group_lists;
 DROP TABLE groups;
 DROP TABLE persons;
 DROP TABLE users;
 
-startup nomount;
-CREATE database photoshare;
 
 CREATE TABLE users (
    user_name varchar(24),
