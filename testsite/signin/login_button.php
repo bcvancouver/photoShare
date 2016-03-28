@@ -12,6 +12,7 @@ $connection = connect();
 $query = oci_parse($connection,"select * from users where password='$password' AND user_name='$username'");
 oci_execute($query);
 $rows = oci_num_rows($query);
+print($rows);
 print("query working");
 if ($rows == 1) {
 $_SESSION['login_user']=$username; // Initializing Session
