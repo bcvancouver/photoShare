@@ -13,8 +13,8 @@ $query = oci_parse($connection,"select * from users where password='$password' A
 oci_execute($query);
 $rows = oci_num_rows($query);
 while (oci_fetch($query)) {
-    echo oci_result($query, 'User_Name') . " is ";
-    echo oci_result($query, 'Password') . "<br>\n";
+    echo oci_result($query, 'user_name') . " is ";
+    echo oci_result($query, 'password') . "<br>\n";
 }
 print($rows);
 if ($rows == 1) {
