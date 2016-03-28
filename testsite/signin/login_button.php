@@ -10,12 +10,7 @@ $password=$_POST['inputPassword'];
 $connection = connect();
 // SQL query to fetch information of registerd users and finds user match.
 $query = oci_parse($connection,"select * from users where password='$password' AND user_name='$username'");
-oci_execute($query);
-$rows = oci_num_rows($query);
-while (oci_fetch($query)) {
-    echo oci_result($query, 'user_name') . " is ";
-    echo oci_result($query, 'password') . "<br>\n";
-}
+$rows = oci_num_rows(oci_execute($query));
 print($rows);
 if ($rows == 1) {
 $_SESSION['login_user']=$username; // Initializing Session
