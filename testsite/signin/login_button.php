@@ -13,6 +13,7 @@ print("connected");
 $query = oci_parse($connection,"select * from users where password='$password' AND user_name='$username'");
 oci_execute($query);
 $rows = oci_num_rows($query);
+print("query working");
 if ($rows == 1) {
 $_SESSION['login_user']=$username; // Initializing Session
 header("location: login_button.php"); // Redirecting To Other Page
