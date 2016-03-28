@@ -14,7 +14,6 @@ oci_execute($query);
 $rows = oci_num_rows($query);
 print($rows);
 print("query working");
-$rows = 1;
 if ($rows == 1) {
 $_SESSION['login_user']=$username; // Initializing Session
     print("You have loged in"); 
