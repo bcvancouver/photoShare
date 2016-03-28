@@ -11,6 +11,7 @@ DROP TABLE groups;
 DROP TABLE persons;
 DROP TABLE users;
 
+startup nomount;
 CREATE database photoshare;
 
 CREATE TABLE users (
