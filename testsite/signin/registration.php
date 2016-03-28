@@ -33,9 +33,6 @@ include("PHPconnectionDB.php");
  	///////////////////////////////////////////////////////////////////////////////////
  	//checking if username and password in system 
  		 $sql1='select count(*) from Users where user_name=\''.$user.'\' or password=\''.$pswd.'\'';
- 		 
- 		 
-	    echo $sql1;
 	    //Prepare sql using conn and returns the statement identifier
 	    $stid = oci_parse($conn, $sql1);
 	    
@@ -44,15 +41,11 @@ include("PHPconnectionDB.php");
 	    $r='1';
 	    while ($row=oci_fetch_array($stid,OCI_BOTH)){$r= $row[0];}
 	    //$row=oci_fetch_array($stid,OCI_BOTH)
-	    echo $r;
 	    oci_free_statement($stid);
 	    oci_close($conn);
-	    
-	    echo "first part good";
        // if username or password already exist in the database, error 
 	    $result=FALSE;
 	    if ($r!='0'){ $result=TRUE;}
-	    echo $result;
 	    if ($result){
 	    	header("location:http://consort.cs.ualberta.ca/~wankinvi/photoShare391/testsite/signin/registration.html");
 		 	echo "error";	    
@@ -62,18 +55,14 @@ include("PHPconnectionDB.php");
 	    else{
 	    $sql2='insert into Users (user_name, password, date_registered) values (\''.$user.'\',\''.$pswd.'\',SYSDATE)';
  		 $sql3='insert into persons (user_name, first_name, last_name, address, email, phone) values (\''.$user.'\',\''.$fn.'\',\''.$ln.'\',\''.$address.'\',\''.$email.'\',\''.$phone.'\')';
- 		 echo $sql2;
 	    $conn=connect();
 	    execute_queries($conn, $sql2);
 	    $conn=connect();
 	    execute_queries($conn, $sql3);
 	    
 	    }
-	    //oci_close($conn);
-	    
-	    echo "good good";
-	    
-	    
+            header("location:http://consort.cs.ualberta.ca/~wankinvi/photoShare391/testsite/signin/signin.html");
+	    //oci_close($conn);   
 	}
 	
 function execute_queries($conn, $sql)	{
