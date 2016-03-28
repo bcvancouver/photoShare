@@ -15,9 +15,9 @@ $rows = oci_num_rows($query);
 print("query working");
 if ($rows == 1) {
 $_SESSION['login_user']=$username; // Initializing Session
-header("location: login_button.php"); // Redirecting To Other Page
+    print("You have loged in"); 
 } else {
-header("location: login_button.php");
+header("location: signin.html");// Redirecting back to log in page
 }
 }
 ?>
