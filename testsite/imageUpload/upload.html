@@ -32,6 +32,8 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script type="text/javascript" src="js/plupload.full.min.js"></script>
+    
   </head>
 
   <body role="document">
@@ -56,7 +58,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="signin.html">Signin</a></li>
-                <li><a href="logout.php">Signout</a></li>
+                <li><a href="#">Signout</a></li>
               </ul>
             </li>
           </ul>
@@ -65,22 +67,43 @@
     </nav>
     <div class="container">
 
-      <form class="form-signin" ACTION="login_button.php" METHOD="post">
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="text" name="inputEmail" class="form-control" placeholder="User Name" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="text" name="inputPassword" class="form-control" placeholder="Password" required>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
-        </div>
-        <button class="btn btn-lg btn-default btn-block" type="submit">Sign in</button>
-      </form>
+      <a id="browse" href="javascript:;">[Browse...]</a>
+      <a id="start-upload" href="javascript:;">[Start Upload]</a>
 
     </div> <!-- /container -->
-
+    <br />
+    <pre id="console"></pre>
+     
+    <script type="text/javascript">
+     
+    var uploader = new plupload.Uploader({
+      browse_button: 'browse', // this can be an id of a DOM element or the DOM element itself
+      url: 'upload.php'
+    });
+     
+    uploader.init();
+     
+    uploader.bind('FilesAdded', function(up, files) {
+      var html = '';
+      plupload.each(files, function(file) {
+        html += '<li id="' + file.id + '">' + file.name + ' (' + plupload.formatSize(file.size) + ') <b></b></li>';
+      });
+      document.getElementById('filelist').innerHTML += html;
+    });
+     
+    uploader.bind('UploadProgress', function(up, file) {
+      document.getElementById(file.id).getElementsByTagName('b')[0].innerHTML = '<span>' + file.percent + "%</span>";
+    });
+     
+    uploader.bind('Error', function(up, err) {
+      document.getElementById('console').innerHTML += "\nError #" + err.code + ": " + err.message;
+    });
+     
+    document.getElementById('start-upload').onclick = function() {
+      uploader.start();
+    };
+     
+    </script>
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../assets/js/ie10-viewport-bug-workaround.js"></script>
