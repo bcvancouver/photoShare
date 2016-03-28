@@ -12,8 +12,11 @@ $connection = connect();
 $query = oci_parse($connection,"select * from users where password='$password' AND user_name='$username'");
 oci_execute($query);
 $rows = oci_num_rows($query);
+while (oci_fetch($query)) {
+    echo oci_result($query, 'LOCATION_ID') . " is ";
+    echo oci_result($query, 'CITY') . "<br>\n";
+}
 print($rows);
-print("query working");
 if ($rows == 1) {
 $_SESSION['login_user']=$username; // Initializing Session
     print("You have loged in"); 
