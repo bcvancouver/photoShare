@@ -10,6 +10,7 @@ DROP TABLE groups;
 DROP TABLE persons;
 DROP TABLE users;
 
+CREATE database photoshare;
 
 CREATE TABLE users (
    user_name varchar(24),
