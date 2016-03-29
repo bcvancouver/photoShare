@@ -11,9 +11,9 @@
         $place=$_POST['keysearch'];
         $permitted=$_POST['privacy'];
         
-        echo "The date=$date";
-        echo "\nThe title is=$subject";
-        echo "\nThe place is=$place";
+        echo "The date=$date<br>";
+        echo "The title is=$subject<br>";
+        echo "The place is=$place<br>";
             
         //Check image file
         if(isset($_FILES['image'])){
