@@ -12,7 +12,8 @@
         $permitted=$_POST['privacy'];
         
         echo "The date=$date";
-        echo "The title is=$title";
+        echo "\nThe title is=$subject";
+        echo "\nThe place is=$place";
             
         //Check image file
         if(isset($_FILES['image'])){
