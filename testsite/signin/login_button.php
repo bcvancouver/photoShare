@@ -12,8 +12,8 @@ $connection = connect();
 $query = oci_parse($connection,"select count(*) from users where password='$password' AND user_name='$username'");
 $r = 1;
 $check = oci_execute($query); 
-while ($row=oci_fetch_array($check,OCI_BOTH)){$r= $row[0];}
-	    oci_free_statement($check);
+while ($row=oci_fetch_array($query,OCI_BOTH)){$r= $row[0];}
+	    oci_free_statement($query);
 	    oci_close($conn);
        // if username and password already exist in the database, we grant access
 	    $result=FALSE;
