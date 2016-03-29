@@ -27,5 +27,4 @@ while ($row=oci_fetch_array($query,OCI_BOTH)){$r= $row[0];}
         }
  
 }
-  oci_close($connection);
 ?>
