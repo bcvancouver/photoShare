@@ -70,7 +70,18 @@
     <div class="container">
         <form action="upload.php" method="post" enctype="multipart/form-data">
             <input type="file" name="image" />
+            <p ><b>Picture Title: </b><input type="text" id="title" name="title" placeholder=""></p>
+            <p><b>Picture Date: </b><input type="text" id="datepicker" name="datepicker" placeholder="MM/DD/YYYY"></p>
+            <p><b>Picture Location: </b><input type="search" id="keysearch" name="keysearch" placeholder="location"></p>
+            <p><b>Who can see?</b>
+                <select name="privacy">
+                <option name="public" value="public">Public</option>
+                <option name="private" value="private" selected>Private</option>
+            </select><br/>
+            </p>
+            
             <input type="submit"/>
+
         </form>
 
     </div> <!-- /container -->
