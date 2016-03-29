@@ -1,4 +1,4 @@
- 
+ <?php include("loggedIn.php"); ?> 
 <!DOCTYPE html>
 <html lang="en">
   <head>

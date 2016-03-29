@@ -1,4 +1,5 @@
 <?php session_start();
+include("loggedIn.php"); 
 include("PHPconnectionDB.php"); 
 
 
@@ -34,8 +35,8 @@ include("PHPconnectionDB.php");
         echo htmlentities($err['message']);
           }
           else{
-        echo 'Row inserted';
-        echo 'username'.$user_name;
+        echo 'Row inserted ';
+        echo 'username '.$user_name;
           }
         
         // Free the statement identifier when closing the connection
