@@ -1,7 +1,7 @@
 <?php
     
     include ("PHPconnectionDB.php");
-    sesstion_start();
+    session_start();
     $user=$_SESSION['login_user'];
 ?>
 <html>
