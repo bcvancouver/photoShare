@@ -17,7 +17,7 @@ include("PHPconnectionDB.php");
             
             //if not all parts are filled, unsuccessful 
 				if ($user==''or $pswd=='' or $fn=='' or $ln=='' or $address=='' or $email=='' or $phone==''){
-				header("location:http://consort.cs.ualberta.ca/~wankinvi/photoShare391/testsite/signin/registration.html");	    
+				header("location:registration.html");	    
 	    		exit;				
 				}
 				
@@ -47,7 +47,7 @@ include("PHPconnectionDB.php");
 	    $result=FALSE;
 	    if ($r!='0'){ $result=TRUE;}
 	    if ($result){
-	    	header("location:http://consort.cs.ualberta.ca/~wankinvi/photoShare391/testsite/signin/registration.html");
+	    	header("location:registration.html");
 		 	echo "error";	    
 	    	exit;
 	    }
@@ -61,7 +61,7 @@ include("PHPconnectionDB.php");
 	    execute_queries($conn, $sql3);
 	    
 	    }
-            header("location:http://consort.cs.ualberta.ca/~wankinvi/photoShare391/testsite/signin/signin.html");
+            header("location:signin.html");
 	    //oci_close($conn);   
 	}
 	
