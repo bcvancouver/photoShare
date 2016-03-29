@@ -6,7 +6,7 @@
         <?php
         $conn=connect();
         
-        $title=$_POST['title'];
+        $subject=$_POST['title'];
         $date=$_POST['datepicker'];
         $place=$_POST['location'];
         $permitted=$_POST['privacy'];
@@ -37,7 +37,8 @@
                  print_r($errors);
               }
            }
-        
+            echo '<center><form method="post" action ="upload.html"><input type="submit" name="submit" value="continue" /> </form></center>';
+
         ?>
     </body>
 </html>
