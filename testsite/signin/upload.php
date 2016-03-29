@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <?php
     include ("PHPconnectionDB.php");
 ?>
@@ -12,7 +14,9 @@
         $permitted=$_POST['privacy'];
         
         echo "The date=$date";
-        echo "The title is=$title";
+        echo "\nThe title is=$subject";
+        echo "\nThe location is=$place";
+        echo "\nThe permission is=$permitted";
             
         //Check image file
         if(isset($_FILES['image'])){
