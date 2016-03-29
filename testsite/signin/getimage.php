@@ -1,7 +1,8 @@
 <?php
 include('PHPconnectionDB.php');
 session_start(); // Starting Session
-$sql = "SELECT thumbnail FROM images WHERE subject = '$_GET['id']'" .;
+$user_name=$_SESSION["login_user"];
+$sql = "SELECT thumbnail FROM images WHERE subject = '$user_name'";
 $conn = connection();
 $stid = oci_parse($conn, $sql);
 oci_execute($stid);
