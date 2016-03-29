@@ -34,7 +34,7 @@
 
            if ($file_size==0){
                 $errors[]="Plz select a file.";   
-           }elif(in_array($file_ext,$expensions)=== false){
+           }elseif(in_array($file_ext,$expensions)=== false){
                  $errors[]="extension not allowed, please choose a JPEG, PNG or GIF file.";
               }
 
