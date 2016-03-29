@@ -5,7 +5,7 @@ include("PHPconnectionDB.php");
       if (isset ($_POST['validate'])){
             //get the input
             $group_name=$_POST['group_name'];
-            $user_name=$_SESSION["username"];  //Might get renamed   needs a check
+            $user_name=$_SESSION["login_user"];  //   needs a check
       
         ini_set('display_errors', 1);
         error_reporting(E_ALL);
@@ -35,6 +35,7 @@ include("PHPconnectionDB.php");
           }
           else{
         echo 'Row inserted';
+        echo 'username'.$user_name;
           }
         
         // Free the statement identifier when closing the connection
