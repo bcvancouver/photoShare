@@ -18,7 +18,9 @@ while ($row=oci_fetch_array($query,OCI_BOTH)){$r= $row[0];}
        // if username and password already exist in the database, we grant access
 	    $result=FALSE;
 	    if ($r!='0'){ $result=TRUE;}
-	    if ($result){	header("location:http://consort.cs.ualberta.ca/~wankinvi/photoShare391/testsite/signin/main.html");
+	    if ($result){
+        $_SESSION['login_user']=$username; // Initializing Session  
+                header("location:http://consort.cs.ualberta.ca/~wankinvi/photoShare391/testsite/signin/main.html");
 	    }
         else {
         print("not working");
