@@ -10,6 +10,7 @@ $row = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS);
 if (!$row) {
     header('Status: 404 Not Found');
 } else {
-    echo '<img src="data:image/jpeg;base64,'.base64_encode( $row['image'] ).'"/>';
+    header("Content-type: image/jpg");
+print $row->fields['DOCUMENT_FILE'];
 }
 ?>
