@@ -12,20 +12,20 @@ $connection = connect();
 $query = oci_parse($connection,"select count(*) from users where password='$password' AND user_name='$username'");
 $r = 1;
 $check = oci_execute($query); 
-while ($row=oci_fetch_array($check,OCI_BOTH)){$r= $row[0];}
-	    oci_free_statement($check);
-	    oci_close($conn);
+while ($row=oci_fetch_array($query,OCI_BOTH)){$r= $row[0];}
+	    oci_free_statement($query);
+	    oci_close($connection);
        // if username and password already exist in the database, we grant access
 	    $result=FALSE;
 	    if ($r!='0'){ $result=TRUE;}
 	    if ($result){
-	    	header("location:http://consort.cs.ualberta.ca/~wankinvi/photoShare391/testsite/signin/main.html");
+        $_SESSION['login_user']=$username; // Initializing Session  
+                header("location:http://consort.cs.ualberta.ca/~wankinvi/photoShare391/testsite/signin/main.html");
 	    }
         else {
         print("not working");
-//header("location: signin.html");// Redirecting back to log in page
+header("location: signin.html");// Redirecting back to log in page
         }
  
 }
-  oci_close($connection);
 ?>
