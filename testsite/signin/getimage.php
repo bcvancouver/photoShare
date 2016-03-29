@@ -1,7 +1,7 @@
 <?php
 include('PHPconnectionDB.php');
 session_start(); // Starting Session
-$sql = "SELECT thumbnail FROM images WHERE subject = " . (int) $_GET['id'];
+$sql = "SELECT thumbnail FROM images WHERE subject = " .$_GET['id'];
 $conn = connection();
 $stid = oci_parse($conn, $sql);
 oci_execute($stid);
