@@ -1,4 +1,4 @@
- <?php include("navi.php"); ?> 
+ 
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -37,7 +37,7 @@
 
   <body role="document">
       <!-- Fixed navbar -->
-      <?php insertNavi(); ?>
+      <?php include("navi.php"); ?> 
     <div class="container">
 
 	      <form name="registration" method="post" action="groupCreate.php">
