@@ -16,6 +16,7 @@
         $place=$_POST['keysearch'];
         $permitted=$_POST['privacy'];
         
+        echo "The user is $user";
         echo "The date=$date<br>";
         echo "The title is=$subject<br>";
         echo "The place is=$place<br>";
