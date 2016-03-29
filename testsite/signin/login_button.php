@@ -14,7 +14,7 @@ $r = 1;
 $check = oci_execute($query); 
 while ($row=oci_fetch_array($query,OCI_BOTH)){$r= $row[0];}
 	    oci_free_statement($query);
-	    oci_close($conn);
+	    oci_close($connection);
        // if username and password already exist in the database, we grant access
 	    $result=FALSE;
 	    if ($r!='0'){ $result=TRUE;}
