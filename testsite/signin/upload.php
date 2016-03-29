@@ -8,7 +8,7 @@
         
         $subject=$_POST['title'];
         $date=$_POST['datepicker'];
-        $place=$_POST['location'];
+        $place=$_POST['keysearch'];
         $permitted=$_POST['privacy'];
         
         echo "The date=$date";
