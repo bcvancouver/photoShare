@@ -1,10 +1,15 @@
 <?php
+    
     include ("PHPconnectionDB.php");
+    sesstion_start();
+    $user=$_SESSION['login_user'];
 ?>
 <html>
     <body>
         <?php
-        $conn=connect();
+       
+        
+        $connection=connect();
         
         $subject=$_POST['title'];
         $date=$_POST['datepicker'];
@@ -14,6 +19,7 @@
         echo "The date=$date<br>";
         echo "The title is=$subject<br>";
         echo "The place is=$place<br>";
+        echo "The permission is=$permitted<br>";
             
         //Check image file
         if(isset($_FILES['image'])){
@@ -26,8 +32,10 @@
 
               $expensions= array("jpeg","jpg","png","gif");
 
-              if(in_array($file_ext,$expensions)=== false){
-                 $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+           if ($file_size==0){
+                $errors[]="Plz select a file.";   
+           }elif(in_array($file_ext,$expensions)=== false){
+                 $errors[]="extension not allowed, please choose a JPEG, PNG or GIF file.";
               }
 
 
