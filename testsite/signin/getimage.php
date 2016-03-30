@@ -7,12 +7,11 @@ $conn = connect();
 $stid = oci_parse($conn, $sql);
 oci_execute($stid);
 $showrow = oci_fetch_array($stid,OCI_ASSOC+OCI_RETURN_NULLS);
-print(oci_fetch_array($stid,OCI_ASSOC+OCI_RETURN_NULLS));
 if (!$showrow) {
     print('Status: 404 Not Found');
     header('Status: 404 Not Found');
 } else {
-    $img = $showrow['IMAGE']->load();
+    $img = $showrow['PHOTO']->load();
     header("Content-type: image/jpeg");
     print $img;
 }
