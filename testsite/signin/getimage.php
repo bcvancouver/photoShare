@@ -12,7 +12,7 @@ if (!$showrow) {  print('Status: 404 Not Found');
     die();
 }
 if ($showrow) {
-  $img = $showrow['photo']->load();
+  $img = $showrow['PHOTO']->load();
     header("Content-type: image/jpeg");
     print $img;
 }
