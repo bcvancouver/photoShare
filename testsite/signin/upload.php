@@ -80,6 +80,7 @@
                 oci_bind_by_name($stmt, ':php_id', $uniid);
                 oci_bind_by_name($stmt, ':subject', $subject);
                 oci_bind_by_name($stmt, ':location', $place);
+                oci_bind_by_name($stmt, ':time', $date);
                 oci_bind_by_name($stmt, ':description', $description);
                 oci_bind_by_name($stmt, ':thumbnail', $lob, -1, OCI_B_BLOB);
                 oci_bind_by_name($stmt, ':photo', $lobimage, -1,  OCI_B_BLOB);
@@ -107,7 +108,6 @@
                     echo "Image uploaded!<br/>";
                 }
                 //move_uploaded_file($file_tmp,"images/".$file_name);
-                 echo "Success";
               }else{
                  print_r($errors);
               }
