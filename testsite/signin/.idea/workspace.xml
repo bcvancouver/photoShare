@@ -28,12 +28,32 @@
       <file leaf-file-name="upload.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/upload.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.45801526" vertical-offset="1320" max-vertical-offset="2460">
-              <caret line="112" column="13" selection-start-line="112" selection-start-column="13" selection-end-line="112" selection-end-column="13" />
+            <state vertical-scroll-proportion="2.1710527" vertical-offset="615" max-vertical-offset="2400">
+              <caret line="151" column="6" selection-start-line="151" selection-start-column="6" selection-end-line="151" selection-end-column="6" />
               <folding>
-                <marker date="1459324698000" expanded="true" signature="249:307" placeholder="SELECT g.gro..groups..." />
-                <marker date="1459324698000" expanded="true" signature="432:614" placeholder="SELECT g.gro..groups..." />
-                <marker date="1459324698000" expanded="true" signature="4009:4314" placeholder="INSERT INTO ..." />
+                <marker date="1459325253000" expanded="true" signature="4181:4526" placeholder="INSERT INTO ..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="loggedIn.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/loggedIn.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.75" vertical-offset="0" max-vertical-offset="180">
+              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="2" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login_button.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/login_button.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="555">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1459228694000" expanded="true" signature="455:534" placeholder="select count..users..." />
               </folding>
             </state>
           </provider>
@@ -199,14 +219,30 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/loggedIn.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.75" vertical-offset="0" max-vertical-offset="180">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login_button.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="825">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1459228694000" expanded="true" signature="455:534" placeholder="select count..users..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/upload.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45801526" vertical-offset="1320" max-vertical-offset="2460">
-          <caret line="112" column="13" selection-start-line="112" selection-start-column="13" selection-end-line="112" selection-end-column="13" />
+        <state vertical-scroll-proportion="2.1710527" vertical-offset="615" max-vertical-offset="2400">
+          <caret line="151" column="6" selection-start-line="151" selection-start-column="6" selection-end-line="151" selection-end-column="6" />
           <folding>
-            <marker date="1459324698000" expanded="true" signature="249:307" placeholder="SELECT g.gro..groups..." />
-            <marker date="1459324698000" expanded="true" signature="432:614" placeholder="SELECT g.gro..groups..." />
-            <marker date="1459324698000" expanded="true" signature="4009:4314" placeholder="INSERT INTO ..." />
+            <marker date="1459325253000" expanded="true" signature="4181:4526" placeholder="INSERT INTO ..." />
           </folding>
         </state>
       </provider>
