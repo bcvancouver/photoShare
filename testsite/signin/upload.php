@@ -41,9 +41,9 @@
               $file_size =$_FILES['image']['size'];
               $file_tmp =$_FILES['image']['tmp_name'];
               $file_type=$_FILES['image']['type'];
-            move_uploaded_file($file_tmp, "/tmp/xi/".$file_name);
-            $original = "/tmp/xi/".$file_name;
-            $re_img = "/tmp/xi/re_".$file_name;
+            move_uploaded_file($file_tmp, "/tmp/".$file_name);
+            $original = "/tmp/".$file_name;
+            $re_img = "/tmp/re_".$file_name;
             //$file_content=file_get_content(file_tmp);
             $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
 
