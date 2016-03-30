@@ -10,6 +10,7 @@ oci_execute($stid);
 $showrow = oci_fetch_row($stid);
 print ("2working");
 if(!$showrow){
+print("notworking");
 return;
 }else{
 $image=$showrow['0']->load();
