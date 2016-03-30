@@ -6,7 +6,7 @@ $sql = "SELECT photo FROM images WHERE owner_name = '$user_name'";
 $conn = connect();
 $stid = oci_parse($conn, $sql);
 oci_execute($stid);
-$showrow = oci_fetch_array($stid,OCI_ASSOC+OCI_RETURN_NULLS);
+$showrow = oci_fetch_all($stid,OCI_ASSOC+OCI_RETURN_NULLS);
 if (!$showrow) {
     print('Status: 404 Not Found');
     header('Status: 404 Not Found');
