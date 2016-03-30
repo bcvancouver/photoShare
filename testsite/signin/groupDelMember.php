@@ -42,8 +42,7 @@ include("PHPconnectionDB.php");
         echo htmlentities($err['message']);
           }
           else{
-        echo 'Row inserted ';
-        echo 'username '.$user_name;
+        header("location:groupManage.php");
           }
         
         // Free the statement identifier when closing the connection
