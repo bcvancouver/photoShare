@@ -41,12 +41,9 @@
               $file_size =$_FILES['image']['size'];
               $file_tmp =$_FILES['image']['tmp_name'];
               $file_type=$_FILES['image']['type'];
-             echo "$file_name<br>";
-                echo "$file_size<br>";
-            echo "$file_tmp<br>";
-            echo "$file_type<br>";
-                 
-                 $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
+                
+            //$file_content=file_get_content(file_tmp);
+            $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
 
               $expensions= array("jpeg","jpg","png","gif");
 
@@ -64,7 +61,7 @@
                $image= addslashes($file_tmp);
                $image=file_get_contents($image);
                 
-               $thumbnail=img_resize( $file_tmp,$thumbail,200,200);
+               $thumbnail=img_resize($image,$thumbail,200,200);
                 
                 //Reference: http://php.net/manual/en/function.oci-new-descriptor.php
                 
@@ -76,7 +73,7 @@
                 $stmt = oci_parse($connection, 'insert into images (photo_id, owner_name, permitted, subject, place, timing, description, thumbnail, photo) values    (:php_id, :owner_name, :permitted, :subject, :location, TO_DATE( :time, \'mm/dd/yyyy\'), :description, EMPTY_BLOB(), EMPTY_BLOB()) returning thumbnail, photo into :thumbnail, :photo');
                 
                 oci_bind_by_name($stmt, ':owner_name', $user);
-                oci_bind_by_name($stmt, ':permitted', $permitted);
+                oci_bind_by_name($stmt, ':permitted', 1);
                 oci_bind_by_name($stmt, ':php_id', $uniid);
                 oci_bind_by_name($stmt, ':subject', $subject);
                 oci_bind_by_name($stmt, ':location', $place);
