@@ -84,7 +84,12 @@ BEGIN
    INSERT INTO group_lists VALUES(newId,username,sysdate, null);
 END;
 
-//Add Group Member
+/*
+Add Group Member
+username in groups
+membername in users
+groupname in groups
+*/
 CREATE OR REPLACE PROCEDURE ADDGROUPMEMBERPROC 
 (username IN varchar2, membername IN varchar2, groupname IN varchar2 )
 IS groupId INT;
@@ -94,4 +99,18 @@ BEGIN
    where g.group_name=groupname 
      and g.user_name= username;
    INSERT INTO group_lists VALUES(groupId,membername,sysdate, null);
+END;
+
+--Delete Group Member Procedure
+CREATE OR REPLACE PROCEDURE DELGROUPMEMBERPROC 
+(username IN varchar2, membername IN varchar2, groupname IN varchar2 )
+IS groupId INT;
+BEGIN
+   select group_id into groupId 
+   from groups g 
+   where g.group_name=groupname 
+     and g.user_name= username;
+   DELETE FROM group_lists gl 
+   WHERE gl.group_id = groupId
+     AND gl.friend_id = membername;
 END;
