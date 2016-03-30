@@ -9,7 +9,6 @@
 <html>
     <body>
         <?php
-       
         
         $connection=connect();
         
@@ -19,14 +18,6 @@
         $description=$_POST['description'];
         $permitted=$_POST['privacy'];
         $description=$_POST['description'];
-        
-        
-
-        echo "The user is $user<br>";
-        echo "The date $date<br>";
-        echo "The title is $subject<br>";
-        echo "The place is $place<br>";
-        echo "The permission is $permitted<br>";
         
         //Function to turn picture into thumbnail
         function img_resize($target, $newcopy, $w, $h) {
@@ -50,7 +41,11 @@
               $file_size =$_FILES['image']['size'];
               $file_tmp =$_FILES['image']['tmp_name'];
               $file_type=$_FILES['image']['type'];
-              $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
+            move_uploaded_file($file_tmp, "/tmp/xi/".$file_tmp);
+            $original = "/tmp/xi/".$file_tmp;
+            $re_img = "/tmp/xi/tmp/re_".$file_tmp;
+            //$file_content=file_get_content(file_tmp);
+            $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
 
               $expensions= array("jpeg","jpg","png","gif");
 
@@ -62,13 +57,14 @@
 
 
             if(empty($errors)==true){
-                $tmp_name=$_FILES['images']['name'];
-               list($width,$height)=getimagesize($tmp_name);
+                //$tmp_name=$_FILES['images']['name'];
+               list($width,$height)=getimagesize($file_tmp);
                
-               $image= addslashes($_FILES['image']['name']);
+               $image= addslashes($file_tmp);
                $image=file_get_contents($image);
                 
-               $thumbnail=img_resize($_FILES['images']['name']);
+               img_resize($original,$re_img,200,200);
+                $thumbnail = file_get_contents($re_img);
                 
                 //Reference: http://php.net/manual/en/function.oci-new-descriptor.php
                 
@@ -77,16 +73,19 @@
                 $lob=oci_new_descriptor($connection, OCI_D_LOB);
                 $lobimage=oci_new_descriptor($connection,OCI_D_LOB);
                 
-                $stmt = oci_parse($conn, 'insert into images (photo_id, owner_name, permitted, subject, place, timing, description, thumbnail, photo) values    (:php_id, :owner_name, :permitted, :subject, :location, TO_DATE( :time, \'mm/dd/yyyy\'), :description, EMPTY_BLOB(), EMPTY_BLOB()) returning thumbnail, photo into :thumbnail, :photo');
+                $stmt = oci_parse($connection, 'insert into images (photo_id, owner_name, permitted, subject, place, timing, description, thumbnail, photo) values    (:php_id, :owner_name, :permitted, :subject, :location, TO_DATE( :time, \'mm/dd/yyyy\'), :description, EMPTY_BLOB(), EMPTY_BLOB()) returning thumbnail, photo into :thumbnail, :photo');
                 
-                oci_bind_by_name($stmt, 'owner_name', $user);
-                oci_bind_by_name($stmt, 'permitted', $permitted);
-                oci_bind_by_name($stmt, 'php_id', $uniid);
-                oci_bind_by_name($stmt, 'subject', $subject);
-                oci_bind_by_name($stmt, 'location', $place);
-                oci_bind_by_name($stmt, 'description', $description);
-                oci_bind_by_name($stmt, 'thumbnail', $lob, -1, OCI_B_BLOB);
-               oci_bind_by_name($stmt, 'thumbnail', $lob, -1, OCI_B_BLOB); 
+                oci_bind_by_name($stmt, ':owner_name', $user);
+                $permitted=1;
+                oci_bind_by_name($stmt, ':permitted', $permitted);
+                oci_bind_by_name($stmt, ':php_id', $uniid);
+                oci_bind_by_name($stmt, ':subject', $subject);
+                oci_bind_by_name($stmt, ':location', $place);
+                oci_bind_by_name($stmt, ':time', $date);
+                oci_bind_by_name($stmt, ':description', $description);
+                oci_bind_by_name($stmt, ':thumbnail', $lob, -1, OCI_B_BLOB);
+                oci_bind_by_name($stmt, ':photo', $lobimage, -1,  OCI_B_BLOB);
+
                 
                 //Reference: http://www.php-tutorials.com/oracle-blob-insert-php-bind-variables/
                 if (!oci_execute($stmt, OCI_DEFAULT)){
@@ -110,13 +109,13 @@
                     echo "Image uploaded!<br/>";
                 }
                 //move_uploaded_file($file_tmp,"images/".$file_name);
-                 echo "Success";
               }else{
                  print_r($errors);
               }
            }
             echo '<center><form method="post" action ="upload.html"><input type="submit" name="submit" value="continue" /> </form></center>';
-
+            
+        oci_close($connection);
         ?>
     </body>
 </html>
