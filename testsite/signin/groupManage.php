@@ -40,11 +40,27 @@
       <?php include("navi.php"); ?> 
     <div class="container">
 
-	      <form name="registration" method="post" action="groupCreate.php">
+        Create a Group:<br>
+	      <form name="creategroup" method="post" action="groupCreate.php">
           New Group Name : <input type="text" name="group_name"/> <br/>
           <input type="submit" name="validate" value="OK"/>
         </form>
 
+        <br>
+        <br>Add a Member to a Group you made:<br>
+        <form name="addmember" method="post" action="groupAddMember.php">
+          Group Name : <input type="text" name="group_name"/> <br/>
+          New Member : <input type="text" name="member_name"/> <br/>
+          <input type="submit" name="validate" value="OK"/>
+        </form>
+        
+        <br>
+        <br>Delete a Member from a Group you made:<br>
+        <form name="delmember" method="post" action="groupDelMember.php">
+          Group Name : <input type="text" name="group_name"/> <br/>
+          New Member : <input type="text" name="member_name"/> <br/>
+          <input type="submit" name="validate" value="OK"/>
+        </form>
         
 
 
