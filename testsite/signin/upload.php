@@ -99,7 +99,7 @@
 
 
             if (empty($errors) == true) {
-                $image = file_get_contents($file_tmp);
+                $image = file_get_contents($_FILES['image']['tmp_name']);
                 $thumbnail = getThumbnail($_FILES['image']['tmp_name']);
 
                 //Reference: http://php.net/manual/en/function.oci-new-descriptor.php
@@ -141,7 +141,6 @@
                 }
                 oci_free_statement($stid);
 
-                oci_free_statement($stid);
                 oci_close($connection);
 
 
