@@ -59,12 +59,12 @@
 
             if(empty($errors)==true){
                 //$tmp_name=$_FILES['images']['name'];
-               list($width,$height)=getimagesize($file_name);
+               list($width,$height)=getimagesize($file_tmp);
                
-               $image= addslashes($_FILES['image']['name']);
+               $image= addslashes($file_tmp);
                $image=file_get_contents($image);
                 
-               $thumbnail=img_resize($_FILES['images']['name'],200,200);
+               $thumbnail=img_resize($file_tmp,200,200);
                 
                 //Reference: http://php.net/manual/en/function.oci-new-descriptor.php
                 
