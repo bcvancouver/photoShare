@@ -1,4 +1,4 @@
-<?php session_start();
+<?php 
 include("loggedIn.php"); 
 include("PHPconnectionDB.php"); 
 
@@ -19,14 +19,18 @@ include("PHPconnectionDB.php");
         }
     
               //sql command
-              $sql = 'INSERT INTO groups VALUES (seq_group_id.nextVal,\''.$user_name.'\',\''.$group_name.'\',sysdate)'; 
+              $sql = 'begin CREATEGROUPPROC(:username_bv,:groupname_bv); end;'; 
         
         //Prepare sql using conn and returns the statement identifier
         $stid = oci_parse($conn, $sql );
-        
+
+        //bind the variables for the pl/sql procedure
+        oci_bind_by_name($stid, ':username_bv', $user_name);
+        oci_bind_by_name($stid, ':groupname_bv', $group_name);
+                
         //Execute a statement returned from oci_parse()
         $res=oci_execute($stid);
-
+        
         
         //if error, retrieve the error using the oci_error() function & output an error message
 
@@ -43,5 +47,6 @@ include("PHPconnectionDB.php");
         oci_free_statement($stid);
         oci_close($conn);
       
+      // group_lists done by trigger
       }
   ?>
