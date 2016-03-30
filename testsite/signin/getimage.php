@@ -13,6 +13,7 @@ return;
 $image=$showrow['0']->load();
 header("Content-type: image/JPEG");
 print $image;
+print("printed image");
 }
 ?>
 
