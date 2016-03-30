@@ -75,9 +75,10 @@
             <p><b><font color="white">Picture Location:</font> </b><input type="search" id="place" name="place" placeholder="location"></p>
             <p><b><font color="white">Comment: </font></b><input type="text" id="description" name="description" placeholder="Comment or Description"></p>
             <p><b><font color="white">Who can see?</font></b>
-                <select name="privacy">
-                <option name="public" value="public">Public</option>
-                <option name="private" value="private" selected>Private</option>
+                <select name="privacy"> class="form-control"
+                <?php
+                    getres("select s.group_id, s.group_name from group_lists g,groups s where g.friend_id = '".$user."' and s.group_id = g.group_id union select group_id, group_name from groups where group_id = 1 or group_id = 2",$conn);
+                ?>
             </select><br/>
             </p>
             
