@@ -8,6 +8,7 @@ $stid = oci_parse($conn, $sql);
 oci_execute($stid);
 $showrow = oci_fetch_array($stid,OCI_ASSOC+OCI_RETURN_NULLS);
 if (!$row) {
+    print('Status: 404 Not Found');
     header('Status: 404 Not Found');
 } else {
     $img = $row['IMAGE']->load();
