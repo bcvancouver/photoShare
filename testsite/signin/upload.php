@@ -75,14 +75,15 @@
                 
                 $stmt = oci_parse($conn, 'insert into images (photo_id, owner_name, permitted, subject, place, timing, description, thumbnail, photo) values    (:php_id, :owner_name, :permitted, :subject, :location, TO_DATE( :time, \'mm/dd/yyyy\'), :description, EMPTY_BLOB(), EMPTY_BLOB()) returning thumbnail, photo into :thumbnail, :photo');
                 
-                oci_bind_by_name($stmt, 'owner_name', $user);
-                oci_bind_by_name($stmt, 'permitted', $permitted);
-                oci_bind_by_name($stmt, 'php_id', $uniid);
-                oci_bind_by_name($stmt, 'subject', $subject);
-                oci_bind_by_name($stmt, 'location', $place);
-                oci_bind_by_name($stmt, 'description', $description);
-                oci_bind_by_name($stmt, 'thumbnail', $lob, -1, OCI_B_BLOB);
-               oci_bind_by_name($stmt, 'thumbnail', $lob, -1, OCI_B_BLOB); 
+                oci_bind_by_name($stmt, ':owner_name', $user);
+                oci_bind_by_name($stmt, ':permitted', $permitted);
+                oci_bind_by_name($stmt, ':php_id', $uniid);
+                oci_bind_by_name($stmt, ':subject', $subject);
+                oci_bind_by_name($stmt, ':location', $place);
+                oci_bind_by_name($stmt, ':description', $description);
+                oci_bind_by_name($stmt, ':thumbnail', $lob, -1, OCI_B_BLOB);
+                oci_bind_by_name($stmt, ':photo', $lobimage, -1,  OCI_B_BLOB);
+
                 
                 //Reference: http://www.php-tutorials.com/oracle-blob-insert-php-bind-variables/
                 if (!oci_execute($stmt, OCI_DEFAULT)){
