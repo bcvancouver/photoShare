@@ -12,23 +12,6 @@ $image=$showrow['0']->load();
 header("Content-type: image/JPEG");
 print $image;
 print ("3working");
-}
+
 ?>
 
-<?php
-
-	$myblobid = $_GET['id'];;
-	$myimgtype = $_GET['type'];
-	include("connection_database.php");
-	$conn=connect();
-	$query = "SELECT ".$myimgtype." FROM images WHERE photo_id= :MYBLOBID";
-	$stmt = oci_parse ($conn, $query);
-	oci_bind_by_name($stmt, ':MYBLOBID', $myblobid);
-	oci_execute($stmt);
-	$arr = oci_fetch_array($stmt, OCI_ASSOC);
-	$myimgtype = strtoupper($myimgtype);
-	$result = $arr[$myimgtype]->load();
-	header("Content-type: image/jpg");
-	echo $result;
-	oci_close($conn);
-?>
