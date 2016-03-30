@@ -134,6 +134,7 @@
                     oci_rollback($connection);
                 } else {
                     oci_commit($connection);
+                    ecco "Images Sucessfully Uploaded!<br>";
                 }
 
                 if (!$res) {
