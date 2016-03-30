@@ -64,7 +64,7 @@
                $image= addslashes($file_tmp);
                $image=file_get_contents($image);
                 
-               $thumbnail=img_resize($file_name, $file_tmp,200,200);
+               $thumbnail=img_resize( $file_tmp,$file_name,200,200);
                 
                 //Reference: http://php.net/manual/en/function.oci-new-descriptor.php
                 
