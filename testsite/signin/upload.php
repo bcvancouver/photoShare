@@ -76,13 +76,13 @@
                 $stmt = oci_parse($connection, 'insert into images (photo_id, owner_name, permitted, subject, place, timing, description, thumbnail, photo) values    (:php_id, :owner_name, :permitted, :subject, :location, TO_DATE( :time, \'mm/dd/yyyy\'), :description, EMPTY_BLOB(), EMPTY_BLOB()) returning thumbnail, photo into :thumbnail, :photo');
                 
                 oci_bind_by_name($stmt, ':owner_name', $user);
-                echo ":owner_name<br>";
+                echo "$user<br>";
                 oci_bind_by_name($stmt, ':permitted', $permitted);
-                echo ":permitted<br>";
+                echo "$permitted<br>";
                 oci_bind_by_name($stmt, ':php_id', $uniid);
-                echo ":php_id<br>";
+                echo "$uniid<br>";
                 oci_bind_by_name($stmt, ':subject', $subject);
-                echo ":subject<br>";
+                echo "$subject<br>";
                 oci_bind_by_name($stmt, ':location', $place);
                 oci_bind_by_name($stmt, ':time', $date);
                 oci_bind_by_name($stmt, ':description', $description);
