@@ -7,12 +7,10 @@ $conn = connect();
 print ("1working");
 $stid = oci_parse($conn, $sql);
 oci_execute($stid);
-$showrow = oci_fetch_row($stid);
+$showrow = oci_fetch_array($stid);
+echo '<img src="data:image/jpeg;base64,'.base64_encode( $result['image'] ).'"/>';
 print ("2working");
 if(!$showrow){
-$image=$showrow['0']->load();
-header("Content-type: image/JPEG");
-print $image;
 print("Error in oci_fetch_row");
 return;
 }else{
