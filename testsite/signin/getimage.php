@@ -8,7 +8,7 @@ print ("1working");
 $stid = oci_parse($conn, $sql);
 oci_execute($stid);
 $showrow = oci_fetch_array($stid);
-echo '<img src="data:image/jpeg;base64,'.base64_encode( $result['image'] ).'"/>';
+echo '<img src="data:image/jpeg;base64,'.base64_encode( $showrow['image'] ).'"/>';
 print ("2working");
 if(!$showrow){
 print("Error in oci_fetch_row");
