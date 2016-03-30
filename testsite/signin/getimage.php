@@ -2,7 +2,7 @@
 include('PHPconnectionDB.php');
 session_start(); // Starting Session
 $user_name=$_SESSION["login_user"];
-$sql = "SELECT THUMBNAIL FROM images WHERE owner_name = '$user_name'";
+$sql = "SELECT PHOTO FROM images WHERE owner_name = '$user_name'";
 $conn = connect();
 $stid = oci_parse($conn, $sql);
 oci_execute($stid);
@@ -12,7 +12,7 @@ if (!$showrow) {  print('Status: 404 Not Found');
     die();
 }
 if ($showrow) {
-  $img = $showrow['THUMBNAIL']->load();
+  $img = $showrow['PHOTO']->load();
     header("Content-type: image/jpeg");
     print $img;
 }
