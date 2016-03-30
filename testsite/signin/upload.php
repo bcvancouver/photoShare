@@ -110,6 +110,7 @@
                 $user = $_SESSION['login_user'];
                 $subject = $_POST['title'];
                 $date = $_POST['datepicker'];
+                $date=str_replace('-','/',$date);
                 $place = $_POST['place'];
                 $description = $_POST['description'];
                 #$permitted=$_POST['privacy'];
@@ -150,5 +151,4 @@
         }
         echo '<center><form method="post" action ="upload.html"><input type="submit" name="submit" value="continue" /> </form></center>';
 
-        oci_close($connection);
     ?>
