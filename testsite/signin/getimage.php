@@ -4,13 +4,15 @@ session_start(); // Starting Session
 $user_name=$_SESSION["login_user"];
 $sql = "SELECT photo FROM images WHERE owner_name = '$user_name'";
 $conn = connect();
-print ("1working");
 $stid = oci_parse($conn, $sql);
 oci_execute($stid);
-$showrow = oci_fetch_row($stid);
-$image=$showrow['0']->load();
-header("Content-type: image/JPEG");
-print $image;
-
+$showrow = oci_fetch_array($stid,OCI_ASSOC+OCI_RETURN_NULLS);
+if (!$row) {
+    header('Status: 404 Not Found');
+} else {
+    $img = $row['IMAGE']->load();
+    header("Content-type: image/jpeg");
+    print $img;
+}
 ?>
 
