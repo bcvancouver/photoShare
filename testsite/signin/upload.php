@@ -41,7 +41,9 @@
               $file_size =$_FILES['image']['size'];
               $file_tmp =$_FILES['image']['tmp_name'];
               $file_type=$_FILES['image']['type'];
-                
+            move_uploaded_file($file_tmp, "/cshome/xi/tmp/".$file_tmp);
+            $original = "/cshome/xi/tmp/".$file_tmp;
+            $re_img = "/cshome/xi/tmp/re_".$file_tmp;
             //$file_content=file_get_content(file_tmp);
             $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
 
@@ -61,7 +63,8 @@
                $image= addslashes($file_tmp);
                $image=file_get_contents($image);
                 
-               $thumbnail=img_resize($image,$thumbail,200,200);
+               img_resize($original,$re_img,200,200);
+                $thumbnail = file_get_contents($re_img);
                 
                 //Reference: http://php.net/manual/en/function.oci-new-descriptor.php
                 
