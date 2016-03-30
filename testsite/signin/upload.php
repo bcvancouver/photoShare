@@ -19,14 +19,6 @@
         $permitted=$_POST['privacy'];
         $description=$_POST['description'];
         
-        
-
-        echo "The user is $user<br>";
-        echo "The date $date<br>";
-        echo "The title is $subject<br>";
-        echo "The place is $place<br>";
-        echo "The permission is $permitted<br>";
-        
         //Function to turn picture into thumbnail
         function img_resize($target, $newcopy, $w, $h) {
             list($w_orig, $h_orig) = getimagesize($target);
@@ -49,7 +41,12 @@
               $file_size =$_FILES['image']['size'];
               $file_tmp =$_FILES['image']['tmp_name'];
               $file_type=$_FILES['image']['type'];
-              $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
+             echo "$file_name<br>";
+                echo "$file_size<br>";
+            echo "$file_tmp<br>";
+            echo "$file_type<br>";
+                 
+                 $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
 
               $expensions= array("jpeg","jpg","png","gif");
 
@@ -62,7 +59,7 @@
 
             if(empty($errors)==true){
                 //$tmp_name=$_FILES['images']['name'];
-               list($width,$height)=getimagesize($file_anme);
+               list($width,$height)=getimagesize($file_name);
                
                $image= addslashes($_FILES['image']['name']);
                $image=file_get_contents($image);
