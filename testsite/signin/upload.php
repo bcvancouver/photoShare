@@ -9,7 +9,6 @@
 <html>
     <body>
         <?php
-       
         
         $connection=connect();
         
@@ -62,13 +61,13 @@
 
 
             if(empty($errors)==true){
-                $tmp_name=$_FILES['images']['name'];
-               list($width,$height)=getimagesize($tmp_name);
+                //$tmp_name=$_FILES['images']['name'];
+               list($width,$height)=getimagesize($file_anme);
                
                $image= addslashes($_FILES['image']['name']);
                $image=file_get_contents($image);
                 
-               $thumbnail=img_resize($_FILES['images']['name']);
+               $thumbnail=img_resize($_FILES['images']['name'],200,200);
                 
                 //Reference: http://php.net/manual/en/function.oci-new-descriptor.php
                 
