@@ -83,3 +83,15 @@ BEGIN
    INSERT INTO groups values(newId,username,groupname,sysdate);
    INSERT INTO group_lists VALUES(newId,username,sysdate, null);
 END;
+
+//Add Group Member
+CREATE OR REPLACE PROCEDURE ADDGROUPMEMBERPROC 
+(username IN varchar2, membername IN varchar2, groupname IN varchar2 )
+IS groupId INT;
+BEGIN
+   select group_id into groupId 
+   from groups g 
+   where g.group_name=groupname 
+     and g.user_name= username;
+   INSERT INTO group_lists VALUES(groupId,membername,sysdate, null);
+END;
