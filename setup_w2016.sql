@@ -68,3 +68,30 @@ CREATE TABLE images (
    FOREIGN KEY(owner_name) REFERENCES users,
    FOREIGN KEY(permitted) REFERENCES groups
 );
+
+CREATE SEQUENCE seq_group_id
+MINVALUE 3
+START WITH 3
+INCREMENT BY 1
+CACHE 15;
+
+CREATE OR REPLACE PROCEDURE CREATEGROUPPROC
+(username IN varchar2, groupname IN varchar2 )
+IS newId INT;
+BEGIN
+   newId := seq_group_id.nextVal;
+   INSERT INTO groups values(newId,username,groupname,sysdate);
+   INSERT INTO group_lists VALUES(newId,username,sysdate, null);
+END;
+
+//Add Group Member
+CREATE OR REPLACE PROCEDURE ADDGROUPMEMBERPROC 
+(username IN varchar2, membername IN varchar2, groupname IN varchar2 )
+IS groupId INT;
+BEGIN
+   select group_id into groupId 
+   from groups g 
+   where g.group_name=groupname 
+     and g.user_name= username;
+   INSERT INTO group_lists VALUES(groupId,membername,sysdate, null);
+END;
