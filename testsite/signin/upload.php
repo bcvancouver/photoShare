@@ -73,15 +73,11 @@
         if (isset($_FILES['image'][$i])) {
             $errors = array();
             $file_name = $_FILES['image']['name'][$i];
-            echo "$file_name<br>";
             $file_size = $_FILES['image']['size'][$i];
-            echo "$file_size<br>";
             $file_tmp = $_FILES['image']['tmp_name'][$i];
             $file_type = $_FILES['image']['type'][$i];
-            echo "$file_type<br>";
 
             $file_ext = strtolower(end(explode('.', $_FILES['image']['name'][$i])));
-            echo "$file_type<br>";
 
             $extension = array("jpeg", "jpg", "png", "gif");
 

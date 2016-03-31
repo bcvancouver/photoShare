@@ -27,10 +27,10 @@
       <file leaf-file-name="upload.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/signin/upload.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="95" column="19" selection-start-line="95" selection-start-column="19" selection-end-line="95" selection-end-column="19" />
+            <state relative-caret-position="1245">
+              <caret line="83" column="34" selection-start-line="83" selection-start-column="34" selection-end-line="83" selection-end-column="34" />
               <folding>
-                <marker date="1459464107000" expanded="true" signature="4401:4734" placeholder="INSERT INTO images... " />
+                <marker date="1459464327000" expanded="true" signature="4261:4594" placeholder="INSERT INTO images... " />
               </folding>
             </state>
           </provider>
@@ -127,12 +127,12 @@
       <updated>1459370394052</updated>
       <workItem from="1459370395822" duration="34000" />
       <workItem from="1459386213460" duration="1739000" />
-      <workItem from="1459459468987" duration="3796000" />
+      <workItem from="1459459468987" duration="4101000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5569000" />
+    <option name="totallyTimeSpent" value="5874000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="638" height="800" extended-state="0" />
@@ -172,7 +172,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1459464107000" expanded="true" signature="4401:4734" placeholder="INSERT INTO images... " />
+            <marker date="1459464327000" expanded="true" signature="4261:4594" placeholder="INSERT INTO images... " />
           </folding>
         </state>
       </provider>
@@ -207,10 +207,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/signin/upload.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="95" column="19" selection-start-line="95" selection-start-column="19" selection-end-line="95" selection-end-column="19" />
+        <state relative-caret-position="1245">
+          <caret line="83" column="34" selection-start-line="83" selection-start-column="34" selection-end-line="83" selection-end-column="34" />
           <folding>
-            <marker date="1459464107000" expanded="true" signature="4401:4734" placeholder="INSERT INTO images... " />
+            <marker date="1459464327000" expanded="true" signature="4261:4594" placeholder="INSERT INTO images... " />
           </folding>
         </state>
       </provider>
