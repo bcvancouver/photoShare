@@ -4,7 +4,6 @@
     session_start();
     $user=$_SESSION['login_user'];
     $connection=connect();
-    //define('MAX_THUMBNAIL_DIMENSION',100);
 
     if (!$user){
         echo "Please Sign In!";
@@ -106,7 +105,6 @@
                 $place = $_POST['place'];
                 $description = $_POST['description'];
                 $permitted=$_POST['privacy'];
-                //$permitted = 1;
 
                 $sql = 'INSERT INTO images VALUES '
                     . '(' . $curr_id . ',\'' . $user . '\',\'' . $permitted . '\',\'' . $subject . '\',\'' . $place . '\','
