@@ -16,7 +16,7 @@
         //$source_pic = $file;
         $max_width = 200;
         $max_height = 200;
-        echo "<center>processing!</center><br/>";
+        echo "<center>processing image...</center><br/>";
         list($width, $height, $image_type) = getimagesize($file);
         switch ($image_type)
         {
@@ -66,15 +66,16 @@
         return $final_image;
     }
 
-     //Check image file
-    if (isset($_FILES['image'])) {
+    foreach ($_FILES['image']['name'] as $i => $file_name){
+        //Check each image file
+        if (isset($_FILES['image'])) {
             $errors = array();
-            $file_name = $_FILES['image']['name'];
-            $file_size = $_FILES['image']['size'];
-            $file_tmp = $_FILES['image']['tmp_name'];
-            $file_type = $_FILES['image']['type'];
+            $file_name = $_FILES['image']['name'][$i];
+            $file_size = $_FILES['image']['size'][$i];
+            $file_tmp = $_FILES['image']['tmp_name'][$i];
+            $file_type = $_FILES['image']['type'][$i];
 
-            $file_ext = strtolower(end(explode('.', $_FILES['image']['name'])));
+            $file_ext = strtolower(end(explode('.', $_FILES['image']['name'][$i])));
 
             $extension = array("jpeg", "jpg", "png", "gif");
 
@@ -86,8 +87,8 @@
 
 
             if (empty($errors) == true) {
-                $image = file_get_contents($_FILES['image']['tmp_name']);
-                $thumbnail = getThumbnail($_FILES['image']['tmp_name']);
+                $image = file_get_contents($_FILES['image']['tmp_name'][$i]);
+                $thumbnail = getThumbnail($_FILES['image']['tmp_name'][$i]);
 
                 //Reference: http://php.net/manual/en/function.oci-new-descriptor.php
                 $connection = connect();
@@ -120,7 +121,7 @@
                     oci_rollback($connection);
                 } else {
                     oci_commit($connection);
-                    echo "Images Sucessfully Uploaded!<br>";
+                    echo "<center>Images Sucessfully Uploaded!<center><br>";
                 }
 
                 if (!$res) {
@@ -136,6 +137,8 @@
                 print_r($errors);
             }
         }
-        echo '<center><form method="post" action ="uploadfrontend.php"><input type="submit" name="submit" value="continue" /> </form></center>';
+    }
+
+        echo '<center><form method="post" action ="main.html"><input type="submit" name="submit" value="continue" /> </form></center>';
 
     ?>
