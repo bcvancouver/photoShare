@@ -11,10 +11,6 @@
         exit;
     }
 
-    /*
-
-    */
-
     //Function to turn picture into thumbnail
     function getThumbnail($file) {
         //$source_pic = $file;

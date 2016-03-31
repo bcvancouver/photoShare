@@ -1,28 +1,32 @@
 <?php
 
-include("PHPconnectionDB.php");
-session_start();
-$user=$_SESSION["login_user"];
-$connect=connect();
+function getGroups(){
+    include("PHPconnectionDB.php");
+    session_start();
+    $user=$_SESSION["login_user"];
+    $connect=connect();
 
-if ($user == 'admin') {
-    $groups = '';
-    $sql = 'SELECT g.group_id, g.group_name, g.user_name FROM groups g';
+    if ($user == 'admin') {
+        $groups = '';
+        $sql = 'SELECT g.group_id, g.group_name, g.user_name FROM groups g';
+    }
+    else {
+        $groups = '<option value="2">private</option><option value="1">public</option>';
+        $sql = 'SELECT g.group_id, g.group_name, g.user_name FROM groups g left outer join group_lists l on g.group_id=l.group_id WHERE g.user_name=\'' . $user . '\' or l.friend_id=\'' . $user . '\'';
+    }
+    $stid = oci_parse($connect, $sql);
+    oci_execute($stid);
+    while($row = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
+        $group_id = $row['GROUP_ID'];
+        $group_name = $row['GROUP_NAME'];
+        $group_owner = $row['USER_NAME'];
+        $groups .= '<option value="'.$group_id.'">'.$group_name.' - ' . $group_owner .'</option>';
+    }
+    oci_free_statement($stid);
+    oci_close($connect);
+    return $groups;
 }
-else {
-    $groups = '<option value="2">private</option><option value="1">public</option>';
-    $sql = 'SELECT g.group_id, g.group_name, g.user_name FROM groups g left outer join group_lists l on g.group_id=l.group_id WHERE g.user_name=\'' . $user . '\' or l.friend_id=\'' . $user . '\'';
-}
-$stid = oci_parse($connect, $sql);
-oci_execute($stid);
-while($row = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
-    $group_id = $row['GROUP_ID'];
-    $group_name = $row['GROUP_NAME'];
-    $group_owner = $row['USER_NAME'];
-    $groups .= '<option value="'.$group_id.'">'.$group_name.' - ' . $group_owner .'</option>';
-}
-oci_free_statement($stid);
-oci_close($connect);
+
 
 
 ?>
@@ -106,7 +110,7 @@ oci_close($connect);
             <p><b><font color="white">Who can see?</font></b>
                 <select name="privacy">
                     <?php
-                        //getGroup();
+                        $groups=getGroups();
                         echo $groups;
                     ?>
                 </select><br/>
