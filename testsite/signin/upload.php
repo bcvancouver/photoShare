@@ -6,6 +6,9 @@
     $connection=connect();
     define('MAX_THUMBNAIL_DIMENSION',100);
 
+    if (!$user){
+        window.location.replace("signin.html");
+    }
 
     /*
     if ($user == 'admin') {
