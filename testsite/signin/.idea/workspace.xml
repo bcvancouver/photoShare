@@ -27,10 +27,10 @@
       <file leaf-file-name="upload.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/upload.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+            <state relative-caret-position="150">
+              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
               <folding>
-                <marker date="1459413618000" expanded="true" signature="5144:5489" placeholder="INSERT INTO images... " />
+                <marker date="1459413820000" expanded="true" signature="5151:5496" placeholder="INSERT INTO images... " />
               </folding>
             </state>
           </provider>
@@ -198,12 +198,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1459319174260</updated>
-      <workItem from="1459409940290" duration="888000" />
+      <workItem from="1459409940290" duration="1045000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="888000" />
+    <option name="totallyTimeSpent" value="1045000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1600" height="873" extended-state="6" />
@@ -253,7 +253,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1459413618000" expanded="true" signature="5144:5489" placeholder="INSERT INTO images... " />
+            <marker date="1459413820000" expanded="true" signature="5151:5496" placeholder="INSERT INTO images... " />
           </folding>
         </state>
       </provider>
@@ -287,7 +287,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1459413618000" expanded="true" signature="5144:5489" placeholder="INSERT INTO images... " />
+            <marker date="1459413820000" expanded="true" signature="5151:5496" placeholder="INSERT INTO images... " />
           </folding>
         </state>
       </provider>
@@ -321,7 +321,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1459413618000" expanded="true" signature="5144:5489" placeholder="INSERT INTO images... " />
+            <marker date="1459413820000" expanded="true" signature="5151:5496" placeholder="INSERT INTO images... " />
           </folding>
         </state>
       </provider>
@@ -376,10 +376,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/upload.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        <state relative-caret-position="150">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
           <folding>
-            <marker date="1459413618000" expanded="true" signature="5144:5489" placeholder="INSERT INTO images... " />
+            <marker date="1459413820000" expanded="true" signature="5151:5496" placeholder="INSERT INTO images... " />
           </folding>
         </state>
       </provider>

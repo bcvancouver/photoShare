@@ -7,7 +7,8 @@
     define('MAX_THUMBNAIL_DIMENSION',100);
 
     if (!$user){
-        http_redirect("signin.html");
+        header("signin.html");
+        exit;
     }
 
     /*
