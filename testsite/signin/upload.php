@@ -73,11 +73,15 @@
         if (isset($_FILES['image'][$i])) {
             $errors = array();
             $file_name = $_FILES['image']['name'][$i];
+            echo "$file_name<br>";
             $file_size = $_FILES['image']['size'][$i];
+            echo "$file_size<br>";
             $file_tmp = $_FILES['image']['tmp_name'][$i];
             $file_type = $_FILES['image']['type'][$i];
+            echo "$file_type<br>";
 
             $file_ext = strtolower(end(explode('.', $_FILES['image']['name'][$i])));
+            echo "$file_type<br>";
 
             $extension = array("jpeg", "jpg", "png", "gif");
 
@@ -87,9 +91,10 @@
                 $errors[] = "extension not allowed, please choose a JPEG, PNG or GIF file.";
             }
         }
+        // If image file is okay, upload
         if (empty($errors) == true) {
-            echo "image exist<br>";
-            $image = file_get_contents($_FILES['image']['tmp_name'][$i]);
+            echo " image exist<br>";
+            $image = file_get_contents(addslashes($_FILES['image']['tmp_name'][$i]));
             $thumbnail = getThumbnail($_FILES['image']['tmp_name'][$i]);
 
             //Reference: http://php.net/manual/en/function.oci-new-descriptor.php
