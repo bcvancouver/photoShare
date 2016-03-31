@@ -11,16 +11,12 @@
         exit;
     }
 
-    /*
-
-    */
-
     //Function to turn picture into thumbnail
     function getThumbnail($file) {
         //$source_pic = $file;
         $max_width = 200;
         $max_height = 200;
-        echo "<center>processing!</center><br/>";
+        echo "<center>processing image...</center><br/>";
         list($width, $height, $image_type) = getimagesize($file);
         switch ($image_type)
         {
@@ -70,15 +66,18 @@
         return $final_image;
     }
 
-     //Check image file
-    if (isset($_FILES['image'])) {
-            $errors = array();
-            $file_name = $_FILES['image']['name'];
-            $file_size = $_FILES['image']['size'];
-            $file_tmp = $_FILES['image']['tmp_name'];
-            $file_type = $_FILES['image']['type'];
+    echo count($_FILES['image']['name']);
+    for ($i=0; $i<count($_FILES['image']['name']); $i++){
 
-            $file_ext = strtolower(end(explode('.', $_FILES['image']['name'])));
+        //Check each image file
+        if (isset($_FILES['image'][$i])) {
+            $errors = array();
+            $file_name = $_FILES['image']['name'][$i];
+            $file_size = $_FILES['image']['size'][$i];
+            $file_tmp = $_FILES['image']['tmp_name'][$i];
+            $file_type = $_FILES['image']['type'][$i];
+
+            $file_ext = strtolower(end(explode('.', $_FILES['image']['name'][$i])));
 
             $extension = array("jpeg", "jpg", "png", "gif");
 
@@ -87,59 +86,61 @@
             } elseif (in_array($file_ext, $extension) === false) {
                 $errors[] = "extension not allowed, please choose a JPEG, PNG or GIF file.";
             }
-
-
-            if (empty($errors) == true) {
-                $image = file_get_contents($_FILES['image']['tmp_name']);
-                $thumbnail = getThumbnail($_FILES['image']['tmp_name']);
-
-                //Reference: http://php.net/manual/en/function.oci-new-descriptor.php
-                $connection = connect();
-                $curr_id = hexdec(uniqid());
-                $message = '<p>Building query</p>';
-
-                $user = $_SESSION['login_user'];
-                $subject = $_POST['title'];
-                $date = $_POST['datepicker'];
-                $date=str_replace('-','/',$date);
-                $place = $_POST['place'];
-                $description = $_POST['description'];
-                $permitted=$_POST['privacy'];
-
-                $sql = 'INSERT INTO images VALUES '
-                    . '(' . $curr_id . ',\'' . $user . '\',\'' . $permitted . '\',\'' . $subject . '\',\'' . $place . '\','
-                    . 'TO_DATE(\'' . $date . '\', \'yyyy/mm/dd\'),\'' . $description . '\',empty_blob(),empty_blob()) '
-                    . 'RETURNING thumbnail, photo INTO :thumbnail, :photo';
-
-                $stid = oci_parse($connection, $sql);
-
-                // Create blobs from photo and thumbnail
-                $thumbnail_blob = oci_new_descriptor($connection, OCI_D_LOB);
-                $photo_blob = oci_new_descriptor($connection, OCI_D_LOB);
-                oci_bind_by_name($stid, ':thumbnail', $thumbnail_blob, -1, OCI_B_BLOB);
-                oci_bind_by_name($stid, ':photo', $photo_blob, -1, OCI_B_BLOB);
-                $res = oci_execute($stid, OCI_NO_AUTO_COMMIT);
-
-                if (!$thumbnail_blob->save($thumbnail) || !$photo_blob->save($image)) {
-                    oci_rollback($connection);
-                } else {
-                    oci_commit($connection);
-                    echo "Images Sucessfully Uploaded!<br>";
-                }
-
-                if (!$res) {
-                    $err = oci_error($stid);
-                    echo htmlentities($err['message']);
-                }
-                oci_free_statement($stid);
-
-                oci_close($connection);
-
-
-            } else {
-                print_r($errors);
-            }
         }
-        echo '<center><form method="post" action ="uploadfrontend.php"><input type="submit" name="submit" value="continue" /> </form></center>';
+        // If image file is okay, upload
+        if (empty($errors) == true) {
+            echo " image exist<br>";
+            $image = file_get_contents(addslashes($_FILES['image']['tmp_name'][$i]));
+            $thumbnail = getThumbnail($_FILES['image']['tmp_name'][$i]);
+
+            //Reference: http://php.net/manual/en/function.oci-new-descriptor.php
+            $connection = connect();
+            $curr_id = hexdec(uniqid());
+            $message = '<p>Building query</p>';
+
+            $user = $_SESSION['login_user'];
+            $subject = $_POST['title'];
+            $date = $_POST['datepicker'];
+            $date=str_replace('-','/',$date);
+            $place = $_POST['place'];
+            $description = $_POST['description'];
+            $permitted=$_POST['privacy'];
+
+            $sql = 'INSERT INTO images VALUES '
+                . '(' . $curr_id . ',\'' . $user . '\',\'' . $permitted . '\',\'' . $subject . '\',\'' . $place . '\','
+                . 'TO_DATE(\'' . $date . '\', \'yyyy/mm/dd\'),\'' . $description . '\',empty_blob(),empty_blob()) '
+                . 'RETURNING thumbnail, photo INTO :thumbnail, :photo';
+
+            $stid = oci_parse($connection, $sql);
+
+            // Create blobs from photo and thumbnail
+            $thumbnail_blob = oci_new_descriptor($connection, OCI_D_LOB);
+            $photo_blob = oci_new_descriptor($connection, OCI_D_LOB);
+            oci_bind_by_name($stid, ':thumbnail', $thumbnail_blob, -1, OCI_B_BLOB);
+            oci_bind_by_name($stid, ':photo', $photo_blob, -1, OCI_B_BLOB);
+            $res = oci_execute($stid, OCI_NO_AUTO_COMMIT);
+
+            if (!$thumbnail_blob->save($thumbnail) || !$photo_blob->save($image)) {
+                oci_rollback($connection);
+            } else {
+                oci_commit($connection);
+                echo "<center>Images Sucessfully Uploaded!<center><br>";
+            }
+
+            if (!$res) {
+                $err = oci_error($stid);
+                echo htmlentities($err['message']);
+            }
+            oci_free_statement($stid);
+
+            oci_close($connection);
+
+
+        } else {
+            print_r($errors);
+        }
+    }
+
+        echo '<center><form method="post" action ="main.html"><input type="submit" name="submit" value="continue" /> </form></center>';
 
     ?>
