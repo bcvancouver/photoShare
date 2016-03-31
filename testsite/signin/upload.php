@@ -7,6 +7,7 @@
     define('MAX_THUMBNAIL_DIMENSION',100);
 
     if (!$user){
+        echo "Please Sign In!";
         header("signin.html");
         exit;
     }
