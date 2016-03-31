@@ -91,7 +91,7 @@
                 else {
                     thumb += "?" + str;
                 }
-                xmlhttp.open("GET", thumb, true);
+                xmlhttp.open("GET", "thumb.php?n="+n, true);
                 xmlhttp.send();
             };
             loadDoc("main=true");            
