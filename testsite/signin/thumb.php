@@ -5,6 +5,7 @@
 session_start(); // Starting Session
 $user_name=$_SESSION["login_user"];
 $n = $_GET['n'];
+$conn = connect();
 
 if ($user_name == "admin") {
 		$query = "SELECT photo_id FROM images";	
