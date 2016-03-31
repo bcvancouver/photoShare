@@ -91,7 +91,7 @@ loadDoc('top5');
 
   <h2>Image Gallery</h2>   
         <form id="gform" action="thumb.php" method="get" name="jumpto">
-                    <select name="c" onchange="javascript: fivethumbs(this.value);">
+                    <select name="c" onchange="javascript: loadDoc(this.value);">
                     <option value="1">Most Recent</option>
                     <option value="2">Oldest</option>
                     <option value="3">Top Five</option>
