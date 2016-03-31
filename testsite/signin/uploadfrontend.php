@@ -101,7 +101,7 @@ function getGroups(){
 
     <div class="container">
         <form action="upload.php" method="post" enctype="multipart/form-data">
-            <input type="file" name="image" />
+            <input type="file" name="image" multiple=""/>
             <p ><b><font color="white">Picture Title:   </font></b><input type="text" id="title" name="title" placeholder=""></p>
             <p><b><font color="white">Picture Date: </font></b><input type="date" id="datepicker" name="datepicker" placeholder="YYYY-MM-DD"></p>
             <p><b><font color="white">Picture Location:</font> </b><input type="search" id="place" name="place" placeholder="location"></p>
