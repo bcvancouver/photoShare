@@ -91,7 +91,7 @@
                 else {
                     thumb += "?" + str;
                 }
-                xmlhttp.open("GET", "thumb.php?n="+n, true);
+                xmlhttp.open("GET", thumb, true);
                 xmlhttp.send();
             };
             loadDoc("main=true");            
@@ -118,6 +118,7 @@
   <h2>Image Gallery</h2>   
         <form id="gform" action="thumb.php" method="get" name="jumpto">
                     <select name="c" onchange="javascript: loadDoc2(this.value);">
+                    <option value="0">Own photos</option>
                     <option value="1">Most Recent</option>
                     <option value="2">Oldest</option>
                     <option value="3">Top Five</option>
