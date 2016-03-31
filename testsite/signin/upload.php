@@ -66,7 +66,7 @@
         return $final_image;
     }
 
-    foreach ($_FILES['image']['name'] as $i => $file_name){
+    for ($i=0; $i<count($_FILES['image']['name']); $i++){
         //Check each image file
         if (isset($_FILES['image'])) {
             $errors = array();
