@@ -4,38 +4,17 @@
     session_start();
     $user=$_SESSION['login_user'];
     $connection=connect();
-    define('MAX_THUMBNAIL_DIMENSION',100);
+    //define('MAX_THUMBNAIL_DIMENSION',100);
 
+    if (!$user){
+        echo "Please Sign In!";
+        header("Location: signin.html");
+        exit;
+    }
 
     /*
-    if ($user == 'admin') {
-        $groups = '';
-        $sql = 'SELECT g.group_id, g.group_name, g.user_name FROM groups g';
-    }
-    else {
-        $groups = '<option value="2">private</option><option value="1">public</option>';
-        $sql = 'SELECT g.group_id, g.group_name, g.user_name FROM groups g left outer join group_lists l on g.group_id=l.group_id WHERE g.user_name=\'' . $user . '\' or l.friend_id=\'' . $user . '\'';
-    }
 
-    while($row = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
-        $group_id = $row['GROUP_ID'];
-        $group_name = $row['GROUP_NAME'];
-        $group_owner = $row['USER_NAME'];
-        $groups .= '<option value="'.$group_id.'">'.$group_name.' - ' . $group_owner .'</option>';
-    }
-    oci_free_statement($stid);
-    oci_close($conn);
-
-    $stid=oci_parse($connection,$sql);
-    oci_execute($stid);
     */
-
-    //$subject=$_POST['title'];
-    //$date=$_POST['datepicker'];
-    //$place=$_POST['place'];
-    //$description=$_POST['description'];
-    //$permitted=$_POST['privacy'];
-
 
     //Function to turn picture into thumbnail
     function getThumbnail($file) {
@@ -163,6 +142,6 @@
                 print_r($errors);
             }
         }
-        echo '<center><form method="post" action ="upload.html"><input type="submit" name="submit" value="continue" /> </form></center>';
+        echo '<center><form method="post" action ="uploadfrontend.php"><input type="submit" name="submit" value="continue" /> </form></center>';
 
     ?>
