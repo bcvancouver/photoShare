@@ -104,9 +104,9 @@ oci_close($connect);
             <p><b><font color="white">Comment: </font></b><input type="text" id="description" name="description" placeholder="Comment or Description"></p>
 
             <p><b><font color="white">Who can see?</font></b>
-                <select name="privacy" class="form-control">
+                <select name="privacy">
                     <?php
-                        getGroup();
+                        //getGroup();
                         echo $groups;
                     ?>
                 </select><br/>
