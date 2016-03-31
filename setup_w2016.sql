@@ -94,3 +94,10 @@ BEGIN
      and g.user_name= username;
    INSERT INTO group_lists VALUES(groupId,membername,sysdate, null);
 END;
+
+//add table for photo visit
+CREATE TABLE PHOTO_VISIT
+(
+PHOTO_ID number(38,0),
+OWNER_NAME VARCHAR2(24 BYTE)
+);
