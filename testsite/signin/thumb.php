@@ -5,12 +5,17 @@
 session_start(); // Starting Session
 $user_name=$_SESSION["login_user"];
 $n = $_GET['n'];
+$freq = $_GET['freq'];
+$from = $_GET['from'];
+$search = $_GET['search'];
+$group = $_GET['group'];
+$option = $_GET['option'];
 $conn = connect();
 
 if ($user_name == "admin") {
 		$query = "SELECT photo_id FROM images";	
 	}
-	elseif ($profile) { //own images
+	elseif ($n == "0") { //own images
 		$query = "select photo_id from images where owner_name = '$user_name'";
 		//$query = "select photo_id from images where permitted = '1' or owner_name = '$user' or permitted in (select group_id from group_lists where friend_id = '$user' union select group_id from groups where user_name = '$user' )";
 	}
@@ -38,7 +43,7 @@ if ($user_name == "admin") {
 		oci_execute($stid);
 		while ($arr = oci_fetch_array($stid, OCI_ASSOC)){
 			$id = $arr['PHOTO_ID'];
-			echo '<a href="getimage.php?id='.$id.'"><img src="pullimage.php?id='.$id.'&type=thumbnail" width="200" height="200" /></a>';
+			echo '<a href="getimage.php?id='.$id.'"><img src="getimage.php?id='.$id.'&type=thumbnail" width="200" height="200" /></a>';
 		}	
 	}
 	imagequery($query,$conn);
