@@ -12,18 +12,19 @@ function getGroup(){
     $stid=oci_parse($connection,$sql);
     oci_execute($stid);
 
-    while($row = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
+    /*while($row = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
         $group_id = $row['GROUP_ID'];
         $group_name = $row['GROUP_NAME'];
         $group_owner = $row['USER_NAME'];
         $groups .= '<option value="'.$group_id.'">'.$group_name.' - ' . $group_owner .'</option>';
-    }
+    }*/
 
-    oci_free_statement($stid);
-    oci_close($connect);
+
     while (($row = oci_fetch_array($stid, OCI_ASSOC))) {
         echo '<option value="'.$row['GROUP_ID'].'">'.$row['GROUP_NAME'].'</option>';
     }
+    oci_free_statement($stid);
+    oci_close($connect);
 }
 
 
