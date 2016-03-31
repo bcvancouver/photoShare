@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c5f7aa9d-6a7c-4f03-98fa-b09b24321a03" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/signin/getimage.php" afterPath="$PROJECT_DIR$/signin/getimage.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/signin/upload.php" afterPath="$PROJECT_DIR$/signin/upload.php" />
     </list>
     <ignored path="testsite.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,10 +27,10 @@
       <file leaf-file-name="upload.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/signin/upload.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="140" column="44" selection-start-line="140" selection-start-column="44" selection-end-line="140" selection-end-column="44" />
+            <state relative-caret-position="-1319">
+              <caret line="41" column="10" selection-start-line="41" selection-start-column="10" selection-end-line="41" selection-end-column="10" />
               <folding>
-                <marker date="1459397299000" expanded="true" signature="4250:4595" placeholder="INSERT INTO images... " />
+                <marker date="1459397942000" expanded="true" signature="5083:5428" placeholder="INSERT INTO images... " />
               </folding>
             </state>
           </provider>
@@ -45,8 +45,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/signin/display.html" />
-        <option value="$PROJECT_DIR$/signin/upload.php" />
         <option value="$PROJECT_DIR$/signin/getimage.php" />
+        <option value="$PROJECT_DIR$/signin/upload.php" />
       </list>
     </option>
   </component>
@@ -143,12 +143,12 @@
       <option name="presentableId" value="Default" />
       <updated>1459370394052</updated>
       <workItem from="1459370395822" duration="34000" />
-      <workItem from="1459386213460" duration="1291000" />
+      <workItem from="1459386213460" duration="1739000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1325000" />
+    <option name="totallyTimeSpent" value="1773000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -211,10 +211,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/signin/upload.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="140" column="44" selection-start-line="140" selection-start-column="44" selection-end-line="140" selection-end-column="44" />
+        <state relative-caret-position="-1319">
+          <caret line="41" column="10" selection-start-line="41" selection-start-column="10" selection-end-line="41" selection-end-column="10" />
           <folding>
-            <marker date="1459397299000" expanded="true" signature="4250:4595" placeholder="INSERT INTO images... " />
+            <marker date="1459397942000" expanded="true" signature="5083:5428" placeholder="INSERT INTO images... " />
           </folding>
         </state>
       </provider>
