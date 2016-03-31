@@ -1,7 +1,6 @@
 <?php
 include('PHPconnectionDB.php');
 $id = $_GET['id'];
-$id = '4';
 session_start(); // Starting Session
 $user_name=$_SESSION["login_user"];
 $sql = "SELECT PHOTO FROM images WHERE photo_id = '$id'";
