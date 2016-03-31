@@ -5,6 +5,11 @@
 session_start(); // Starting Session
 $user_name=$_SESSION["login_user"];
 $n = $_GET['n'];
+$freq = $_GET['freq'];
+$from = $_GET['from'];
+$search = $_GET['search'];
+$group = $_GET['group'];
+$option = $_GET['option'];
 $conn = connect();
 
 if ($user_name == "admin") {
