@@ -105,8 +105,8 @@
                 $date=str_replace('-','/',$date);
                 $place = $_POST['place'];
                 $description = $_POST['description'];
-                #$permitted=$_POST['privacy'];
-                $permitted = 1;
+                $permitted=$_POST['privacy'];
+                //$permitted = 1;
 
                 $sql = 'INSERT INTO images VALUES '
                     . '(' . $curr_id . ',\'' . $user . '\',\'' . $permitted . '\',\'' . $subject . '\',\'' . $place . '\','
