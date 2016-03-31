@@ -21,12 +21,12 @@ if ($user_name == "admin") {
 	}
 	elseif ($n == "1") {
 		//recent
-		$query = "SELECT photo_id FROM images";	
+		$query = "SELECT photo_id FROM images order by timing asc";	
 				//$query = "select photo_id from images where permitted = '1' or owner_name = '$user' or permitted in (select group_id from group_lists where friend_id = '$user' union select group_id from groups where user_name = '$user' )";
 	}
 	elseif ($n == "2") {
 		//oldest
-		$query = "SELECT photo_id FROM images";	
+		$query = "SELECT photo_id FROM images order by timing desc";	
 				//$query = "select photo_id from images where permitted = '1' or owner_name = '$user' or permitted in (select group_id from group_lists where friend_id = '$user' union select group_id from groups where user_name = '$user' )";
 	}
 	elseif ($n == "3") {
