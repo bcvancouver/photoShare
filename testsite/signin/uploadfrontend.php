@@ -1,3 +1,32 @@
+<?php
+
+include("PHPconnectionDB.php");
+session_start();
+$user=$_SESSION["login_user"];
+$connect=connect();
+
+if ($user == 'admin') {
+    $groups = '';
+    $sql = 'SELECT g.group_id, g.group_name, g.user_name FROM groups g';
+}
+else {
+    $groups = '<option value="2">private</option><option value="1">public</option>';
+    $sql = 'SELECT g.group_id, g.group_name, g.user_name FROM groups g left outer join group_lists l on g.group_id=l.group_id WHERE g.user_name=\'' . $user . '\' or l.friend_id=\'' . $user . '\'';
+}
+$stid = oci_parse($connect, $sql);
+oci_execute($stid);
+while($row = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
+    $group_id = $row['GROUP_ID'];
+    $group_name = $row['GROUP_NAME'];
+    $group_owner = $row['USER_NAME'];
+    $groups .= '<option value="'.$group_id.'">'.$group_name.' - ' . $group_owner .'</option>';
+}
+oci_free_statement($stid);
+oci_close($connect);
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -65,7 +94,6 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-      
 
     <div class="container">
         <form action="upload.php" method="post" enctype="multipart/form-data">
@@ -74,11 +102,13 @@
             <p><b><font color="white">Picture Date: </font></b><input type="date" id="datepicker" name="datepicker" placeholder="YYYY-MM-DD"></p>
             <p><b><font color="white">Picture Location:</font> </b><input type="search" id="place" name="place" placeholder="location"></p>
             <p><b><font color="white">Comment: </font></b><input type="text" id="description" name="description" placeholder="Comment or Description"></p>
+
             <p><b><font color="white">Who can see?</font></b>
-                <select name="privacy"> class="form-control">
-                <?php
-                    //getres("select s.group_id, s.group_name from group_lists g,groups s where g.friend_id = '".$user."' and s.group_id = g.group_id union select group_id, group_name from groups where group_id = 1 or group_id = 2",$conn);
-                ?>
+                <select name="privacy">
+                    <?php
+                        //getGroup();
+                        echo $groups;
+                    ?>
                 </select><br/>
             </p>
             
