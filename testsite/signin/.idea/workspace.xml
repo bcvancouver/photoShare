@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4abc9b29-b188-4a34-91da-5f9c3425115f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/upload.php" afterPath="$PROJECT_DIR$/upload.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploadfrontend.php" afterPath="$PROJECT_DIR$/uploadfrontend.php" />
     </list>
     <ignored path="signin.iws" />
@@ -40,12 +39,12 @@
       <file leaf-file-name="uploadfrontend.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/uploadfrontend.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="26" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
+            <state relative-caret-position="75">
+              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
               <folding>
-                <marker date="1459417487000" expanded="true" signature="187:237" placeholder="SELECT group... groups" />
-                <marker date="1459417487000" expanded="true" signature="362:544" placeholder="SELECT g.gro... groups" />
-                <marker date="1459417487000" expanded="true" signature="1019:1038" placeholder="..." />
+                <marker date="1459417638000" expanded="true" signature="240:290" placeholder="SELECT group... groups" />
+                <marker date="1459417638000" expanded="true" signature="415:597" placeholder="SELECT g.gro... groups" />
+                <marker date="1459417638000" expanded="true" signature="1072:1091" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -234,12 +233,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1459319174260</updated>
-      <workItem from="1459409940290" duration="4311000" />
+      <workItem from="1459409940290" duration="4470000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4311000" />
+    <option name="totallyTimeSpent" value="4470000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1600" height="873" extended-state="6" />
@@ -446,12 +445,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/uploadfrontend.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="26" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
+        <state relative-caret-position="75">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
           <folding>
-            <marker date="1459417487000" expanded="true" signature="187:237" placeholder="SELECT group... groups" />
-            <marker date="1459417487000" expanded="true" signature="362:544" placeholder="SELECT g.gro... groups" />
-            <marker date="1459417487000" expanded="true" signature="1019:1038" placeholder="..." />
+            <marker date="1459417638000" expanded="true" signature="240:290" placeholder="SELECT group... groups" />
+            <marker date="1459417638000" expanded="true" signature="415:597" placeholder="SELECT g.gro... groups" />
+            <marker date="1459417638000" expanded="true" signature="1072:1091" placeholder="..." />
           </folding>
         </state>
       </provider>

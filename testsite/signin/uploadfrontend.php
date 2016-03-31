@@ -2,6 +2,8 @@
     echo "running php code";
     require_once("PHPconnectionDB.php");
     session_start();
+    $user=$_SESSION["login_user"];
+    echo "$user";
     $connect=connect();
     if ($user == 'admin') {
         $groups = '';
