@@ -1,9 +1,9 @@
 <?php
-echo "running php code";
-require_once(PHPconnectionDB.php);
-session_start();
-$connect=connect();
-if ($user == 'admin') {
+    echo "running php code";
+    require_once("PHPconnectionDB.php");
+    session_start();
+    $connect=connect();
+    if ($user == 'admin') {
     $groups = '';
     $sql = 'SELECT group_id, group_name, user_name FROM groups';
 }
