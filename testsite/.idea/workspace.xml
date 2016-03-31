@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c5f7aa9d-6a7c-4f03-98fa-b09b24321a03" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../setup_w2016.sql" afterPath="$PROJECT_DIR$/../setup_w2016.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/signin/.idea/workspace.xml" afterPath="$PROJECT_DIR$/signin/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/signin/upload.php" afterPath="$PROJECT_DIR$/signin/upload.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/signin/getimage.php" afterPath="$PROJECT_DIR$/signin/getimage.php" />
     </list>
     <ignored path="testsite.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,7 +30,7 @@
             <state relative-caret-position="391">
               <caret line="140" column="44" selection-start-line="140" selection-start-column="44" selection-end-line="140" selection-end-column="44" />
               <folding>
-                <marker date="1459396802000" expanded="true" signature="4250:4595" placeholder="INSERT INTO images... " />
+                <marker date="1459397299000" expanded="true" signature="4250:4595" placeholder="INSERT INTO images... " />
               </folding>
             </state>
           </provider>
@@ -49,6 +46,7 @@
       <list>
         <option value="$PROJECT_DIR$/signin/display.html" />
         <option value="$PROJECT_DIR$/signin/upload.php" />
+        <option value="$PROJECT_DIR$/signin/getimage.php" />
       </list>
     </option>
   </component>
@@ -109,6 +107,20 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="testsite" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="testsite" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="signin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -131,12 +143,12 @@
       <option name="presentableId" value="Default" />
       <updated>1459370394052</updated>
       <workItem from="1459370395822" duration="34000" />
-      <workItem from="1459386213460" duration="1097000" />
+      <workItem from="1459386213460" duration="1291000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1131000" />
+    <option name="totallyTimeSpent" value="1325000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -187,12 +199,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/signin/getimage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding>
+            <marker date="1459397453000" expanded="true" signature="138:185" placeholder="SELECT PHOTO... images" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/signin/upload.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="140" column="44" selection-start-line="140" selection-start-column="44" selection-end-line="140" selection-end-column="44" />
           <folding>
-            <marker date="1459396802000" expanded="true" signature="4250:4595" placeholder="INSERT INTO images... " />
+            <marker date="1459397299000" expanded="true" signature="4250:4595" placeholder="INSERT INTO images... " />
           </folding>
         </state>
       </provider>
