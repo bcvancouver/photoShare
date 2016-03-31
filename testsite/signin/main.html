@@ -107,7 +107,7 @@
                 var thumb = "thumb.php";
                 if (location.search) thumb += location.search + "&option=" + str;
                 else {
-                    thumb += "?option=" + str;
+                    thumb += "?n=" + str;
                 }
                 xmlhttp.open("GET", thumb, true);
                 xmlhttp.send();
