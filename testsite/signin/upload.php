@@ -4,7 +4,7 @@
     session_start();
     $user=$_SESSION['login_user'];
     $connection=connect();
-    define('MAX_THUMBNAIL_DIMENSION',100);
+    define('MAX_THUMBNAIL_DIMENSION',200);
 
 
     /*
