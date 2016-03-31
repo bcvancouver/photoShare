@@ -19,6 +19,9 @@ $sql = "SELECT photo_id FROM images";
 if ($n == '4') { // ranking
 $sql = "SELECT photo_id FROM images";
 }
+if ($n == 'top5') { // ranking
+$sql = "SELECT photo_id FROM images";
+}
 else {
 $sql = "SELECT photo_id FROM images";
 }
