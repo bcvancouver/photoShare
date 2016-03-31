@@ -15,7 +15,7 @@ if (!$showrow) {  print('Status: 404 Not Found');
 if ($showrow) {
   $img = $showrow['PHOTO']->load();
     header("Content-type: image/jpeg");
-    print '<img src="$img" />';
+    print $img;
 }
     
   

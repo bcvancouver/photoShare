@@ -90,9 +90,9 @@ loadDoc(1);
  </script>   
 
   <h2>Image Gallery</h2>          
-  <div class="column">
+  <div id="demo" class="column">
     <div class="col-md-4">
-      <a href="getimage.php<?php echo $id ?>" class="thumbnail">    
+      <a href="getimage.php" class="thumbnail">    
         <img src="getimage.php" alt="img1" style="width:200px;height:200px">
       </a>
     </div>
