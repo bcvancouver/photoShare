@@ -142,6 +142,6 @@
                 print_r($errors);
             }
         }
-        echo '<center><form method="post" action ="upload.html"><input type="submit" name="submit" value="continue" /> </form></center>';
+        echo '<center><form method="post" action ="uploadfrontend.php"><input type="submit" name="submit" value="continue" /> </form></center>';
 
     ?>
