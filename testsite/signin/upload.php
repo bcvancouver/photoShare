@@ -8,7 +8,7 @@
 
     if (!$user){
         echo "Please Sign In!";
-        header("signin.html");
+        header("Location: signin.html");
         exit;
     }
 
