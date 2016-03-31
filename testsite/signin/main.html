@@ -75,23 +75,49 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
- <script type="text/javascript">
- function loadDoc(n) {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (xhttp.readyState == 4 && xhttp.status == 200) {
-     document.getElementById("demo").innerHTML = xhttp.responseText;
-    }
-  };
-  xhttp.open("GET", "thumb.php?n="+n, true);
-  xhttp.send();
-} 
-loadDoc('top5');
- </script>   
+ 
+<script type="text/javascript">
+            function loadDoc(str) {
+                $("#demo").html("");
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        var txt = xmlhttp.responseText;
+                        $("#demo").html(txt);
+                    }
+                };
+                var thumb = "thumb.php";
+                if (location.search) thumb += location.search + "&" + str;
+                else {
+                    thumb += "?" + str;
+                }
+                xmlhttp.open("GET", thumb, true);
+                xmlhttp.send();
+            };
+            loadDoc("main=true");            
+            function loadDoc2(str) {
+                $("#demo").html("");
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        var txt = xmlhttp.responseText;
+                        $("#demo").html(txt);
+                    }
+                };
+                var thumb = "thumb.php";
+                if (location.search) thumb += location.search + "&option=" + str;
+                else {
+                    thumb += "?option=" + str;
+                }
+                xmlhttp.open("GET", thumb, true);
+                xmlhttp.send();
+            };
+            //popularity of an image is specified by the number of distinct users that have ever viewed the image
+        </script>
 
   <h2>Image Gallery</h2>   
         <form id="gform" action="thumb.php" method="get" name="jumpto">
-                    <select name="c" onchange="javascript: loadDoc(this.value);">
+                    <select name="c" onchange="javascript: loadDoc2(this.value);">
                     <option value="1">Most Recent</option>
                     <option value="2">Oldest</option>
                     <option value="3">Top Five</option>
