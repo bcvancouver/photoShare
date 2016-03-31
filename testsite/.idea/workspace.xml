@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c5f7aa9d-6a7c-4f03-98fa-b09b24321a03" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/signin/upload.php" afterPath="$PROJECT_DIR$/signin/upload.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/signin/uploadfrontend.php" afterPath="$PROJECT_DIR$/signin/uploadfrontend.php" />
     </list>
     <ignored path="testsite.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,7 +24,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="upload.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="upload.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/signin/upload.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="359">
@@ -37,14 +36,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="uploadfrontend.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="uploadfrontend.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/signin/uploadfrontend.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="103" column="54" selection-start-line="103" selection-start-column="54" selection-end-line="103" selection-end-column="54" />
+            <state relative-caret-position="196">
+              <caret line="103" column="44" selection-start-line="103" selection-start-column="44" selection-end-line="103" selection-end-column="44" />
               <folding>
-                <marker date="1459461677000" expanded="true" signature="212:270" placeholder="SELECT g.gro... groups" />
-                <marker date="1459461677000" expanded="true" signature="395:577" placeholder="SELECT g.gro... groups" />
+                <marker date="1459462791000" expanded="true" signature="212:270" placeholder="SELECT g.gro... groups" />
+                <marker date="1459462791000" expanded="true" signature="395:577" placeholder="SELECT g.gro... groups" />
               </folding>
             </state>
           </provider>
@@ -60,8 +59,8 @@
       <list>
         <option value="$PROJECT_DIR$/signin/display.html" />
         <option value="$PROJECT_DIR$/signin/getimage.php" />
-        <option value="$PROJECT_DIR$/signin/uploadfrontend.php" />
         <option value="$PROJECT_DIR$/signin/upload.php" />
+        <option value="$PROJECT_DIR$/signin/uploadfrontend.php" />
       </list>
     </option>
   </component>
@@ -128,12 +127,12 @@
       <updated>1459370394052</updated>
       <workItem from="1459370395822" duration="34000" />
       <workItem from="1459386213460" duration="1739000" />
-      <workItem from="1459459468987" duration="2456000" />
+      <workItem from="1459459468987" duration="2635000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4229000" />
+    <option name="totallyTimeSpent" value="4408000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -195,23 +194,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/signin/uploadfrontend.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="103" column="54" selection-start-line="103" selection-start-column="54" selection-end-line="103" selection-end-column="54" />
-          <folding>
-            <marker date="1459461677000" expanded="true" signature="212:270" placeholder="SELECT g.gro... groups" />
-            <marker date="1459461677000" expanded="true" signature="395:577" placeholder="SELECT g.gro... groups" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/signin/upload.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="359">
           <caret line="68" column="40" selection-start-line="68" selection-start-column="40" selection-end-line="68" selection-end-column="40" />
           <folding>
             <marker date="1459462572000" expanded="true" signature="4207:4540" placeholder="INSERT INTO images... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/signin/uploadfrontend.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="103" column="44" selection-start-line="103" selection-start-column="44" selection-end-line="103" selection-end-column="44" />
+          <folding>
+            <marker date="1459462791000" expanded="true" signature="212:270" placeholder="SELECT g.gro... groups" />
+            <marker date="1459462791000" expanded="true" signature="395:577" placeholder="SELECT g.gro... groups" />
           </folding>
         </state>
       </provider>
