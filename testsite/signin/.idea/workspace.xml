@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4abc9b29-b188-4a34-91da-5f9c3425115f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploadfrontend.php" afterPath="$PROJECT_DIR$/uploadfrontend.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/upload.php" afterPath="$PROJECT_DIR$/upload.php" />
     </list>
     <ignored path="signin.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,27 +24,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="upload.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="upload.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/upload.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="107" column="26" selection-start-line="107" selection-start-column="26" selection-end-line="107" selection-end-column="26" />
+            <state relative-caret-position="215">
+              <caret line="108" column="18" selection-start-line="108" selection-start-column="18" selection-end-line="108" selection-end-column="18" />
               <folding>
-                <marker date="1459417310000" expanded="true" signature="4164:4509" placeholder="INSERT INTO images... " />
+                <marker date="1459419352000" expanded="true" signature="4165:4510" placeholder="INSERT INTO images... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="uploadfrontend.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="uploadfrontend.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/uploadfrontend.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="480">
               <caret line="32" column="26" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
               <folding>
-                <marker date="1459419002000" expanded="true" signature="162:220" placeholder="SELECT g.gro... groups" />
-                <marker date="1459419002000" expanded="true" signature="329:511" placeholder="SELECT g.gro... groups" />
-                <marker date="1459419002000" expanded="true" signature="939:958" placeholder="..." />
+                <marker date="1459419205000" expanded="true" signature="162:220" placeholder="SELECT g.gro... groups" />
+                <marker date="1459419205000" expanded="true" signature="329:511" placeholder="SELECT g.gro... groups" />
               </folding>
             </state>
           </provider>
@@ -56,6 +55,23 @@
             <state relative-caret-position="435">
               <caret line="29" column="46" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="46" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="thumb.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/thumb.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1459419205000" expanded="true" signature="168:244" placeholder="SELECT photo... views" />
+                <marker date="1459419205000" expanded="true" signature="289:316" placeholder="SELECT photo... images" />
+                <marker date="1459419205000" expanded="true" signature="361:388" placeholder="SELECT photo... images" />
+                <marker date="1459419205000" expanded="true" signature="429:456" placeholder="SELECT photo... images" />
+                <marker date="1459419205000" expanded="true" signature="500:527" placeholder="SELECT photo... images" />
+                <marker date="1459419205000" expanded="true" signature="547:574" placeholder="SELECT photo... images" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -85,7 +101,7 @@
       <file leaf-file-name="main.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
+            <state relative-caret-position="1050">
               <caret line="70" column="40" selection-start-line="70" selection-start-column="40" selection-end-line="70" selection-end-column="40" />
               <folding />
             </state>
@@ -107,8 +123,8 @@
       <list>
         <option value="$PROJECT_DIR$/upload.html" />
         <option value="$PROJECT_DIR$/main.html" />
-        <option value="$PROJECT_DIR$/upload.php" />
         <option value="$PROJECT_DIR$/uploadfrontend.php" />
+        <option value="$PROJECT_DIR$/upload.php" />
       </list>
     </option>
   </component>
@@ -234,11 +250,12 @@
       <option name="presentableId" value="Default" />
       <updated>1459319174260</updated>
       <workItem from="1459409940290" duration="5740000" />
+      <workItem from="1459419322654" duration="33000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5740000" />
+    <option name="totallyTimeSpent" value="5773000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1600" height="873" extended-state="6" />
@@ -285,125 +302,22 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/upload.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="1605">
+          <caret line="107" column="26" selection-start-line="107" selection-start-column="26" selection-end-line="107" selection-end-column="26" />
           <folding>
-            <marker date="1459417310000" expanded="true" signature="4164:4509" placeholder="INSERT INTO images... " />
+            <marker date="1459419352000" expanded="true" signature="4165:4510" placeholder="INSERT INTO images... " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/upload.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1095">
-          <caret line="73" column="139" selection-start-line="73" selection-start-column="139" selection-end-line="73" selection-end-column="139" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loggedIn.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/login_button.php">
+    <entry file="file://$PROJECT_DIR$/uploadfrontend.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1459228694000" expanded="true" signature="455:534" placeholder="select count... users" />
+            <marker date="1459419205000" expanded="true" signature="162:220" placeholder="SELECT g.gro... groups" />
+            <marker date="1459419205000" expanded="true" signature="329:511" placeholder="SELECT g.gro... groups" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/upload.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1459417310000" expanded="true" signature="4164:4509" placeholder="INSERT INTO images... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/upload.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="73" column="139" selection-start-line="73" selection-start-column="139" selection-end-line="73" selection-end-column="139" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loggedIn.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/login_button.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1459228694000" expanded="true" signature="455:534" placeholder="select count... users" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/upload.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1459417310000" expanded="true" signature="4164:4509" placeholder="INSERT INTO images... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/upload.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="73" column="139" selection-start-line="73" selection-start-column="139" selection-end-line="73" selection-end-column="139" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loggedIn.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/login_button.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1459228694000" expanded="true" signature="455:534" placeholder="select count... users" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loggedIn.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/upload.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="61" selection-start-line="26" selection-start-column="61" selection-end-line="26" selection-end-column="61" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -411,6 +325,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
           <caret line="29" column="46" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loggedIn.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="2" />
           <folding />
         </state>
       </provider>
@@ -427,7 +349,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
+        <state relative-caret-position="1050">
           <caret line="70" column="40" selection-start-line="70" selection-start-column="40" selection-end-line="70" selection-end-column="40" />
           <folding />
         </state>
@@ -435,11 +357,115 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/upload.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="107" column="26" selection-start-line="107" selection-start-column="26" selection-end-line="107" selection-end-column="26" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1459417310000" expanded="true" signature="4164:4509" placeholder="INSERT INTO images... " />
+            <marker date="1459419352000" expanded="true" signature="4165:4510" placeholder="INSERT INTO images... " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/upload.html" />
+    <entry file="file://$PROJECT_DIR$/loggedIn.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login_button.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1459228694000" expanded="true" signature="455:534" placeholder="select count... users" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/upload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1459419352000" expanded="true" signature="4165:4510" placeholder="INSERT INTO images... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/upload.html" />
+    <entry file="file://$PROJECT_DIR$/loggedIn.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login_button.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1459228694000" expanded="true" signature="455:534" placeholder="select count... users" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/upload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1459419352000" expanded="true" signature="4165:4510" placeholder="INSERT INTO images... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/upload.html" />
+    <entry file="file://$PROJECT_DIR$/loggedIn.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login_button.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1459228694000" expanded="true" signature="455:534" placeholder="select count... users" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loggedIn.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/upload.html" />
+    <entry file="file://$PROJECT_DIR$/login_button.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="22" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="22" />
+          <folding>
+            <marker date="1459228694000" expanded="true" signature="455:534" placeholder="select count... users" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1050">
+          <caret line="70" column="40" selection-start-line="70" selection-start-column="40" selection-end-line="70" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -448,9 +474,41 @@
         <state relative-caret-position="480">
           <caret line="32" column="26" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
           <folding>
-            <marker date="1459419002000" expanded="true" signature="162:220" placeholder="SELECT g.gro... groups" />
-            <marker date="1459419002000" expanded="true" signature="329:511" placeholder="SELECT g.gro... groups" />
-            <marker date="1459419002000" expanded="true" signature="939:958" placeholder="..." />
+            <marker date="1459419205000" expanded="true" signature="162:220" placeholder="SELECT g.gro... groups" />
+            <marker date="1459419205000" expanded="true" signature="329:511" placeholder="SELECT g.gro... groups" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/signin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="46" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thumb.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1459419205000" expanded="true" signature="168:244" placeholder="SELECT photo... views" />
+            <marker date="1459419205000" expanded="true" signature="289:316" placeholder="SELECT photo... images" />
+            <marker date="1459419205000" expanded="true" signature="361:388" placeholder="SELECT photo... images" />
+            <marker date="1459419205000" expanded="true" signature="429:456" placeholder="SELECT photo... images" />
+            <marker date="1459419205000" expanded="true" signature="500:527" placeholder="SELECT photo... images" />
+            <marker date="1459419205000" expanded="true" signature="547:574" placeholder="SELECT photo... images" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/upload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="108" column="18" selection-start-line="108" selection-start-column="18" selection-end-line="108" selection-end-column="18" />
+          <folding>
+            <marker date="1459419352000" expanded="true" signature="4165:4510" placeholder="INSERT INTO images... " />
           </folding>
         </state>
       </provider>
