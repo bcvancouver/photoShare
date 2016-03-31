@@ -1,31 +1,28 @@
 <?php
 
-function getGroup(){
-    include("PHPconnectionDB.php");
-    session_start();
-    $user=$_SESSION["login_user"];
-    $connect=connect();
+include("PHPconnectionDB.php");
+session_start();
+$user=$_SESSION["login_user"];
+$connect=connect();
 
-    $sql="\"select s.group_id, s.group_name from group_lists g,groups s where g.friend_id = '\".$user.\"' and s.group_id = g.group_id union select group_id, group_name from groups where group_id = 1 or group_id = 2 or user_name = '$user' \",$conn";
-
-    $stid=oci_parse($connection,$sql);
-    $result=oci_execute($stid);
-    echo "$result";
-
-    /*while($row = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
-        $group_id = $row['GROUP_ID'];
-        $group_name = $row['GROUP_NAME'];
-        $group_owner = $row['USER_NAME'];
-        $groups .= '<option value="'.$group_id.'">'.$group_name.' - ' . $group_owner .'</option>';
-    }*/
-
-
-    while (($row = oci_fetch_array($stid, OCI_ASSOC))) {
-        echo '<option value="'.$row['GROUP_ID'].'">'.$row['GROUP_NAME'].'</option>';
-    }
-    oci_free_statement($stid);
-    oci_close($connect);
+if ($user == 'admin') {
+    $groups = '';
+    $sql = 'SELECT g.group_id, g.group_name, g.user_name FROM groups g';
 }
+else {
+    $groups = '<option value="2">private</option><option value="1">public</option>';
+    $sql = 'SELECT g.group_id, g.group_name, g.user_name FROM groups g left outer join group_lists l on g.group_id=l.group_id WHERE g.user_name=\'' . $user . '\' or l.friend_id=\'' . $user . '\'';
+}
+$stid = oci_parse($connect, $sql);
+oci_execute($stid);
+while($row = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
+    $group_id = $row['GROUP_ID'];
+    $group_name = $row['GROUP_NAME'];
+    $group_owner = $row['USER_NAME'];
+    $groups .= '<option value="'.$group_id.'">'.$group_name.' - ' . $group_owner .'</option>';
+}
+oci_free_statement($stid);
+oci_close($connect);
 
 
 ?>
@@ -110,6 +107,7 @@ function getGroup(){
                 <select name="privacy" class="form-control">
                     <?php
                         getGroup();
+                        echo $groups;
                     ?>
                 </select><br/>
             </p>
