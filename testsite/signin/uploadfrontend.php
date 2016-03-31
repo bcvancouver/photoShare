@@ -1,3 +1,31 @@
+<?php
+echo "running php code";
+require_once(PHPconnectionDB.php);
+session_start();
+$connect=connect();
+if ($user == 'admin') {
+    $groups = '';
+    $sql = 'SELECT group_id, group_name, user_name FROM groups';
+}
+else {
+    $groups = '<option value="2">private</option><option value="1">public</option>';
+    $sql = 'SELECT g.group_id, g.group_name, g.user_name FROM groups g left outer join group_lists l on g.group_id=l.group_id WHERE g.user_name=\'' . $user . '\' or l.friend_id=\'' . $user . '\'';
+}
+
+while($row = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
+    $group_id = $row['GROUP_ID'];
+    $group_name = $row['GROUP_NAME'];
+    $group_owner = $row['USER_NAME'];
+    $groups .= '<option value="'.$group_id.'">'.$group_name.' - ' . $group_owner .'</option>';
+}
+
+oci_free_statement($stid);
+oci_close($conn);
+
+$stid=oci_parse($connection,$sql);
+oci_execute($stid);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -73,33 +101,7 @@
             <p><b><font color="white">Picture Date: </font></b><input type="date" id="datepicker" name="datepicker" placeholder="YYYY-MM-DD"></p>
             <p><b><font color="white">Picture Location:</font> </b><input type="search" id="place" name="place" placeholder="location"></p>
             <p><b><font color="white">Comment: </font></b><input type="text" id="description" name="description" placeholder="Comment or Description"></p>
-            <?php
-                echo "running php code";
-                require_once(PHPconnectionDB.php);
-                session_start();
-                $connect=connect();
-                if ($user == 'admin') {
-                    $groups = '';
-                    $sql = 'SELECT group_id, group_name, user_name FROM groups';
-                }
-            else {
-                $groups = '<option value="2">private</option><option value="1">public</option>';
-                $sql = 'SELECT g.group_id, g.group_name, g.user_name FROM groups g left outer join group_lists l on g.group_id=l.group_id WHERE g.user_name=\'' . $user . '\' or l.friend_id=\'' . $user . '\'';
-            }
 
-            while($row = oci_fetch_array($stid, OCI_ASSOC+OCI_RETURN_NULLS)) {
-            $group_id = $row['GROUP_ID'];
-            $group_name = $row['GROUP_NAME'];
-            $group_owner = $row['USER_NAME'];
-            $groups .= '<option value="'.$group_id.'">'.$group_name.' - ' . $group_owner .'</option>';
-            }
-
-            oci_free_statement($stid);
-            oci_close($conn);
-
-            $stid=oci_parse($connection,$sql);
-            oci_execute($stid);
-            ?>
             <p><b><font color="white">Who can see?</font></b>
                 <select name="privacy">
                     <?php
