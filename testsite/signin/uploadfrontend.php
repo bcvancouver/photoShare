@@ -1,18 +1,13 @@
 <?php
     echo "running php code";
-    require_once("PHPconnectionDB.php");
+
+function getGroup(){
+    include("PHPconnectionDB.php");
     session_start();
     $user=$_SESSION["login_user"];
     $connect=connect();
-    if ($user == 'admin') {
-        $groups = '';
-        $sql = 'SELECT group_id, group_name, user_name FROM groups';
-    }
-    else {
-        echo "non admin<br>";
-        $groups = '<option value="2">private</option><option value="1">public</option>';
-        $sql = 'SELECT g.group_id, g.group_name, g.user_name FROM groups g left outer join group_lists l on g.group_id=l.group_id WHERE g.user_name=\'' . $user . '\' or l.friend_id=\'' . $user . '\'';
-    }
+
+    $sql="\"select s.group_id, s.group_name from group_lists g,groups s where g.friend_id = '\".$user.\"' and s.group_id = g.group_id union select group_id, group_name from groups where group_id = 1 or group_id = 2 or user_name = '$user' \",$conn";
 
     $stid=oci_parse($connection,$sql);
     oci_execute($stid);
@@ -26,6 +21,10 @@
 
     oci_free_statement($stid);
     oci_close($connect);
+    while (($row = oci_fetch_array($stid, OCI_ASSOC))) {
+        echo '<option value="'.$row['GROUP_ID'].'">'.$row['GROUP_NAME'].'</option>';
+    }
+}
 
 
 ?>
@@ -107,9 +106,9 @@
             <p><b><font color="white">Comment: </font></b><input type="text" id="description" name="description" placeholder="Comment or Description"></p>
 
             <p><b><font color="white">Who can see?</font></b>
-                <select name="privacy">
+                <select name="privacy" class="form-control">
                     <?php
-                        echo $groups;
+                        getGroup();
                     ?>
                 </select><br/>
             </p>
