@@ -3,13 +3,13 @@
     require_once("PHPconnectionDB.php");
     session_start();
     $user=$_SESSION["login_user"];
-    echo "$user";
     $connect=connect();
     if ($user == 'admin') {
         $groups = '';
         $sql = 'SELECT group_id, group_name, user_name FROM groups';
     }
     else {
+        echo "non admin<br>";
         $groups = '<option value="2">private</option><option value="1">public</option>';
         $sql = 'SELECT g.group_id, g.group_name, g.user_name FROM groups g left outer join group_lists l on g.group_id=l.group_id WHERE g.user_name=\'' . $user . '\' or l.friend_id=\'' . $user . '\'';
     }
