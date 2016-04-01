@@ -1,3 +1,4 @@
+<?php include("loggedIn.php") ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -73,14 +74,14 @@
             if (!isset($_SESSION['login_user'])) { //checks if there's a user
                 die();
             }
-			
-	
-			$id = $_GET['id'];
-			include("PHPconnectionDB.php");
-			$conn=connect();
+            
+    
+            $id = $_GET['id'];
+            include("PHPconnectionDB.php");
+            $conn=connect();
             //DELETES IMAGE
             if (isset($_REQUEST['delete'])) {
-   	        $query = "delete FROM photo_count where photo_id = '".$id."'";
+            $query = "delete FROM photo_count where photo_id = '".$id."'";
               $stmt = oci_parse ($conn, $query);
               $res = oci_execute($stmt);         
               $query = "delete FROM images where photo_id = '".$id."'";
@@ -101,7 +102,7 @@
               $stmt = oci_parse ($conn, $query);
               oci_execute($stmt);
             }
-            $user_name = $_SESSION['login-user'];                    		
+            $user_name = $_SESSION['login_user'];                           
                 try {//COUNTS DISTINCT USER VIEWS
                     $query = "select * from photo_visit where owner_name = '$user_name' and photo_id = '$id'";
                     $stmt = oci_parse ($conn, $query);              
@@ -119,35 +120,35 @@
                 $query = "SELECT * FROM images where photo_id = '$id'";
                 $stmt = oci_parse ($conn, $query);
                 oci_execute($stmt);
-    			$arr = oci_fetch_array($stmt, OCI_ASSOC);
-    			echo '<img src="getimage.php?id='.$id.'&type=photo" />';
-    			
+                $arr = oci_fetch_array($stmt, OCI_ASSOC);
+                echo '<img src="getimage.php?id='.$id.'&type=photo" />';
+                
                 //GETS IMAGE GROUPS     
                 $sql = "select s.group_id, s.group_name from group_lists g,images i,groups s where i.photo_id = '".$id."' and g.friend_id = i.owner_name and s.group_id = g.group_id 
                 union select group_id, group_name from groups where group_id = 1 or group_id = 2 or user_name = '$user_name' ";
                 $fin  = "";
-    		    $stid = oci_parse($conn,$sql);
-    		    $res = oci_execute($stid);
-    		    while (($row = oci_fetch_array($stid, OCI_ASSOC))) {
+                $stid = oci_parse($conn,$sql);
+                $res = oci_execute($stid);
+                while (($row = oci_fetch_array($stid, OCI_ASSOC))) {
                     $selected = "";
                     if ($arr['PERMITTED'] == $row['GROUP_ID']) {$selected = "selected";}
-    		        $fin.='<option value="'.$row['GROUP_ID'].'" '.$selected.'>'.$row['GROUP_NAME'].'</option>';
-				    }
-			?>
+                    $fin.='<option value="'.$row['GROUP_ID'].'" '.$selected.'>'.$row['GROUP_NAME'].'</option>';
+                    }
+            ?>
         </div>
         <div id="update">
             <form >
-				<fieldset class="form-group" >
+                <fieldset class="form-group" >
                 <label for="exampleTextarea">Subject</label>
                 <textarea class="form-control" name="subj" rows="1"
                     placeholder='<?php echo $arr["SUBJECT"];?>' value='<?php echo $arr["SUBJECT"];?>'><?php echo $arr["SUBJECT"];?></textarea>
                 </fieldset>
-               	<fieldset class="form-group" >
+                <fieldset class="form-group" >
                 <label for="exampleTextarea">Place</label>
                 <textarea class="form-control" name="place" rows="1"
                     placeholder='<?php echo $arr["PLACE"];?>' value='<?php echo $arr["PLACE"];?>'><?php echo $arr["PLACE"];?></textarea>
                 </fieldset>
-               	<fieldset class="form-group" >
+                <fieldset class="form-group" >
                 <label for="exampleTextarea">Timing/When</label>
                 <input class="form-control date" name="date" id="date" rows="1"
                     placeholder='<?php echo $arr["TIMING"];?>' value='<?php $time = strtotime($arr["TIMING"]); echo date("m\/d\/Y",$time); ?>'></input>
@@ -160,23 +161,25 @@
                 <input type="hidden" name="id" value="<?php echo $id; ?>">
                 <div class="">
                     <label>
-				      Permitted
-				    </label>
-				    <select class="c-select" name="group">
-				        <?php echo $fin; ?>
-					</select>
+                      Permitted
+                    </label>
+                    <select class="c-select" name="group">
+                        <?php echo $fin; ?>
+                    </select>
                 </div>
                 <?php
-						$sql = "select * from images where photo_id = '$id' and owner_name = '$user_name' ";
- 					 	$stmt = oci_parse ($conn, $sql);
-            		$res = oci_execute($stmt); 
-            		                     
- 						$res = oci_fetch_array($stmt, OCI_ASSOC);    
-						if ($res['OWNER_NAME'] == $user_name ) {
-                	 echo '<button type="submit" name="edit" value="true" class="btn btn-primary">Submit</button>';
+                        $sql = "select * from images where photo_id = '$id' and owner_name = '$user_name' ";
+                        $stmt = oci_parse ($conn, $sql);
+                    $res = oci_execute($stmt); 
+
+                        $res = oci_fetch_array($stmt, OCI_ASSOC);  
+                        
+                        if ($res['OWNER_NAME'] == $user_name ) {
+                     echo '<button type="submit" name="edit" value="true" class="btn btn-primary">Submit</button>';
+                            
                 }
-                else if ($_SESSION['admin']) {
-                	 echo '<button type="submit" name="edit" value="true" class="btn btn-primary">Submit</button>';
+                elseif ($_SESSION['admin']) {
+                     echo '<button type="submit" name="edit" value="true" class="btn btn-primary">Submit</button>';
                 }
                 ?>
             </form>
@@ -184,16 +187,18 @@
         <form >
         <input type="hidden" name="id" value="<?php echo $id; ?>">
                         <?php
-						if ($res['OWNER_NAME'] == $user_name ) {
-                	 echo '<button type="submit" name="delete" value="true" class="btn btn-primary">Delete Photo</button>';
-                	 oci_free_statement($stmt);
+                        
+                        if ($res['OWNER_NAME'] == $user_name ) {
+                     echo '<button type="submit" name="delete" value="true" class="btn btn-primary">Delete Photo</button>';
+                     oci_free_statement($stmt);
                 }
-         else if ($_SESSION['admin']) {
-                	 echo '<button type="submit" name="delete" value="true" class="btn btn-primary">Submit</button>';
+         elseif ($_SESSION['admin']) {
+                     echo '<button type="submit" name="delete" value="true" class="btn btn-primary">Submit</button>';
                 }
                 oci_close($conn);
                 ?>
         </form>
+
     </div>
 </body>
 </html>
