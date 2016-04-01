@@ -167,16 +167,16 @@
 					</select>
                 </div>
                 <?php
-						$sql = "select owner_name from images where photo_id = '$id' ";
+						$sql = "select * from images where photo_id = '$id' and owner_name = '$user_name' ";
  					 	$stmt = oci_parse ($conn, $sql);
             		$res = oci_execute($stmt); 
             		                     
  						$res = oci_fetch_array($stmt, OCI_ASSOC);    
-						if ($res == $user_name ) {
+						if ($res['OWNER_NAME']) {
                 	 echo '<button type="submit" name="edit" value="true" class="btn btn-primary">Submit</button>';
                             print("i'm here");
                 }
-                elseif ($user_name == "admin") {
+                elseif ($_SESSION['admin']) {
                 	 echo '<button type="submit" name="edit" value="true" class="btn btn-primary">Submit</button>';
                     print("i'm here1");
                 }
@@ -186,11 +186,11 @@
         <form >
         <input type="hidden" name="id" value="<?php echo $id; ?>">
                         <?php
-						if ($res['OWNER_NAME'] == $user_name ) {
+						if ($res['OWNER_NAME']) {
                 	 echo '<button type="submit" name="delete" value="true" class="btn btn-primary">Delete Photo</button>';
                 	 oci_free_statement($stmt);
                 }
-         elseif ($user_name == "admin") {
+         elseif ($_SESSION['admin']) {
                 	 echo '<button type="submit" name="delete" value="true" class="btn btn-primary">Submit</button>';
                 }
                 oci_close($conn);
