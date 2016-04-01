@@ -37,13 +37,15 @@
 
   <body role="document">
       <!-- Fixed navbar -->
-      <?php include("navi.php"); ?> 
+      <?php include("navi.php"); /*renders the navigation bar*/?> 
     <div class="container">
 
 
 
 
 <form name="searchbar" method="get" action="searchFunction.php">
+
+          Search: 
           <input type="text" name="keywords"/> <br>
           <input type="radio" name="order" value="norm" checked />Normal<br>
           <input type="radio" name="order" value="new" />Newest<br>

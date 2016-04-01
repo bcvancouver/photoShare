@@ -42,13 +42,13 @@
 
 
 <?php 
-include("loggedIn.php"); 
 
 		function reformat_keywords($keywordsraw){
-		    //get the input
-
+		    
+			//split up the keywords
 		    $keywords_array = (explode(' ', $keywordsraw));
 
+		    // fix the key words with 's and ,s
 		    $keywords = '\'';
 		    foreach ($keywords_array as $key => $value) {
 		    	if ($key > 0) {
@@ -63,6 +63,7 @@ include("loggedIn.php");
 		function reformatdate ($date){
 		$date_arr = explode("-", $date);
 
+		//just made my own translator
 		switch ($date_arr[1]) {
 			case '01': $mon = "-JAN-";	break;
 			case '02': $mon = "-FEB-";	break;
@@ -85,7 +86,7 @@ include("loggedIn.php");
 		function createsearchquery($keywords, $order, $start, $end){
 			$username = "'".$_SESSION['login_user']."'";
 
-
+			//The big query
 			$sql = "SELECT DISTINCT photo_id, SCORE(1)*6+SCORE(2)*3+SCORE(3) AS SCORE, timing
 			FROM images i, group_lists gl
 			WHERE (CONTAINS (i.subject, ".$keywords.", 1) > 0 
@@ -96,7 +97,7 @@ include("loggedIn.php");
 					OR (gl.friend_id = $username AND i.permitted = gl.group_id)
 					OR ($username='admin')) ";
 
-			
+			//Timing
 			if ($start!="") {
 				$begin = reformatdate($start);
 				$sql = $sql."AND (timing >= ".$begin.") ";
@@ -106,20 +107,7 @@ include("loggedIn.php");
 				$sql = $sql."AND (timing <= ".$stop.") ";
 			}
 			
-
-			/*
-			    $sql = 'SELECT SCORE(1)*6+SCORE(2)*3+SCORE(3) AS SCORE, photo_id
-				FROM images i, group_lists gl
-				WHERE (CONTAINS (i.subject, keywords, 1) > 0 
-			   		OR CONTAINS (i.place, keywords, 2) > 0 
-			   		OR CONTAINS (i.description, keywords, 3) > 0
-			   	   )
-			 --OR (timing >= '01-DEC-90' AND timing <= '01-JAN-16')
-			--AND (timing >= '01-JAN-16' AND timing <= '01-JAN-16')
-			ORDER BY SCORE desc'
-			  */
-		
- 			
+ 			//Ordering
  			switch ($order) {
 				case 'norm':
  					$sql = $sql . "ORDER BY SCORE desc";
@@ -141,7 +129,6 @@ include('PHPconnectionDB.php');
 session_start();
 
 	if (isset ($_GET['validate'])){
-		$username = "'".$_SESSION['login_user']."'";
 
 
 		$keywords = reformat_keywords($_GET["keywords"]);
@@ -163,11 +150,7 @@ session_start();
 
         //Prepare sql using conn and returns the statement identifier
         $stid = oci_parse($conn, $sql);
-/*
-        //bind the variables for the pl/sql procedure
-        oci_bind_by_name($stid, ':username', $username);
-        oci_bind_by_name($stid, ':keywords', $keywords);
-*/              
+
         //Based off of http://php.net/manual/en/oci8.examples.php example #7
 		oci_execute($stid);
         
