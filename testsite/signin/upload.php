@@ -17,7 +17,7 @@
             alert('No images found!');
             location='uploadfrontend.php';
         </script>";*/
-    }
+    
 
     //Function to turn picture into thumbnail
     function getThumbnail($file) {
