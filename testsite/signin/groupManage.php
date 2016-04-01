@@ -59,6 +59,7 @@
         <form name="delmember" method="post" action="groupDelMember.php">
             <font color='white'>Group Name : </font><input type="text" name="group_name"/> <br/>
             <font color='white'>New Member : </form><input type="text" name="member_name"/> <br/>
+        </font>
           <input type="submit" name="validate" value="OK"/>
         </form>
         
