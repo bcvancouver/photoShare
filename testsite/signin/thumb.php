@@ -33,7 +33,8 @@ if ($user_name == "admin" and $n == "admin") {
 	}
 	elseif ($n == "3") {
 		//top 5 popular images
-		$query = "select photo_id from (select photo_id, count(photo_id) as visits from photo_visit group by photo_id order by visits desc) where ROWNUM <=5";
+		$query = "select photo_id from (select photo_id, count(photo_id) as visits from photo_visit group by photo_id order by visits desc) where ROWNUM <=5 and permitted = '1' or owner_name = '$user_name' or permitted in 
+		(select group_id from group_lists where friend_id = '$user_name' union select group_id from groups where user_name = '$user_name' )";
 				//$query = "select photo_id from images where permitted = '1' or owner_name = '$user' or permitted in (select group_id from group_lists where friend_id = '$user' union select group_id from groups where user_name = '$user' )";
 	}
 	else {
