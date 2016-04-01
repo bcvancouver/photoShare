@@ -1,5 +1,4 @@
-<?php include("loggedIn.php"); ?> 
-<?php
+<?php include("loggedIn.php");
 
 function getGroups(){
     include("PHPconnectionDB.php");
@@ -91,8 +90,8 @@ function getGroups(){
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="signin.html">Signin</a></li>
-                <li><a href="#">Signout</a></li>
+                <li><a href="signin.html">Sign in</a></li>
+                <li><a href="signin.html">Sign out</a></li>
               </ul>
             </li>
           </ul>
