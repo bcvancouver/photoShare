@@ -440,7 +440,7 @@ function getres($sql,$connect) {
                             </div>*/
                         </div>-->
                     </div>
-                    <div class="col-lg-4">
+                    <!--<div class="col-lg-4">
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h3 class="panel-title"><i class="fa fa-clock-o fa-fw"></i> Tasks Panel</h3>
@@ -485,7 +485,6 @@ function getres($sql,$connect) {
                                 </div>
                             </div>
                         </div>
-                    </div>
                     <div class="col-lg-4">
                         <div class="panel panel-default">
                             <div class="panel-heading">
@@ -562,7 +561,7 @@ function getres($sql,$connect) {
                     </div>
                 </div>
                 <!-- /.row -->
-
+        -->
             </div>
             <!-- /.container-fluid -->
 
