@@ -11,12 +11,6 @@
             alert('Please Sign In!');
             location='signin.html';
         </script>";
-    }elseif (count($_FILES['image']['name'])==0){
-        //Reference: http://stackoverflow.com/questions/11869662/display-alert-message-and-redirect-after-click-on-accept
-        /*echo "<script>
-            alert('No images found!');
-            location='uploadfrontend.php';
-        </script>";*/
     }
 
     //Function to turn picture into thumbnail
@@ -72,6 +66,12 @@
         $final_image = ob_get_contents();
         ob_end_clean();
         return $final_image;
+    }
+    if (count($_FILES['image']['name'])==0){
+        echo "<script>
+            alert('No images found!');
+            location='uploadfrontend.php';
+        </script>";
     }
 
     for ($i=0; $i<count($_FILES['image']['name']); $i++) {
