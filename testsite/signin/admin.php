@@ -7,6 +7,8 @@ $user=$_SESSION['login_user'];
 if ($user!="admin"){
     echo "You are kicked out because you are not admin. GG.";
 	die();
+    header("Location: signin.html");
+
 }
 
 include("PHPconnectionDB.php");
