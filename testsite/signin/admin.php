@@ -591,7 +591,7 @@ function ajaxgraph(str) {
     var user = $('#user').find(":selected").text();
     var subj = $('#subj').find(":selected").text();
     var date = $('#period').find(":selected").text();
-    xmlhttp.open("GET", "datacube1.php?user="+user+"&subj="+subj+"&date="+date, true);
+    xmlhttp.open("GET", "cube.php?user="+user+"&subj="+subj+"&date="+date, true);
     xmlhttp.send();
 
 }
