@@ -214,11 +214,11 @@ function getOptions($sql) {
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
-                        </li>
+                        </li>-->
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                            <a href="main.php"><i class="fa fa-fw fa-gear"></i>My Gallery</a>
                         </li>
-                        <li class="divider"></li>-->
+                        <li class="divider"></li>
                         <li>
                             <a href="signin.html"><i class="fa fa-fw fa-gear"></i>Log Out</a>
                         </li>
