@@ -58,7 +58,7 @@
             if(!isset($_SESSION)) { //check if sessions has been initialized
                  session_start();   //initialize session
             }
-            if (!isset($_SESSION['user-name'])) { //checks if there's a user
+            if (!isset($_SESSION['login_user'])) { //checks if there's a user
                 die();
             }
 			
@@ -74,7 +74,7 @@
               $query = "delete FROM images where photo_id = '".$id."'";
               $stmt = oci_parse ($conn, $query);
               $res = oci_execute($stmt);         
-              header("Location: ./mainpage.html");
+              header("Location: ./main.php");
               die();
             }
             //UPDATES IMAGE
@@ -108,7 +108,7 @@
                 $stmt = oci_parse ($conn, $query);
                 oci_execute($stmt);
     			$arr = oci_fetch_array($stmt, OCI_ASSOC);
-    			echo '<img src="pullimage.php?id='.$id.'&type=photo" />';
+    			echo '<img src="getimage.php?id='.$id.'&type=photo" />';
     			
                 //GETS IMAGE GROUPS     
                 $sql = "select s.group_id, s.group_name from group_lists g,images i,groups s where i.photo_id = '".$id."' and g.friend_id = i.owner_name and s.group_id = g.group_id 
@@ -186,7 +186,7 @@
         <div id="pie">
             <div id="pie_l">
                 <ul>
-                    <li><a href="mainpage.html">HOME</a></li>
+                    <li><a href="mainpage.php">HOME</a></li>
                 </ul>
             </div>
             <div id="pie_r">
