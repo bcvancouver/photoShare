@@ -1,4 +1,51 @@
-
+<?php
+      //////////////////////get user's information///////////////////////////
+			include("PHPconnectionDB.php");
+			session_start();
+	      $conn=connect();
+           $user=$_SESSION['login_user'];
+          $up = $_POST['update'];
+          $a = $_POST['first'];
+          $b = $_POST['last'];
+          $c = $_POST['addr'];
+          $d = $_POST['email'];
+          $e = $_POST['phone'];
+          if ($up) {
+            $sql = 'update persons set first_name = \''.$a.'\', last_name = \''.$b.'\', address = \''.$c.'\', email = \''.$d.'\',phone  = \''.$e.'\' 
+            where user_name = \''.$user.'\'';
+            $stid = oci_parse($conn, $sql);        
+            //Execute a statement returned from oci_parse()
+            $res=oci_execute($stid);
+          }
+	      
+	      if (!$conn) {
+    		$e = oci_error();
+    		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+	    }
+			//echo "hello $user";
+			
+			$sql='select * from Persons where user_name=\''.$user.'\'';
+			//echo $sql;
+	    //Prepare sql using conn and returns the statement identifier
+	    $stid = oci_parse($conn, $sql);
+	    
+	    //Execute a statement returned from oci_parse()
+	    $res=oci_execute($stid);
+	    
+	    while ($row=oci_fetch_array($stid,OCI_BOTH)){
+	    	//echo "good";
+	    	$username= $row[0]; 
+	    	$firstname=$row[1];
+	    	$lastname=$row[2];
+	    	$address=$row[3];
+	    	$email=$row[4];
+	    	$phone=$row[5];
+	    	}
+	    //$row=oci_fetch_array($stid,OCI_BOTH)
+	    oci_free_statement($stid);
+	    oci_close($conn);			
+	    /////////////////////end get user's info///////////////////////////////
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -72,14 +119,15 @@
         <form action="uploadfrontend.php">
             <input type="submit" value="Upload a picture"><br/>
         </form>
-        <form name="updateinfo" method="post" action="updateinfo.php" autocomplete="off">
-            First Name : <input type="text" name="firstname"/><br/>
-            Last Name : <input type="text" name="lastname"/><br/>
-            Address : <input type="text" name="address"/><br/>
-            Email : <input type="text" name="email"/><br/>
-            Phone Number : <input type="text" name="phonenumber"/><br/>
-            <input type="submit" name="validate" value="Update Info"/>
-        </form>
+        <h3> <form method="post">
+                <?php echo "Username: $user"; ?><br>
+                <?php echo "First name: <input name='first' value='$firstname'></input>"; ?> <br>
+                <?php echo "Last name: <input name='last' value='$lastname'></input>"; ?>   <br>         
+                <?php echo "Address: <input name='addr' value='$address'></input>"; ?>  <br>             
+                <?php echo "Email: <input name='email' value='$email'></input>"; ?>  <br> 
+                <?php echo "Phone: <input name='phone' value='$phone'></input>"; ?>   <br> 
+                <input type="submit" name="update" value="Update Info"> </form> <br>
+                </h3>    
                 <?php echo "<a href='admin.php'>Admin</a>" ?>   <br> 
             
 
