@@ -4,7 +4,7 @@
     session_start();
     $user=$_SESSION['login_user'];
     $connection=connect();
-    $file_count=count($file_post['image']);
+    $file_count=count($file_post['image[]']);
     echo "$file_count files found!<br>";
     if (!$user){
         echo "<script>
