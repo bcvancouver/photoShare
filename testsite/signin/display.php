@@ -172,7 +172,7 @@
             		$res = oci_execute($stmt); 
             		                     
  						$res = oci_fetch_array($stmt, OCI_ASSOC);    
-						if ($res['OWNER_NAME']) {
+						if ($res['OWNER_NAME'] == $user_name ) {
                 	 echo '<button type="submit" name="edit" value="true" class="btn btn-primary">Submit</button>';
                             print("i'm here");
                 }
@@ -186,7 +186,7 @@
         <form >
         <input type="hidden" name="id" value="<?php echo $id; ?>">
                         <?php
-						if ($res['OWNER_NAME']) {
+						if ($res['OWNER_NAME'] == $user_name ) {
                 	 echo '<button type="submit" name="delete" value="true" class="btn btn-primary">Delete Photo</button>';
                 	 oci_free_statement($stmt);
                 }
