@@ -70,15 +70,16 @@ function getTotalPersonNum(){
     //oci_close($connect);
     return $number_of_rows;
 }
-/*function getres($sql,$conn) {
-    $stid = oci_parse($conn,$sql);
-    $res = oci_execute($stid);
+function getres($sql,$connect) {
+    $stid = oci_parse($connect,$sql);
+    oci_execute($stid);
     while (($row = oci_fetch_array($stid, OCI_ASSOC))) {
         foreach($row as$item)   {
             echo '<option>'.$item.'</option>';
         }
     }
-}*/
+}
+
 ?>
 <head>
 <!--http://startbootstrap.com/template-overviews/sb-admin-2/-->
@@ -386,7 +387,7 @@ function getTotalPersonNum(){
                                             <select id="user" class="form-control">
                                                 <option>All</option>
                                                 <option>None</option>
-                                                <?php getres("select user_name from users",$conn); ?>
+                                                <?php getres("select user_name from users",$connect); ?>
                                             </select>
                                         </div>
                                     <div class="form-group col-lg-4">
@@ -394,7 +395,7 @@ function getTotalPersonNum(){
                                             <select id="subj" class="form-control">
                                                 <option>All</option>
                                                 <option>None</option>
-                                                <?php getres("select distinct subject from images",$conn); ?>
+                                                <?php getres("select distinct subject from images",$connect); ?>
                                             </select>
                                         </div>
                                     <div class="form-group col-lg-4">
@@ -591,7 +592,7 @@ function ajaxgraph(str) {
     var user = $('#user').find(":selected").text();
     var subj = $('#subj').find(":selected").text();
     var date = $('#period').find(":selected").text();
-    xmlhttp.open("GET", "datacube1.php?user="+user+"&subj="+subj+"&date="+date, true);
+    xmlhttp.open("GET", "cube.php?user="+user+"&subj="+subj+"&date="+date, true);
     xmlhttp.send();
 
 }
