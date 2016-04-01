@@ -43,7 +43,7 @@ if ($user_name == "admin") {
 		oci_execute($stid);
 		while ($arr = oci_fetch_array($stid, OCI_ASSOC)){
 			$id = $arr['PHOTO_ID'];
-			echo '<a href="getimage.php?id='.$id.'"><img src="getimage.php?id='.$id.'&type=thumbnail" width="200" height="200" /></a>';
+			echo '<a href="display.php?id='.$id.'"><img src="getimage.php?id='.$id.'&type=thumbnail" width="200" height="200" /></a>';
 		}	
 	}
 	imagequery($query,$conn);
