@@ -67,7 +67,7 @@ function getTotalPersonNum(){
     oci_free_statement($stmt);
     return $number_of_rows;
 }
-function getres($sql,$connect) {
+function getOptions($sql) {
     $connect=connect();
     $stid = oci_parse($connect,$sql);
     oci_execute($stid);
@@ -346,7 +346,7 @@ function getres($sql,$connect) {
                                             <select id="user" class="form-control">
                                                 <option>All</option>
                                                 <option>None</option>
-                                                <?php getres('SELECT user_name FROM users',$connect); ?>
+                                                <?php getOptions('SELECT user_name FROM users'); ?>
                                             </select>
                                         </div>
                                     <div class="form-group col-lg-4">
@@ -354,7 +354,7 @@ function getres($sql,$connect) {
                                             <select id="subj" class="form-control">
                                                 <option>All</option>
                                                 <option>None</option>
-                                                <?php getres('SELECT DISTINCT subject FROM images',$connect); ?>
+                                                <?php getOptions('SELECT DISTINCT subject FROM images',$connect); ?>
                                             </select>
                                         </div>
                                     <div class="form-group col-lg-4">
@@ -478,88 +478,7 @@ Morris.Area({
         resize: true
     });
 
-/*
-            Morris.Area({
-                element: 'morris-area-chart',
-                data: [{
-                    period: '2010 Q1',
-                    user:4
-                }, {
-                    period: '2010 Q2',
-                    user:9
-                }],
-                xkey: 'period',
-                ykeys: ['user'],
-                labels:['name'],
-                pointSize: 2,
-                hideHover: 'auto',
-                resize: true
-            });
-
-        Morris.Area({
-        element: 'morris-area-chart',
-        data: [{
-            period: '2010 Q1',
-            iphone: 2666,
-            ipad: null,
-            itouch: 2647
-        }, {
-            period: '2010 Q2',
-            iphone: 2778,
-            ipad: 2294,
-            itouch: 2441
-        }, {
-            period: '2010 Q3',
-            iphone: 4912,
-            ipad: 1969,
-            itouch: 2501
-        }, {
-            period: '2010 Q4',
-            iphone: 3767,
-            ipad: 3597,
-            itouch: 5689
-        }, {
-            period: '2011 Q1',
-            iphone: 6810,
-            ipad: 1914,
-            itouch: 2293
-        }, {
-            period: '2011 Q2',
-            iphone: 5670,
-            ipad: 4293,
-            itouch: 1881
-        }, {
-            period: '2011 Q3',
-            iphone: 4820,
-            ipad: 3795,
-            itouch: 1588
-        }, {
-            period: '2011 Q4',
-            iphone: 15073,
-            ipad: 5967,
-            itouch: 5175
-        }, {
-            period: '2012 Q1',
-            iphone: 10687,
-            ipad: 4460,
-            itouch: 2028
-        }, {
-            period: '2012 Q2',
-            iphone: 8432,
-            ipad: 5713,
-            itouch: 1791
-        }],
-        xkey: 'period',
-        ykeys: ['iphone', 'ipad', 'itouch'],
-        labels: ['iPhone', 'iPad', 'iPod Touch'],
-        pointSize: 2,
-        hideHover: 'auto',
-        resize: true
-    });
-
-    SELECT unique owner_name,tYear,tMonth,tWeek,image_count FROM data_cube where owner_name is null and subject is null and tyear is not null and tmonth is null and tWeek is null;
-    */
-    </script>
+</script>
 
 </html>
 <?php
