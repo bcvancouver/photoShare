@@ -6,15 +6,16 @@
     $connection=connect();
 
     if (!$user){
-        echo "Please Sign In!";
-        header("Location: signin.html");
-        exit;
-    }elseif (count($_FILES['image[]']['name'])==0){
         echo "<script>
-           alert('There are no fields to generate a report');
+            alert('Please Sign In!');
+            window.location.href='signin.html';
+        </script>";
+    }elseif (count($_FILES['image[]']['name'])==0){
+        //Reference: http://stackoverflow.com/questions/11869662/display-alert-message-and-redirect-after-click-on-accept
+        echo "<script>
+            alert('There are no fields to generate a report');
             window.location.href='uploadfrontend.php';
         </script>";
-        //header("Location: uploadfrontend.php");
     }
 
     //Function to turn picture into thumbnail
