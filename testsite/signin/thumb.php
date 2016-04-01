@@ -21,12 +21,14 @@ if ($user_name == "admin" and $n == "admin") {
 	}
 	elseif ($n == "1") {
 		//recent
-		$query = "select t2.photo_id from (select photo_id from images where permitted = '1' or owner_name = '$user_name' or permitted in (select group_id from group_lists where friend_id = 'user_name' union select group_id from groups where user_name = '$user_name' ))t1 inner join (SELECT photo_id FROM images order by timing asc)t2 on t1.photo_id = t2.photo_id";	
+		$query = "SELECT photo_id FROM images where permitted = '1' or owner_name = '$user_name' or permitted in 
+		(select group_id from group_lists where friend_id = '$user_name' union select group_id from groups where user_name = '$user_name' )order by timing desc";	
 				//$query = "select photo_id from images where permitted = '1' or owner_name = '$user' or permitted in (select group_id from group_lists where friend_id = '$user' union select group_id from groups where user_name = '$user' )";
 	}
 	elseif ($n == "2") {
 		//oldest
-		$query = "select t2.photo_id from (select photo_id from images where permitted = '1' or owner_name = '$user_name' or permitted in (select group_id from group_lists where friend_id = 'user_name' union select group_id from groups where user_name = '$user_name' ))t1 inner join (SELECT photo_id FROM images order by timing desc)t2 on t1.photo_id = t2.photo_id";	
+		$query = "SELECT photo_id FROM images where permitted = '1' or owner_name = '$user_name' or permitted in 
+		(select group_id from group_lists where friend_id = '$user_name' union select group_id from groups where user_name = '$user_name' )order by timing asc";	
 				//$query = "select photo_id from images where permitted = '1' or owner_name = '$user' or permitted in (select group_id from group_lists where friend_id = '$user' union select group_id from groups where user_name = '$user' )";
 	}
 	elseif ($n == "3") {
