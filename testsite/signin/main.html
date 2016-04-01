@@ -1,3 +1,52 @@
+<?php
+      //////////////////////get user's information///////////////////////////
+			include("PHPCONNECTIONDB.php");
+			session_start();
+	      $conn=connect();
+           $user=$_SESSION['login_name'];
+          $up = $_POST['update'];
+          $a = $_POST['first'];
+          $b = $_POST['last'];
+          $c = $_POST['addr'];
+          $d = $_POST['email'];
+          $e = $_POST['phone'];
+          if ($up) {
+            $sql = 'update persons set first_name = \''.$a.'\', last_name = \''.$b.'\', address = \''.$c.'\', email = \''.$d.'\',phone  = \''.$e.'\' 
+            where user_name = \''.$user.'\'';
+            $stid = oci_parse($conn, $sql);        
+            //Execute a statement returned from oci_parse()
+            $res=oci_execute($stid);
+          }
+	      
+	      if (!$conn) {
+    		$e = oci_error();
+    		trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+	    }
+			//echo "hello $user";
+			
+			$sql='select * from Persons where user_name=\''.$user.'\'';
+			//echo $sql;
+	    //Prepare sql using conn and returns the statement identifier
+	    $stid = oci_parse($conn, $sql);
+	    
+	    //Execute a statement returned from oci_parse()
+	    $res=oci_execute($stid);
+	    
+	    while ($row=oci_fetch_array($stid,OCI_BOTH)){
+	    	//echo "good";
+	    	$username= $row[0]; 
+	    	$firstname=$row[1];
+	    	$lastname=$row[2];
+	    	$address=$row[3];
+	    	$email=$row[4];
+	    	$phone=$row[5];
+	    	}
+	    //$row=oci_fetch_array($stid,OCI_BOTH)
+	    oci_free_statement($stid);
+	    oci_close($conn);			
+	    /////////////////////end get user's info///////////////////////////////
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,7 +55,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Wan Kin Vinson Lai" >
     <link rel="icon" href="../Image/favicon%20(1).ico">
 
     <title>ExclusivePic</title>
@@ -68,9 +117,76 @@
 
 
       <h1><font color="white">Main Page<br></font></h1>
-        <form action="upload.html">
+        <form action="uploadfrontend.php">
             <input type="submit" value="Upload a picture">
         </form>
+               <h2> <form method="post">
+                <?php echo "Username: $username"; ?><br>
+                <?php echo "First name: <input name='first' value='$firstname'></input>"; ?> <br>
+                <?php echo "Last name: <input name='last' value='$lastname'></input>"; ?>   <br>         
+                <?php echo "Address: <input name='addr' value='$address'></input>"; ?>  <br>             
+                <?php echo "Email: <input name='email' value='$email'></input>"; ?>  <br> 
+                <?php echo "Phone: <input name='phone' value='$phone'></input>"; ?>   <br> 
+                <input type="submit" name="update" value="Update Info"> </form> <br>
+                <?php echo "<a href='admin.php'>Admin</a>" ?>   <br> 
+                </h2>           
+
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+ 
+<script type="text/javascript">
+            function loadDoc(str) {
+                $("#demo").html("");
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        var txt = xmlhttp.responseText;
+                        $("#demo").html(txt);
+                    }
+                };
+                var thumb = "thumb.php";
+                if (location.search) thumb += location.search + "&" + str;
+                else {
+                    thumb += "?" + str;
+                }
+                xmlhttp.open("GET", thumb, true);
+                xmlhttp.send();
+            };
+            loadDoc("main=true");            
+            function loadDoc2(str) {
+                $("#demo").html("");
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        var txt = xmlhttp.responseText;
+                        $("#demo").html(txt);
+                    }
+                };
+                var thumb = "thumb.php";
+                if (location.search) thumb += location.search + "&option=" + str;
+                else {
+                    thumb += "?n=" + str;
+                }
+                xmlhttp.open("GET", thumb, true);
+                xmlhttp.send();
+            };
+            //popularity of an image is specified by the number of distinct users that have ever viewed the image
+        </script>
+
+  <h2>Image Gallery</h2>   
+        <form id="gform" action="thumb.php" method="get" name="jumpto">
+                    <select name="c" onchange="javascript: loadDoc2(this.value);">
+                    <option value="0">Own photos</option>
+                    <option value="1">Most Recent</option>
+                    <option value="2">Oldest</option>
+                    <option value="3">Top Five</option>
+            </select>
+      </form>
+  <div id="demo" class="column">
+      
+
     </div> <!-- /container -->
 
 

@@ -10,6 +10,7 @@ DROP TABLE groups;
 DROP TABLE persons;
 DROP TABLE users;
 
+<<<<<<< HEAD
 DROP SEQUENCE seq_group_id;
 
 drop index image_subject_idx;
@@ -17,6 +18,8 @@ drop index image_place_idx;
 drop index image_desc_idx;
 
 
+=======
+>>>>>>> 357c701efb418e667f61af621043018fdbcb80cd
 CREATE TABLE users (
    user_name varchar(24),
    password  varchar(24),
@@ -128,3 +131,10 @@ CREATE INDEX image_subject_idx ON images (subject) indextype is ctxsys.context p
 CREATE INDEX image_place_idx ON images (place) indextype is ctxsys.context parameters ('sync (on commit)');
 CREATE INDEX image_desc_idx ON images (description) indextype is ctxsys.context parameters ('sync (on commit)');
 
+
+//add table for photo visit
+CREATE TABLE PHOTO_VISIT
+(
+PHOTO_ID number(38,0),
+OWNER_NAME VARCHAR2(24 BYTE)
+);

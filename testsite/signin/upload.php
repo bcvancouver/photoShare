@@ -1,121 +1,146 @@
-<!DOCTYPE html>
-
 <?php
     
     include ("PHPconnectionDB.php");
     session_start();
     $user=$_SESSION['login_user'];
-?>
-<html>
-    <body>
-        <?php
-        
-        $connection=connect();
-        
-        $subject=$_POST['title'];
-        $date=$_POST['datepicker'];
-        $place=$_POST['place'];
-        $description=$_POST['description'];
-        $permitted=$_POST['privacy'];
-        $description=$_POST['description'];
-        
-        //Function to turn picture into thumbnail
-        function img_resize($target, $newcopy, $w, $h) {
-            list($w_orig, $h_orig) = getimagesize($target);
-            $scale_ratio = $w_orig / $h_orig;
-            if (($w / $h) > $scale_ratio) {
-                $w = $h * $scale_ratio;
-            } else {
-                $h = $w / $scale_ratio;
-            }
-            $img = imagecreatefromjpeg($target);
-            $tci = imagecreatetruecolor($w, $h);
-            imagecopyresampled($tci, $img, 0, 0, 0, 0, $w, $h, $w_orig, $h_orig);
-            imagejpeg($tci, $newcopy, 80);
+    $connection=connect();
+
+    if (!$user){
+        echo "Please Sign In!";
+        header("Location: signin.html");
+        exit;
+    }
+
+    //Function to turn picture into thumbnail
+    function getThumbnail($file) {
+        //$source_pic = $file;
+        $max_width = 200;
+        $max_height = 200;
+        echo "<center>processing image...</center><br/>";
+        list($width, $height, $image_type) = getimagesize($file);
+        switch ($image_type)
+        {
+            case 1: $src = imagecreatefromgif($file); break;
+            case 2: $src = imagecreatefromjpeg($file);  break;
+            case 3: $src = imagecreatefrompng($file); break;
+            default: return '';  break;
         }
-            
-        //Check image file
-        if(isset($_FILES['image'])){
-              $errors= array();
-              $file_name = $_FILES['image']['name'];
-              $file_size =$_FILES['image']['size'];
-              $file_tmp =$_FILES['image']['tmp_name'];
-              $file_type=$_FILES['image']['type'];
-            move_uploaded_file($file_tmp, "/tmp/xi/".$file_tmp);
-            $original = "/tmp/xi/".$file_tmp;
-            $re_img = "/tmp/xi/tmp/re_".$file_tmp;
-            //$file_content=file_get_content(file_tmp);
-            $file_ext=strtolower(end(explode('.',$_FILES['image']['name'])));
+        $x_ratio = $max_width / $width;
+        $y_ratio = $max_height / $height;
+        if( ($width <= $max_width) && ($height <= $max_height) ){
+            $tn_width = $width;
+            $tn_height = $height;
+        }elseif (($x_ratio * $height) < $max_height){
+            $tn_height = ceil($x_ratio * $height);
+            $tn_width = $max_width;
+        }else{
+            $tn_width = ceil($y_ratio * $width);
+            $tn_height = $max_height;
+        }
+        $tmp = imagecreatetruecolor($tn_width,$tn_height);
+        /* Check if this image is PNG or GIF, then set if Transparent*/
+        if(($image_type == 1) OR ($image_type==3))
+        {
+            imagealphablending($tmp, false);
+            imagesavealpha($tmp,true);
+            $transparent = imagecolorallocatealpha($tmp, 255, 255, 255, 127);
+            imagefilledrectangle($tmp, 0, 0, $tn_width, $tn_height, $transparent);
+        }
+        imagecopyresampled($tmp,$src,0,0,0,0,$tn_width, $tn_height,$width,$height);
+        /*
+         * imageXXX() only has two options, save as a file, or send to the browser.
+         * It does not provide you the oppurtunity to manipulate the final GIF/JPG/PNG file stream
+         * So I start the output buffering, use imageXXX() to output the data stream to the browser,
+         * get the contents of the stream, and use clean to silently discard the buffered contents.
+         */
+        ob_start();
+        switch ($image_type)
+        {
+            case 1: imagegif($tmp); break;
+            case 2: imagejpeg($tmp, NULL, 100);  break; // best quality
+            case 3: imagepng($tmp, NULL, 0); break; // no compression
+            default: echo ''; break;
+        }
+        $final_image = ob_get_contents();
+        ob_end_clean();
+        return $final_image;
+    }
 
-              $expensions= array("jpeg","jpg","png","gif");
+    echo count($_FILES['image']['name']);
+    for ($i=0; $i<count($_FILES['image']['name']); $i++){
 
-           if ($file_size==0){
-                $errors[]="Plz select a file.";   
-           }elseif(in_array($file_ext,$expensions)=== false){
-                 $errors[]="extension not allowed, please choose a JPEG, PNG or GIF file.";
-              }
+        //Check each image file
+        if (isset($_FILES['image'][$i])) {
+            $errors = array();
+            $file_name = $_FILES['image']['name'][$i];
+            $file_size = $_FILES['image']['size'][$i];
+            $file_tmp = $_FILES['image']['tmp_name'][$i];
+            $file_type = $_FILES['image']['type'][$i];
+
+            $file_ext = strtolower(end(explode('.', $_FILES['image']['name'][$i])));
+
+            $extension = array("jpeg", "jpg", "png", "gif");
+
+            if ($file_size == 0) {
+                $errors[] = "Plz select a file.";
+            } elseif (in_array($file_ext, $extension) === false) {
+                $errors[] = "extension not allowed, please choose a JPEG, PNG or GIF file.";
+            }
+        }
+        // If image file is okay, upload
+        if (empty($errors) == true) {
+            echo " image exist<br>";
+            $image = file_get_contents(addslashes($_FILES['image']['tmp_name'][$i]));
+            $thumbnail = getThumbnail($_FILES['image']['tmp_name'][$i]);
+
+            //Reference: http://php.net/manual/en/function.oci-new-descriptor.php
+            $connection = connect();
+            $curr_id = hexdec(uniqid());
+            $message = '<p>Building query</p>';
+
+            $user = $_SESSION['login_user'];
+            $subject = $_POST['title'];
+            $date = $_POST['datepicker'];
+            $date=str_replace('-','/',$date);
+            $place = $_POST['place'];
+            $description = $_POST['description'];
+            $permitted=$_POST['privacy'];
+
+            $sql = 'INSERT INTO images VALUES '
+                . '(' . $curr_id . ',\'' . $user . '\',\'' . $permitted . '\',\'' . $subject . '\',\'' . $place . '\','
+                . 'TO_DATE(\'' . $date . '\', \'yyyy/mm/dd\'),\'' . $description . '\',empty_blob(),empty_blob()) '
+                . 'RETURNING thumbnail, photo INTO :thumbnail, :photo';
+
+            $stid = oci_parse($connection, $sql);
+
+            // Create blobs from photo and thumbnail
+            $thumbnail_blob = oci_new_descriptor($connection, OCI_D_LOB);
+            $photo_blob = oci_new_descriptor($connection, OCI_D_LOB);
+            oci_bind_by_name($stid, ':thumbnail', $thumbnail_blob, -1, OCI_B_BLOB);
+            oci_bind_by_name($stid, ':photo', $photo_blob, -1, OCI_B_BLOB);
+            $res = oci_execute($stid, OCI_NO_AUTO_COMMIT);
+
+            if (!$thumbnail_blob->save($thumbnail) || !$photo_blob->save($image)) {
+                oci_rollback($connection);
+            } else {
+                oci_commit($connection);
+                echo "<center>Images Sucessfully Uploaded!<center><br>";
+            }
+
+            if (!$res) {
+                $err = oci_error($stid);
+                echo htmlentities($err['message']);
+            }
+            oci_free_statement($stid);
+
+            oci_close($connection);
 
 
-            if(empty($errors)==true){
-                //$tmp_name=$_FILES['images']['name'];
-               list($width,$height)=getimagesize($file_tmp);
-               
-               $image= addslashes($file_tmp);
-               $image=file_get_contents($image);
-                
-               img_resize($original,$re_img,200,200);
-                $thumbnail = file_get_contents($re_img);
-                
-                //Reference: http://php.net/manual/en/function.oci-new-descriptor.php
-                
-                $uniid=uniqid();
-                
-                $lob=oci_new_descriptor($connection, OCI_D_LOB);
-                $lobimage=oci_new_descriptor($connection,OCI_D_LOB);
-                
-                $stmt = oci_parse($connection, 'insert into images (photo_id, owner_name, permitted, subject, place, timing, description, thumbnail, photo) values    (:php_id, :owner_name, :permitted, :subject, :location, TO_DATE( :time, \'mm/dd/yyyy\'), :description, EMPTY_BLOB(), EMPTY_BLOB()) returning thumbnail, photo into :thumbnail, :photo');
-                
-                oci_bind_by_name($stmt, ':owner_name', $user);
-                $permitted=1;
-                oci_bind_by_name($stmt, ':permitted', $permitted);
-                oci_bind_by_name($stmt, ':php_id', $uniid);
-                oci_bind_by_name($stmt, ':subject', $subject);
-                oci_bind_by_name($stmt, ':location', $place);
-                oci_bind_by_name($stmt, ':time', $date);
-                oci_bind_by_name($stmt, ':description', $description);
-                oci_bind_by_name($stmt, ':thumbnail', $lob, -1, OCI_B_BLOB);
-                oci_bind_by_name($stmt, ':photo', $lobimage, -1,  OCI_B_BLOB);
+        } else {
+            print_r($errors);
+        }
+    }
 
-                
-                //Reference: http://www.php-tutorials.com/oracle-blob-insert-php-bind-variables/
-                if (!oci_execute($stmt, OCI_DEFAULT)){
-                    $e=error_get_last();
-                    $f=oci_error();
-                    echo "Message: ".$e['message']."\n";
-                    echo "File: ".$e['file']."\n";
-                    echo "Line: ".$e['line']."\n";
-                    echo "Oracle Message: ".$f['message'];
-                    
-                    echo "<table align='center'> <tr><td>Couldn't upload image. </td></tr> <tr><td>Please check you have correct sensor id.</td></tr> </table><br/>";
+        echo '<center><form method="post" action ="main.html"><input type="submit" name="submit" value="continue" /> </form></center>';
 
-                }else{
-                    $lob->save($thumbnail);
-                    $lobimage->save($image);
-                    
-                    oci_commit($connection);
-                    
-                    $lob->free();
-                    $lobimage->free();
-                    echo "Image uploaded!<br/>";
-                }
-                //move_uploaded_file($file_tmp,"images/".$file_name);
-              }else{
-                 print_r($errors);
-              }
-           }
-            echo '<center><form method="post" action ="upload.html"><input type="submit" name="submit" value="continue" /> </form></center>';
-            
-        oci_close($connection);
-        ?>
-    </body>
-</html>
+    ?>
