@@ -6,11 +6,11 @@ session_start();
 	die();
 }*/
 
-include("connection_database.php");
+//include("connection_database.php");
 
-$conn=connect();
+//$conn=connect();
 
-function getres($sql,$conn) {
+/*function getres($sql,$conn) {
     $stid = oci_parse($conn,$sql);
     $res = oci_execute($stid);
     while (($row = oci_fetch_array($stid, OCI_ASSOC))) {
@@ -18,7 +18,7 @@ function getres($sql,$conn) {
             echo '<option>'.$item.'</option>';
         }
     }
-}
+}*/
 ?>
 <head>
 <!--http://startbootstrap.com/template-overviews/sb-admin-2/-->
