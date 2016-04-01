@@ -13,7 +13,7 @@
     }elseif (count($_FILES['image[]']['name'])==0){
         //Reference: http://stackoverflow.com/questions/11869662/display-alert-message-and-redirect-after-click-on-accept
         echo "<script>
-            alert('There are no fields to generate a report');
+            alert('No images found!');
             location='uploadfrontend.php';
         </script>";
     }
