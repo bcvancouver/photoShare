@@ -6,10 +6,69 @@ session_start();
 	die();
 }*/
 
-//include("connection_database.php");
+include("PHPconnectionDB.php");
 
-//$conn=connect();
+session_start();
 
+function getTotalImageNum(){
+    //session_start();
+    $connect=connect();
+
+    $sql='SELECT COUNT(*) AS NUMBER_OF_ROWS FROM images;';
+    $stmt = oci_parse($connect, $sql);
+    oci_define_by_name($stmt, 'NUMBER_OF_ROWS', $number_of_rows);
+    oci_execute($stmt);
+    oci_fetch($stmt);
+
+    oci_free_statement($stmt);
+    //oci_close($connect);
+    return $number_of_rows;
+}
+
+function getTotalGroupNum(){
+    //session_start();
+    $connect=connect();
+
+    $sql='SELECT COUNT(*) AS NUMBER_OF_ROWS FROM groups;';
+    $stmt = oci_parse($connect, $sql);
+    oci_define_by_name($stmt, 'NUMBER_OF_ROWS', $number_of_rows);
+    oci_execute($stmt);
+    oci_fetch($stmt);
+
+    oci_free_statement($stmt);
+    //oci_close($connect);
+    return $number_of_rows;
+}
+
+function getTotalUserNum(){
+    //session_start();
+    $connect=connect();
+
+    $sql='SELECT COUNT(*) AS NUMBER_OF_ROWS FROM users;';
+    $stmt = oci_parse($connect, $sql);
+    oci_define_by_name($stmt, 'NUMBER_OF_ROWS', $number_of_rows);
+    oci_execute($stmt);
+    oci_fetch($stmt);
+
+    oci_free_statement($stmt);
+    //oci_close($connect);
+    return $number_of_rows;
+}
+
+function getTotalPersonNum(){
+    //session_start();
+    $connect=connect();
+
+    $sql='SELECT COUNT(*) AS NUMBER_OF_ROWS FROM persons;';
+    $stmt = oci_parse($connect, $sql);
+    oci_define_by_name($stmt, 'NUMBER_OF_ROWS', $number_of_rows);
+    oci_execute($stmt);
+    oci_fetch($stmt);
+
+    oci_free_statement($stmt);
+    //oci_close($connect);
+    return $number_of_rows;
+}
 /*function getres($sql,$conn) {
     $stid = oci_parse($conn,$sql);
     $res = oci_execute($stid);
@@ -232,17 +291,17 @@ session_start();
                                         <i class="fa fa-comments fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">26</div>
+                                        <div class="huge"><?php echo getTotalUserNum()?></div>
                                         <div>No of Users</div>
                                     </div>
                                 </div>
                             </div>
                             <a href="#">
-                                <div class="panel-footer">
+                                <!--<div class="panel-footer">
                                     <span class="pull-left">View Details</span>
                                     <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                                     <div class="clearfix"></div>
-                                </div>
+                                </div>-->
                             </a>
                         </div>
                     </div>
@@ -254,7 +313,7 @@ session_start();
                                         <i class="fa fa-tasks fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">12</div>
+                                        <div class="huge"><?php echo getTotalImageNum()?></div>
                                         <div>No of Images</div>
                                     </div>
                                 </div>
@@ -276,7 +335,7 @@ session_start();
                                         <i class="fa fa-shopping-cart fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">124</div>
+                                        <div class="huge"><?php echo getTotalGroupNum()?></div>
                                         <div>No of Groups</div>
                                     </div>
                                 </div>
@@ -298,7 +357,7 @@ session_start();
                                         <i class="fa fa-support fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
-                                        <div class="huge">13</div>
+                                        <div class="huge"><?php echo getTotalPersonNum();?></div>
                                         <div>No of Persons</div>
                                     </div>
                                 </div>
@@ -681,3 +740,6 @@ Morris.Area({
     </script>
 
 </html>
+<?php
+    oci_close($connect);
+?>
