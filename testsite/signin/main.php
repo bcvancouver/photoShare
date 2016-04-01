@@ -120,15 +120,18 @@
             <input type="submit" value="Upload a picture"><br/>
         </form>
         <h3> <form method="post">
-                <?php echo "Username: $user"; ?><br>
-                <?php echo "First name: <input name='first' value='$firstname'></input>"; ?> <br>
-                <?php echo "Last name: <input name='last' value='$lastname'></input>"; ?>   <br>         
-                <?php echo "Address: <input name='addr' value='$address'></input>"; ?>  <br>             
-                <?php echo "Email: <input name='email' value='$email'></input>"; ?>  <br> 
-                <?php echo "Phone: <input name='phone' value='$phone'></input>"; ?>   <br> 
-                <input type="submit" name="update" value="Update Info"> </form> <br>
-                </h3>    
-                <?php echo "<a href='admin.php'>Admin</a>" ?>   <br> 
+                <?php
+                    echo "Username: $user";
+                    echo "<br>First name: <input name='first' value='$firstname'>";
+                    echo "<br>Last name: <input name='last' value='$lastname'>";
+                    echo "<br>Address: <input name='addr' value='$address'>";
+                    echo "<br>Email: <input name='email' value='$email'>";
+                    echo "<br>Phone: <input name='phone' value='$phone'>";?>
+                    <input type="submit" name="update" value="Update Info"> </form><br>
+                    </h3>
+                <?php
+                    echo "<a href='admin.php'>Admin</a><br>";
+                ?>
             
 
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
