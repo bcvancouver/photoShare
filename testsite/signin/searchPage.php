@@ -1,6 +1,11 @@
 <form name="searchbar" method="post" action="phptesting.php">
-          <input type="text" name="keywords"/> 
-          <input type="submit" name="validate" value="OK"/>
+          <input type="text" name="keywords"/> <br>
+          <input type="radio" name="order" value="norm" checked />Normal<br>
+          <input type="radio" name="order" value="new" />Newest<br>
+          <input type="radio" name="order" value="old" />Oldest<br>
+          Older Than: <input type="date" name="start"><br>
+          Newer Than:<input type="date" name="end"><br>
+          <input type="submit" name="validate" value="Search"/>
         </form>
 
         <!--

@@ -43,14 +43,15 @@ session_start();
         //Based off of http://php.net/manual/en/oci8.examples.php example #7
 		oci_execute($stid);
         
+        print_r($sql);
         echo "<table border='1'>\n";
 		while (($row = oci_fetch_array($stid, OCI_ASSOC))) {
 		    $rc = $row['MFRC'];
 		    oci_execute($rc);  // returned column value from the query is a ref cursor
 		    print_r($rc.'<br>');
 		    while (($rc_row = oci_fetch_array($rc, OCI_ASSOC))) {   
-		        echo "<tr>"
-		        echo"<td>" . $rc_row['SUBJECT'] . "</td>"
+		        echo "<tr>";
+		        echo"<td>" . $rc_row['SUBJECT'] . "</td>";
 		        echo"</tr>";
 		    }
 		    oci_free_statement($rc);
