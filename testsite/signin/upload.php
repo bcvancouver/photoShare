@@ -6,9 +6,16 @@
     $connection=connect();
 
     if (!$user){
-        echo "Please Sign In!";
-        header("Location: signin.html");
-        exit;
+        echo "<script>
+            alert('Please Sign In!');
+            location='signin.html';
+        </script>";
+    }elseif (count($_FILES['image[]']['name'])==0){
+        //Reference: http://stackoverflow.com/questions/11869662/display-alert-message-and-redirect-after-click-on-accept
+        echo "<script>
+            alert('No images found!');
+            location='uploadfrontend.php';
+        </script>";
     }
 
     //Function to turn picture into thumbnail
@@ -66,7 +73,6 @@
         return $final_image;
     }
 
-    echo count($_FILES['image']['name']);
     for ($i=0; $i<count($_FILES['image']['name']); $i++) {
 
         //Check each image file
@@ -89,7 +95,6 @@
         }
         // If image file is okay, upload
         if (empty($errors) == true) {
-            echo " image exist<br>";
             $image = file_get_contents(addslashes($_FILES['image']['tmp_name'][$i]));
             $thumbnail = getThumbnail($_FILES['image']['tmp_name'][$i]);
 

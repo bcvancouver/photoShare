@@ -5,10 +5,10 @@ session_start();
 $user=$_SESSION['login_user'];
 
 if ($user!="admin"){
-    echo "You are kicked out because you are not admin. GG.";
-    header("Location: signin.html");
-    die();
-
+    echo "<script>
+        alert('You are kicked out because you are not admin. GG.!');
+        location='signin.html';
+    </script>";
 }
 
 include("PHPconnectionDB.php");
