@@ -172,7 +172,7 @@
             		$res = oci_execute($stmt); 
             		      $user_name = $_SESSION['login-user'];
  						$res = oci_fetch_array($stmt, OCI_ASSOC);  
-                         print($user_name);
+                         print_r($user_name);
                         print($res['OWNER_NAME']);
 						if ($res['OWNER_NAME'] == $user_name ) {
                 	 echo '<button type="submit" name="edit" value="true" class="btn btn-primary">Submit</button>';
