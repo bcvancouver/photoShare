@@ -175,10 +175,10 @@
 						if ($res['OWNER_NAME'] == $user_name ) {
                 	 echo '<button type="submit" name="edit" value="true" class="btn btn-primary">Submit</button>';
                 }
-                else if ($_SESSION['admin']) {
+                elseif ($_SESSION['admin']) {
                 	 echo '<button type="submit" name="edit" value="true" class="btn btn-primary">Submit</button>';
                 }
-                else {print("i'm here")}
+                else {print("i'm here");}
                 ?>
             </form>
         </div>
@@ -189,7 +189,7 @@
                 	 echo '<button type="submit" name="delete" value="true" class="btn btn-primary">Delete Photo</button>';
                 	 oci_free_statement($stmt);
                 }
-         else if ($_SESSION['admin']) {
+         elseif ($_SESSION['admin']) {
                 	 echo '<button type="submit" name="delete" value="true" class="btn btn-primary">Submit</button>';
                 }
  else {print("i'm here")}
