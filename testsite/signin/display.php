@@ -170,13 +170,18 @@
 						$sql = "select * from images where photo_id = '$id' and owner_name = '$user_name' ";
  					 	$stmt = oci_parse ($conn, $sql);
             		$res = oci_execute($stmt); 
-            		                     
- 						$res = oci_fetch_array($stmt, OCI_ASSOC);    
+            		      $user_name = $_SESSION['login-user'];
+ 						$res = oci_fetch_array($stmt, OCI_ASSOC);  
+                         print_r($user_name."hi");
+                        print($res['OWNER_NAME']);
 						if ($res['OWNER_NAME'] == $user_name ) {
                 	 echo '<button type="submit" name="edit" value="true" class="btn btn-primary">Submit</button>';
+                            print("i'm here");
+                            print($user_name);
                 }
-                else if ($_SESSION['admin']) {
+                elseif ($_SESSION['admin']) {
                 	 echo '<button type="submit" name="edit" value="true" class="btn btn-primary">Submit</button>';
+                    print("i'm here1");
                 }
                 ?>
             </form>
@@ -184,11 +189,12 @@
         <form >
         <input type="hidden" name="id" value="<?php echo $id; ?>">
                         <?php
+                        
 						if ($res['OWNER_NAME'] == $user_name ) {
                 	 echo '<button type="submit" name="delete" value="true" class="btn btn-primary">Delete Photo</button>';
                 	 oci_free_statement($stmt);
                 }
-         else if ($_SESSION['admin']) {
+         elseif ($_SESSION['admin']) {
                 	 echo '<button type="submit" name="delete" value="true" class="btn btn-primary">Submit</button>';
                 }
                 oci_close($conn);
