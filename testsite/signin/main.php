@@ -73,7 +73,6 @@
             <input type="submit" value="Upload a picture"><br/>
         </form>
         <form name="updateinfo" method="post" action="updateinfo.php" autocomplete="off">
-            Password : <input type="text" name="password"/><br/>
             First Name : <input type="text" name="firstname"/><br/>
             Last Name : <input type="text" name="lastname"/><br/>
             Address : <input type="text" name="address"/><br/>
