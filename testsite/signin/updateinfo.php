@@ -4,11 +4,11 @@
 			session_start();
 	      $conn=connect();
            $user=$_SESSION['login_name'];
-          $a = $_POST['first'];
-          $b = $_POST['last'];
-          $c = $_POST['addr'];
+          $a = $_POST['firstname'];
+          $b = $_POST['lastname'];
+          $c = $_POST['address'];
           $d = $_POST['email'];
-          $e = $_POST['phone'];
+          $e = $_POST['phonenumber'];
     print($a);
     
             $sql = 'update persons set first_name = \''.$a.'\', last_name = \''.$b.'\', address = \''.$c.'\', email = \''.$d.'\',phone  = \''.$e.'\' 
