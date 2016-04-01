@@ -22,7 +22,7 @@
                 <li><a href="signin.html">Signin</a></li>
                 <li><a href="logout.php">Signout</a></li>
                 <li><a href="registration.html">Signup</a></li>
-                <li><a href="userdoc.pdf">Help</a></li>
+                <li><a href="userdoc.docx">Help</a></li>
               </ul>
             </li>
           </ul>
