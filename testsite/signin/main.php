@@ -115,18 +115,18 @@
     <div class="container">
 
 
-      <h1><font color="brown">My Exclusive Pic<br></font></h1>
+      <h1><font color="white">My Exclusive Pic<br></font></h1>
         <form action="uploadfrontend.php">
             <input type="submit" value="Upload a picture"><br/>
         </form>
         <h3> <form method="post">
                 <?php
-                    echo "<font color='white'>Welcome Back $user !<font>";
-                    echo "<br>First name: <font color='black'><input name='first' value='$firstname'>\<font>";
-                    echo "<br>Last name: <font color='black'><input name='last' value='$lastname'><font>";
-                    echo "<br>Address: <font color='black'><input name='addr' value='$address'><font>";
-                    echo "<br>Email: <font color='black'><input name='email' value='$email'><font>";
-                    echo "<br>Phone: <font color='black'><input name='phone' value='$phone'><font>";?>
+                    echo "<font color='brown'>Welcome Back $user !</font>";
+                    echo "<br>First name: <input name='first' value='$firstname'>";
+                    echo "<br>Last name: <input name='last' value='$lastname'>";
+                    echo "<br>Address: <input name='addr' value='$address'>";
+                    echo "<br>Email: <input name='email' value='$email'>";
+                    echo "<br>Phone: <input name='phone' value='$phone'>";?>
                     <input type="submit" name="update" value="Update Info"> </form><br>
                     </h3>
                 <?php
