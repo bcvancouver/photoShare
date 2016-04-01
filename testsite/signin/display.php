@@ -81,7 +81,7 @@
             $conn=connect();
             //DELETES IMAGE
             if (isset($_REQUEST['delete'])) {
-            $query = "delete FROM photo_count where photo_id = '".$id."'";
+            $query = "delete FROM photo_visit where photo_id = '".$id."'";
               $stmt = oci_parse ($conn, $query);
               $res = oci_execute($stmt);         
               $query = "delete FROM images where photo_id = '".$id."'";
