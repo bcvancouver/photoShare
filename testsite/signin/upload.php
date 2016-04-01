@@ -74,7 +74,7 @@
         return $final_image;
     }
 
-    for ($i=0; $i<count($_FILES['image[]']['name']); $i++) {
+    for ($i=0; $i<count($_FILES['image']['name']); $i++) {
 
         //Check each image file
         if (isset($_FILES['image'][$i])) {
