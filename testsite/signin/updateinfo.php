@@ -9,6 +9,8 @@
           $c = $_POST['addr'];
           $d = $_POST['email'];
           $e = $_POST['phone'];
+    print($a);
+    
             $sql = 'update persons set first_name = \''.$a.'\', last_name = \''.$b.'\', address = \''.$c.'\', email = \''.$d.'\',phone  = \''.$e.'\' 
             where user_name = \''.$user.'\'';
             $stid = oci_parse($conn, $sql);        
