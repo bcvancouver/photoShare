@@ -11,7 +11,7 @@
         exit;
     }elseif (count($_FILES['image[]']['name'])==0){
         echo "Cannot Upload Empty Picture!<br>";
-        header("Location: uploadfronted.php");
+        header("Location: uploadfrontend.php");
     }
 
     //Function to turn picture into thumbnail
