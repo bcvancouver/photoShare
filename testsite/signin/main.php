@@ -159,6 +159,7 @@
                     <option value="1">Most Recent</option>
                     <option value="2">Oldest</option>
                     <option value="3">Top Five</option>
+                    <option value="admin">Admin</option>
             </select>
       </form>
   <div id="demo" class="column">

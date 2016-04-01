@@ -12,7 +12,7 @@ $group = $_GET['group'];
 $option = $_GET['option'];
 $conn = connect();
 
-if ($user_name == "admin") {
+if ($user_name == "admin" and $n == "admin") {
 		$query = "SELECT photo_id FROM images";	
 	}
 	elseif ($n == "0") { //own images

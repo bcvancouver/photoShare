@@ -42,7 +42,6 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-    <?php include("navi.php"); ?>
 <style type="text/css">
     #chickenbutt {
 </style>
