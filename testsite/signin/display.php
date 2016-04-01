@@ -167,12 +167,12 @@
 					</select>
                 </div>
                 <?php
-						$sql = "select * from images where photo_id = '$id' ";
+						$sql = "select owner_name from images where photo_id = '$id' ";
  					 	$stmt = oci_parse ($conn, $sql);
             		$res = oci_execute($stmt); 
             		                     
  						$res = oci_fetch_array($stmt, OCI_ASSOC);    
-						if ($res['OWNER_NAME'] == $user_name ) {
+						if ($res == $user_name ) {
                 	 echo '<button type="submit" name="edit" value="true" class="btn btn-primary">Submit</button>';
                             print("i'm here");
                 }
