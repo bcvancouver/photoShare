@@ -178,6 +178,7 @@
                 else if ($_SESSION['admin']) {
                 	 echo '<button type="submit" name="edit" value="true" class="btn btn-primary">Submit</button>';
                 }
+                else {print("i'm here")}
                 ?>
             </form>
         </div>
@@ -191,6 +192,7 @@
          else if ($_SESSION['admin']) {
                 	 echo '<button type="submit" name="delete" value="true" class="btn btn-primary">Submit</button>';
                 }
+ else {print("i'm here")}
                 oci_close($conn);
                 ?>
         </form>
