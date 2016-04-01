@@ -2,9 +2,9 @@
 <html lang="en">
 <?php
 session_start();
-if (!isset($_SESSION['admin'] ) ){
+/*if (!isset($_SESSION['admin'] ) ){
 	die();
-}
+}*/
 
 include("connection_database.php");
 
