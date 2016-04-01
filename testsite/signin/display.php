@@ -167,7 +167,7 @@
 					</select>
                 </div>
                 <?php
-						$sql = "select * from images where photo_id = '$id' and owner_name = '$user_name' ";
+						$sql = "select * from images where photo_id = '$id' ";
  					 	$stmt = oci_parse ($conn, $sql);
             		$res = oci_execute($stmt); 
             		                     
