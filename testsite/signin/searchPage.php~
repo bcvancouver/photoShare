@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
-    <meta name="author" content="Wan Kin Vinson Lai" >
+    <meta name="author" content="">
     <link rel="icon" href="../Image/favicon%20(1).ico">
 
     <title>ExclusivePic</title>
@@ -38,21 +38,21 @@
   <body role="document">
       <!-- Fixed navbar -->
       <?php include("navi.php"); /*renders the navigation bar*/?> 
-    <div class="container">
+    <div class="container"><font color="white">
 
 
 
 
 <form name="searchbar" method="get" action="searchFunction.php">
 
-          <font color="white">Search:</font>
+          Search: 
           <input type="text" name="keywords" required /> <br>
-          <input type="radio" name="order" value="norm" checked /> <font color="white">Normal</font><br>
-          <input type="radio" name="order" value="new" /><font color="white">Newest</font><br>
-          <input type="radio" name="order" value="old" /><font color="white">Oldest</font><br>
-          <font color="white">Older Than: </font><input type="date" name="start"><br>
-          <font color="white">Newer Than:</font><input type="date" name="end"><br>
-    
+          <input type="radio" name="order" value="norm" checked />Normal<br>
+          <input type="radio" name="order" value="new" />Newest<br>
+          <input type="radio" name="order" value="old" />Oldest<br>
+          Older Than: <input type="date" name="start"><br>
+          Newer Than:<input type="date" name="end"><br>
+    </font>
           <input type="submit" name="validate" value="Search"/>
         </form>
 
