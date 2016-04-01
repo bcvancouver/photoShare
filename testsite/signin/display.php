@@ -178,7 +178,7 @@
                             print("i'm here");
                             print($user_name);
                 }
-                elseif ($_SESSION['admin']) {
+                elseif ($user_name == 'admin') {
                 	 echo '<button type="submit" name="edit" value="true" class="btn btn-primary">Submit</button>';
                     print("i'm here1");
                 }
