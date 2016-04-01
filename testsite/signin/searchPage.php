@@ -38,7 +38,7 @@
   <body role="document">
       <!-- Fixed navbar -->
       <?php include("navi.php"); /*renders the navigation bar*/?> 
-    <div class="container">
+    <div class="container"><font color="white">
 
 
 
@@ -46,15 +46,15 @@
 <form name="searchbar" method="get" action="searchFunction.php">
 
           Search: 
-          <input type="text" name="keywords"/> <br>
+          <input type="text" name="keywords" required /> <br>
           <input type="radio" name="order" value="norm" checked />Normal<br>
           <input type="radio" name="order" value="new" />Newest<br>
           <input type="radio" name="order" value="old" />Oldest<br>
           Older Than: <input type="date" name="start"><br>
           Newer Than:<input type="date" name="end"><br>
+    </font>
           <input type="submit" name="validate" value="Search"/>
         </form>
-
 
 
 
