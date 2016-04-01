@@ -4,13 +4,13 @@
     session_start();
     $user=$_SESSION['login_user'];
     $connection=connect();
-
+    //echo "count($_FILES['image[]']) files found<br>";
     if (!$user){
         echo "<script>
             alert('Please Sign In!');
             location='signin.html';
         </script>";
-    }elseif (count($_FILES['image']['name'])==0){
+    }elseif (count($_FILES['image[]']['name'])==0){
         //Reference: http://stackoverflow.com/questions/11869662/display-alert-message-and-redirect-after-click-on-accept
         echo "<script>
             alert('No images found!');
@@ -73,7 +73,7 @@
         return $final_image;
     }
 
-    for ($i=0; $i<count($_FILES['image']['name']); $i++) {
+    for ($i=0; $i<count($_FILES['image[]']['name']); $i++) {
 
         //Check each image file
         if (isset($_FILES['image'][$i])) {
