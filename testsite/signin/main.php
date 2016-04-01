@@ -115,7 +115,7 @@
     <div class="container">
 
 
-      <h1><font color="white">My Exclusive Pic<br></font></h1>
+      <h1><font color="brown">My Exclusive Pic<br></font></h1>
         <form action="uploadfrontend.php">
             <input type="submit" value="Upload a picture"><br/>
         </form>
