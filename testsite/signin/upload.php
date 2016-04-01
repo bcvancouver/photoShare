@@ -130,7 +130,7 @@ for ($i=0; $i<count($_FILES['image']['name']); $i++) {
         }
         oci_free_statement($stid);
         if (empty($errors) == true) {
-            $image = file_get_contents(addslashes($_FILES['image']['tmp_name']));
+            $image = file_get_contents(addslashes($_FILES['image']['tmp_name'][$i]));
             $thumbnail = getThumbnail($_FILES['image']['tmp_name']);
             //Reference: http://php.net/manual/en/function.oci-new-descriptor.php
             $connection = connect();
