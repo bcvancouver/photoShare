@@ -174,11 +174,12 @@
  						$res = oci_fetch_array($stmt, OCI_ASSOC);    
 						if ($res['OWNER_NAME'] == $user_name ) {
                 	 echo '<button type="submit" name="edit" value="true" class="btn btn-primary">Submit</button>';
+                            print("i'm here");
                 }
                 elseif ($_SESSION['admin']) {
                 	 echo '<button type="submit" name="edit" value="true" class="btn btn-primary">Submit</button>';
+                    print("i'm here1");
                 }
-                else {print("i'm here");}
                 ?>
             </form>
         </div>
@@ -192,7 +193,6 @@
          elseif ($_SESSION['admin']) {
                 	 echo '<button type="submit" name="delete" value="true" class="btn btn-primary">Submit</button>';
                 }
- else {print("i'm here1");}
                 oci_close($conn);
                 ?>
         </form>
