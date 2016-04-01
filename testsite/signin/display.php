@@ -172,13 +172,14 @@
             		$res = oci_execute($stmt); 
             		      $user_name = $_SESSION['login-user'];
  						$res = oci_fetch_array($stmt, OCI_ASSOC);  
-                        
-						if ($res) {
+                         print($user_name);
+                        print($res['OWNER_NAME']);
+						if ($res['OWNER_NAME'] == $user_name ) {
                 	 echo '<button type="submit" name="edit" value="true" class="btn btn-primary">Submit</button>';
                             print("i'm here");
                             print($user_name);
                 }
-                elseif ($user_name == 'admin') {
+                elseif ($_SESSION['admin']) {
                 	 echo '<button type="submit" name="edit" value="true" class="btn btn-primary">Submit</button>';
                     print("i'm here1");
                 }
