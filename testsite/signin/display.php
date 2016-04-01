@@ -167,6 +167,7 @@
 					</select>
                 </div>
                 <?php
+                        session_start(); // Starting Session
 						$sql = "select * from images where photo_id = '$id' and owner_name = '$user_name' ";
  					 	$stmt = oci_parse ($conn, $sql);
             		$res = oci_execute($stmt); 
@@ -188,6 +189,7 @@
         <form >
         <input type="hidden" name="id" value="<?php echo $id; ?>">
                         <?php
+                        
 						if ($res['OWNER_NAME'] == $user_name ) {
                 	 echo '<button type="submit" name="delete" value="true" class="btn btn-primary">Delete Photo</button>';
                 	 oci_free_statement($stmt);
