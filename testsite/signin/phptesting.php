@@ -1,133 +1,210 @@
-<?php 
-include("loggedIn.php"); 
+<?php include("loggedIn.php") ?>
+<!DOCTYPE html>
+<html lang="en">
 
-		function reformat_keywords($keywordsraw){
-		    //get the input
+<head>
 
-		    $keywords_array = (explode(' ', $keywordsraw));
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="st1.css">
+    <link rel="stylesheet" type="text/css" href="lightview.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style></style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../Image/favicon%20(1).ico">
 
-		    $keywords = '\'';
-		    foreach ($keywords_array as $key => $value) {
-		    	if ($key > 0) {
-		       		$keywords = $keywords . ', ';
-		       	}
-		       	$keywords = $keywords . $value;
-		    }
-		    $keywords = $keywords.'\'';
-		    return $keywords;
-		}
+    <title>ExclusivePic</title>
 
-		function createsearchquery($keywords, $order, $start, $end){
-			$username = "'".$_SESSION['login_user']."'";
+    <!-- Bootstrap core CSS -->
+    <link href="../dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
-			switch ($order) {
-				case 'norm':
-					$sql = "SELECT SCORE(1)*6+SCORE(2)*3+SCORE(3) AS SCORE, photo_id
-					FROM images i, group_lists gl
-					WHERE (CONTAINS (i.subject, ".$keywords.", 1) > 0 
-				   		OR CONTAINS (i.place, ".$keywords.", 2) > 0 
-				   		OR CONTAINS (i.description, ".$keywords.", 3) > 0
-				   	   ) AND";
-					break;
-				default :
-					$sql = "SELECT photo_id from images WHERE";
-			}
-
-			/*
-			if ($start!="") {
-				$sql = $sql."(timing >= ".$start.") AND";
-			}
-			if ($start!="") {
-				$sql = $sql."(timing <= ".$start.") AND";
-			}
-			*/
-
-			/*
-			    $sql = 'SELECT SCORE(1)*6+SCORE(2)*3+SCORE(3) AS SCORE, photo_id
-				FROM images i, group_lists gl
-				WHERE (CONTAINS (i.subject, keywords, 1) > 0 
-			   		OR CONTAINS (i.place, keywords, 2) > 0 
-			   		OR CONTAINS (i.description, keywords, 3) > 0
-			   	   )
-			 --OR (timing >= '01-DEC-90' AND timing <= '01-JAN-16')
-			--AND (timing >= '01-JAN-16' AND timing <= '01-JAN-16')
-			ORDER BY SCORE desc'
-			  */
-			$sql = $sql . " ((i.permitted = 1) 
-							OR (i.owner_name=$username) 
-							OR (gl.friend_id = $username AND i.permitted = gl.group_id)) ";
- 			
- 			switch ($order) {
-				case 'norm':
- 					$sql = $sql . "ORDER BY SCORE desc";
- 					break;
-				case 'new':
- 					$sql = $sql . "ORDER BY timing desc";
- 					break;
-				case 'old':
- 					$sql = $sql . "ORDER BY timing asc";
- 					break;
- 			}
-
- 			return $sql;
-		}
+    <!-- Custom styles for this template -->
+    <link href="signin.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="../dist/css/bootstrap-theme.min.css" rel="stylesheet">
 
 
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../assets/js/ie-emulation-modes-warning.js"></script>
 
-include("loggedIn.php"); 
-include('PHPconnectionDB.php');
-session_start();
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<style type="text/css">
+    #chickenbutt {
+</style>
+<body>
+  <script>
+  $(function() {
+    $( "#date" ).datepicker();
+  });
+  </script>
+        <script type="text/javascript">
+            function fivethumb(str) {
+                $("#demo").html("");
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function() {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        var txt = xmlhttp.responseText;
+                        $("#demo").html(txt);
+                    }
+                };
+                xmlhttp.open("GET", "thumb.php?freq=" + str, true);
+                xmlhttp.send();
+            };
+        </script>
+        <div id="chickenbutt" class="text-center"><br>
+          <?php
+            if(!isset($_SESSION)) { //check if sessions has been initialized
+                 session_start();   //initialize session
+            }
+            if (!isset($_SESSION['login_user'])) { //checks if there's a user
+                die();
+            }
+			
+	
+			$id = $_GET['id'];
+			include("PHPconnectionDB.php");
+			$conn=connect();
+            //DELETES IMAGE
+            if (isset($_REQUEST['delete'])) {
+   	        $query = "delete FROM photo_count where photo_id = '".$id."'";
+              $stmt = oci_parse ($conn, $query);
+              $res = oci_execute($stmt);         
+              $query = "delete FROM images where photo_id = '".$id."'";
+              $stmt = oci_parse ($conn, $query);
+              $res = oci_execute($stmt);         
+              header("Location: ./main.php");
+              die();
+            }
+            //UPDATES IMAGE
+            elseif (isset($_REQUEST['edit'])) {
+              $query = "UPDATE images SET ";
+              if (isset($_REQUEST['subj'])) $query.= " subject = '".$_REQUEST['subj']."',";
+              if (isset($_REQUEST['date'])) $query.= " timing = TO_DATE('".$_REQUEST['date']."','MM/DD/YYYY'),";
+              if (isset($_REQUEST['place'])) $query.= " place = '".$_REQUEST['place']."',";
+              if (isset($_REQUEST['desc'])) $query.= " description = '".$_REQUEST['desc']."',";
+              if (isset($_REQUEST['group'])) $query.= " permitted = '".$_REQUEST['group']."'";
+              $query.=" WHERE photo_id='$id' ";
+              $stmt = oci_parse ($conn, $query);
+              oci_execute($stmt);
+            }
+            $user_name = $_SESSION['login-user'];                    		
+                try {//COUNTS DISTINCT USER VIEWS
+                    $query = "select * from photo_visit where owner_name = '$user_name' and photo_id = '$id'";
+                    $stmt = oci_parse ($conn, $query);              
+                    oci_execute($stmt);
+                    $res = oci_fetch_array($stmt);
+                    if (!$res['PHOTO_ID']) {
+                        $query = "INSERT into photo_visit(owner_name,photo_id) 
+                        values ( '$user_name','$id')";
+                        $stmt = oci_parse ($conn, $query);              
+                        oci_execute($stmt);                
+                    }
+                }
+                catch (Exception $e) {}
+                //DISPLAYS IMAGE
+                $query = "SELECT * FROM images where photo_id = '$id'";
+                $stmt = oci_parse ($conn, $query);
+                oci_execute($stmt);
+    			$arr = oci_fetch_array($stmt, OCI_ASSOC);
+    			echo '<img src="getimage.php?id='.$id.'&type=photo" />';
+    			
+                //GETS IMAGE GROUPS     
+                $sql = "select s.group_id, s.group_name from group_lists g,images i,groups s where i.photo_id = '".$id."' and g.friend_id = i.owner_name and s.group_id = g.group_id 
+                union select group_id, group_name from groups where group_id = 1 or group_id = 2 or user_name = '$user_name' ";
+                $fin  = "";
+    		    $stid = oci_parse($conn,$sql);
+    		    $res = oci_execute($stid);
+    		    while (($row = oci_fetch_array($stid, OCI_ASSOC))) {
+                    $selected = "";
+                    if ($arr['PERMITTED'] == $row['GROUP_ID']) {$selected = "selected";}
+    		        $fin.='<option value="'.$row['GROUP_ID'].'" '.$selected.'>'.$row['GROUP_NAME'].'</option>';
+				    }
+			?>
+        </div>
+        <div id="update">
+            <form >
+				<fieldset class="form-group" >
+                <label for="exampleTextarea">Subject</label>
+                <textarea class="form-control" name="subj" rows="1"
+                    placeholder='<?php echo $arr["SUBJECT"];?>' value='<?php echo $arr["SUBJECT"];?>'><?php echo $arr["SUBJECT"];?></textarea>
+                </fieldset>
+               	<fieldset class="form-group" >
+                <label for="exampleTextarea">Place</label>
+                <textarea class="form-control" name="place" rows="1"
+                    placeholder='<?php echo $arr["PLACE"];?>' value='<?php echo $arr["PLACE"];?>'><?php echo $arr["PLACE"];?></textarea>
+                </fieldset>
+               	<fieldset class="form-group" >
+                <label for="exampleTextarea">Timing/When</label>
+                <input class="form-control date" name="date" id="date" rows="1"
+                    placeholder='<?php echo $arr["TIMING"];?>' value='<?php $time = strtotime($arr["TIMING"]); echo date("m\/d\/Y",$time); ?>'></input>
+                </fieldset>
+                <fieldset class="form-group" >
+                <label for="exampleTextarea">Description</label>
+                <textarea class="form-control" name="desc" rows="3"
+                    placeholder='<?php echo $arr["DESCRIPTION"];?>' value='<?php echo $arr["DESCRIPTION"];?>'><?php echo $arr["DESCRIPTION"];?></textarea>
+                </fieldset>
+                <input type="hidden" name="id" value="<?php echo $id; ?>">
+                <div class="">
+                    <label>
+				      Permitted
+				    </label>
+				    <select class="c-select" name="group">
+				        <?php echo $fin; ?>
+					</select>
+                </div>
+                <?php
+						$sql = "select * from images where photo_id = '$id' and owner_name = '$user_name' ";
+ 					 	$stmt = oci_parse ($conn, $sql);
+            		$res = oci_execute($stmt); 
+            		      $user_name = $_SESSION['login-user'];
+ 						$res = oci_fetch_array($stmt, OCI_ASSOC);  
+ 						if($user_name!=""){
 
-	if (isset ($_POST['validate'])){
-		$username = "'".$_SESSION['login_user']."'";
-
-
-		print_r($_POST["keywords"]."<br>".$_POST["order"]."<br>".$username."<br>");
-
-		$keywords = reformat_keywords($_POST["keywords"]);
-		
-
-
-	    print_r($username.', '.$keywords);
-	    echo "<br>";
-
-		ini_set('display_errors', 1);
-        error_reporting(E_ALL);
-        
-              //establish connection
-              $conn=connect();
-        if (!$conn) {
-          $e = oci_error();
-          trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
-        }
-    
-        //sql command
-        $sql = createsearchquery($keywords, $_POST["order"], $_POST["start"], $_POST["end"]);
-
-		print_r("<br>".$keywords."<br>".$sql.";<br><br>");
-        //Prepare sql using conn and returns the statement identifier
-        $stid = oci_parse($conn, $sql);
-/*
-        //bind the variables for the pl/sql procedure
-        oci_bind_by_name($stid, ':username', $username);
-        oci_bind_by_name($stid, ':keywords', $keywords);
-*/              
-        //Based off of http://php.net/manual/en/oci8.examples.php example #7
-		oci_execute($stid);
-        
-        print_r($sql);
-		
-		while ($arr = oci_fetch_array($stid, OCI_ASSOC)){
-			$id = $arr['PHOTO_ID'];
-			print_r($id. ", ");
-			//echo '<a href="display.php?id='.$id.'"><img src="getimage.php?id='.$id.'&type=thumbnail" width="200" height="200" /></a>';
-		}
-		print_r($arr);
-
-/**/
-         
-	} else {
-		echo 'post_validate not set';
-	}
-?>
+                         print_r("username is ".$user_name." hi hello adieu <br><br><br><br><br><br>this cant be herwe<br><br><br><br>");
+ 						}
+                        print($res['OWNER_NAME']);
+						if ($res['OWNER_NAME'] == $user_name ) {
+                	 echo '<button type="submit" name="edit" value="true" class="btn btn-primary">Submit</button>';
+                            print("i'm here");
+                            print($user_name);
+                }
+                elseif ($_SESSION['admin']) {
+                	 echo '<button type="submit" name="edit" value="true" class="btn btn-primary">Submit</button>';
+                    print("i'm here1");
+                }
+                ?>
+            </form>
+        </div>
+        <form >
+        <input type="hidden" name="id" value="<?php echo $id; ?>">
+                        <?php
+                        
+						if ($res['OWNER_NAME'] == $user_name ) {
+                	 echo '<button type="submit" name="delete" value="true" class="btn btn-primary">Delete Photo</button>';
+                	 oci_free_statement($stmt);
+                }
+         elseif ($_SESSION['admin']) {
+                	 echo '<button type="submit" name="delete" value="true" class="btn btn-primary">Submit</button>';
+                }
+                oci_close($conn);
+                ?>
+        </form>
+        racist comments racist comments racist comments racist comments racist comments racist comments racist comments 
+    </div>
+</body>
+</html>
