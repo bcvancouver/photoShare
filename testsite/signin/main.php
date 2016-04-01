@@ -154,7 +154,7 @@
             //popularity of an image is specified by the number of distinct users that have ever viewed the image
         </script>
 
-  <h2>Image Gallery</h2>   
+        <font color='white'><h2>Image Gallery</h2></font>   
         <form id="gform" action="thumb.php" method="get" name="jumpto">
                     <select name="c" onchange="javascript: loadDoc2(this.value);">
                     <option value="0">Own photos</option>
