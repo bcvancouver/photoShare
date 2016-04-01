@@ -2,10 +2,10 @@
 <html lang="en">
 <?php
 session_start();
-if (!isset($_SESSION['admin'] ) ){
+/*if (!isset($_SESSION['admin'] ) ){
     echo "You are kicked out because you are not admin.";
 	die();
-}
+}*/
 
 include("PHPconnectionDB.php");
 
