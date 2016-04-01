@@ -596,6 +596,7 @@ function ajaxgraph(str) {
     xmlhttp.send();
 
 }
+/*
 Morris.Area({
         element: 'morris-area-chart',
         data: [{
@@ -658,7 +659,7 @@ Morris.Area({
         resize: true
     });
 
-    /*
+
             Morris.Area({
                 element: 'morris-area-chart',
                 data: [{
