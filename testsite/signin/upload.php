@@ -4,8 +4,8 @@
     session_start();
     $user=$_SESSION['login_user'];
     $connection=connect();
-    $file_count=count($file_post['image[]']);
-    echo "$file_count files found!<br>";
+    //$file_count=count($file_post['image[]']);
+    //echo "$file_count files found!<br>";
     if (!$user){
         echo "<script>
             alert('Please Sign In!');
@@ -17,7 +17,6 @@
             alert('No images found!');
             location='uploadfrontend.php';
         </script>";*/
-
 
 
 //Function to turn picture into thumbnail
@@ -75,7 +74,6 @@ function getThumbnail($file) {
     return $final_image;
 }
 echo count($_FILES['image']['name']);
-
 for ($i=0; $i<count($_FILES['image']['name']); $i++){
     //Check each image file
     if (isset($_FILES['image'][$i])) {
