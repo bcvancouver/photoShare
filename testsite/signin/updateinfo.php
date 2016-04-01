@@ -41,5 +41,6 @@
 	    //$row=oci_fetch_array($stid,OCI_BOTH)
 	    oci_free_statement($stid);
 	    oci_close($conn);			
-	    /////////////////////end get user's info///////////////////////////////
+	    header("location: main.php");// Redirecting back to log in page
+        
 ?>
