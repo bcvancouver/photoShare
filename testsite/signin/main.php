@@ -121,7 +121,7 @@
         </form>
         <h3> <form method="post">
                 <?php
-                    echo "<font color='white'>Welcome Back $user !";
+                    echo "<font color='white'>Welcome Back $user !<font>";
                     echo "<br>First name: <input name='first' value='$firstname'>";
                     echo "<br>Last name: <input name='last' value='$lastname'>";
                     echo "<br>Address: <input name='addr' value='$address'>";
