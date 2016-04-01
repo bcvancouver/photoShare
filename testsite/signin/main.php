@@ -1,3 +1,4 @@
+<?php include("loggedin.php"); ?> 
 <?php
       //////////////////////get user's information///////////////////////////
 			include("PHPconnectionDB.php");
