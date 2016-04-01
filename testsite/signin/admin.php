@@ -561,7 +561,7 @@ function getres($sql,$connect) {
                     </div>
                 </div>
                 <!-- /.row -->
-        -->
+        
             </div>
             <!-- /.container-fluid -->
 
@@ -743,5 +743,5 @@ Morris.Area({
 
 </html>
 <?php
-    oci_close($connect);
+    //oci_close($connect);
 ?>
