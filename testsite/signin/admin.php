@@ -68,6 +68,7 @@ function getTotalPersonNum(){
     return $number_of_rows;
 }
 function getres($sql,$connect) {
+    $connect=connect();
     $stid = oci_parse($connect,$sql);
     oci_execute($stid);
     while (($row = oci_fetch_array($stid, OCI_ASSOC))) {
