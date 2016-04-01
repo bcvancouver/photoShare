@@ -99,7 +99,7 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="groupManage.php">Groups</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
               <ul class="dropdown-menu">
@@ -121,12 +121,12 @@
         </form>
         <h3> <form method="post">
                 <?php
-                    echo "<font color='brown'>Welcome Back $user !</font>";
-                    echo "<br>First name: <input name='first' value='$firstname'>";
-                    echo "<br>Last name: <input name='last' value='$lastname'>";
-                    echo "<br>Address: <input name='addr' value='$address'>";
-                    echo "<br>Email: <input name='email' value='$email'>";
-                    echo "<br>Phone: <input name='phone' value='$phone'>";?>
+                    echo "<font color='white'>Welcome Back $user !</font>";
+                    echo "<br><font color='white'>First name: </font><input name='first' value='$firstname'>";
+                    echo "<br><font color='white'>Last name: </font><input name='last' value='$lastname'>";
+                    echo "<br><font color='white'>Address: </font><input name='addr' value='$address'>";
+                    echo "<br><font color='white'>Email: </font><input name='email' value='$email'>";
+                    echo "<br><font color='white'>Phone: </font><input name='phone' value='$phone'>";?>
                     <input type="submit" name="update" value="Update Info"> </form><br>
                     </h3>
                 <?php

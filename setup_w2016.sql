@@ -10,6 +10,13 @@ DROP TABLE groups;
 DROP TABLE persons;
 DROP TABLE users;
 
+DROP SEQUENCE seq_group_id;
+
+drop index image_subject_idx;
+drop index image_place_idx;
+drop index image_desc_idx;
+
+
 CREATE TABLE users (
    user_name varchar(24),
    password  varchar(24),
@@ -82,8 +89,14 @@ BEGIN
    INSERT INTO groups values(newId,username,groupname,sysdate);
    INSERT INTO group_lists VALUES(newId,username,sysdate, null);
 END;
+/
 
-//Add Group Member
+/*
+Add Group Member
+username in groups
+membername in users
+groupname in groups
+*/
 CREATE OR REPLACE PROCEDURE ADDGROUPMEMBERPROC 
 (username IN varchar2, membername IN varchar2, groupname IN varchar2 )
 IS groupId INT;
@@ -94,6 +107,27 @@ BEGIN
      and g.user_name= username;
    INSERT INTO group_lists VALUES(groupId,membername,sysdate, null);
 END;
+/
+
+--Delete Group Member Procedure
+CREATE OR REPLACE PROCEDURE DELGROUPMEMBERPROC 
+(username IN varchar2, membername IN varchar2, groupname IN varchar2 )
+IS groupId INT;
+BEGIN
+   select group_id into groupId 
+   from groups g 
+   where g.group_name=groupname 
+     and g.user_name= username;
+   DELETE FROM group_lists gl 
+   WHERE gl.group_id = groupId
+     AND gl.friend_id = membername;
+END;
+/
+
+CREATE INDEX image_subject_idx ON images (subject) indextype is ctxsys.context parameters ('sync (on commit)');
+CREATE INDEX image_place_idx ON images (place) indextype is ctxsys.context parameters ('sync (on commit)');
+CREATE INDEX image_desc_idx ON images (description) indextype is ctxsys.context parameters ('sync (on commit)');
+
 
 //add table for photo visit
 CREATE TABLE PHOTO_VISIT
