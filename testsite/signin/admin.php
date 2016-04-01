@@ -15,12 +15,12 @@ function getTotalImageNum(){
     //session_start();
     $connect=connect();
 
-    $sql='SELECT COUNT(*) AS NUMBER_OF_ROWS FROM images;';
+    $sql='SELECT COUNT(*) AS NUMBER_OF_ROWS FROM images';
     $stmt = oci_parse($connect, $sql);
     oci_define_by_name($stmt, 'NUMBER_OF_ROWS', $number_of_rows);
     oci_execute($stmt);
-    $number_of_rows=oci_fetch_all($stmt,$result);
-    echo $number_of_rows;
+    oci_fetch($stmt);
+
     oci_free_statement($stmt);
     //oci_close($connect);
     return $number_of_rows;
@@ -30,7 +30,7 @@ function getTotalGroupNum(){
     //session_start();
     $connect=connect();
 
-    $sql='SELECT COUNT(*) AS NUMBER_OF_ROWS FROM groups;';
+    $sql='SELECT COUNT(*) AS NUMBER_OF_ROWS FROM groups';
     $stmt = oci_parse($connect, $sql);
     oci_define_by_name($stmt, 'NUMBER_OF_ROWS', $number_of_rows);
     oci_execute($stmt);
@@ -45,7 +45,7 @@ function getTotalUserNum(){
     //session_start();
     $connect=connect();
 
-    $sql='SELECT COUNT(*) AS NUMBER_OF_ROWS FROM users;';
+    $sql='SELECT COUNT(*) AS NUMBER_OF_ROWS FROM users';
     $stmt = oci_parse($connect, $sql);
     oci_define_by_name($stmt, 'NUMBER_OF_ROWS', $number_of_rows);
     oci_execute($stmt);
@@ -60,7 +60,7 @@ function getTotalPersonNum(){
     //session_start();
     $connect=connect();
 
-    $sql='SELECT COUNT(*) AS NUMBER_OF_ROWS FROM persons;';
+    $sql='SELECT COUNT(*) AS NUMBER_OF_ROWS FROM persons';
     $stmt = oci_parse($connect, $sql);
     oci_define_by_name($stmt, 'NUMBER_OF_ROWS', $number_of_rows);
     oci_execute($stmt);
