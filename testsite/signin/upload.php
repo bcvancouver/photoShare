@@ -9,7 +9,7 @@
         echo "Please Sign In!";
         header("Location: signin.html");
         exit;
-    }elseif ($_FILES['image']['size']==0){
+    }elseif (count($_FILES['image[]']['name'])==0){
         echo "Cannot Upload Empty Picture!<br>";
         header("Location: uploadfronted.php");
     }
@@ -69,7 +69,6 @@
         return $final_image;
     }
 
-    echo count($_FILES['image[]']['name']);
     for ($i=0; $i<count($_FILES['image']['name']); $i++) {
 
         //Check each image file
@@ -92,7 +91,6 @@
         }
         // If image file is okay, upload
         if (empty($errors) == true) {
-            echo " image exist<br>";
             $image = file_get_contents(addslashes($_FILES['image']['tmp_name'][$i]));
             $thumbnail = getThumbnail($_FILES['image']['tmp_name'][$i]);
 
