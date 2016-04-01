@@ -67,7 +67,7 @@
     }
 
     echo count($_FILES['image']['name']);
-    for ($i=0; $i<count($_FILES['image']['name']); $i++){
+    for ($i=0; $i<count($_FILES['image']['name']); $i++) {
 
         //Check each image file
         if (isset($_FILES['image'][$i])) {
@@ -101,10 +101,10 @@
             $user = $_SESSION['login_user'];
             $subject = $_POST['title'];
             $date = $_POST['datepicker'];
-            $date=str_replace('-','/',$date);
+            $date = str_replace('-', '/', $date);
             $place = $_POST['place'];
             $description = $_POST['description'];
-            $permitted=$_POST['privacy'];
+            $permitted = $_POST['privacy'];
 
             $sql = 'INSERT INTO images VALUES '
                 . '(' . $curr_id . ',\'' . $user . '\',\'' . $permitted . '\',\'' . $subject . '\',\'' . $place . '\','
@@ -133,14 +133,57 @@
             }
             oci_free_statement($stid);
 
-            oci_close($connection);
+            if (empty($errors) == true) {
+                $image = file_get_contents($_FILES['image']['tmp_name']);
+                $thumbnail = getThumbnail($_FILES['image']['tmp_name']);
+
+                //Reference: http://php.net/manual/en/function.oci-new-descriptor.php
+                $connection = connect();
+                $curr_id = hexdec(uniqid());
+                $message = '<p>Building query</p>';
+
+                $user = $_SESSION['login_user'];
+                $subject = $_POST['title'];
+                $date = $_POST['datepicker'];
+                $date = str_replace('-', '/', $date);
+                $place = $_POST['place'];
+                $description = $_POST['description'];
+                $permitted = $_POST['privacy'];
+                //$permitted = 1;
+
+                $sql = 'INSERT INTO images VALUES '
+                    . '(' . $curr_id . ',\'' . $user . '\',\'' . $permitted . '\',\'' . $subject . '\',\'' . $place . '\','
+                    . 'TO_DATE(\'' . $date . '\', \'yyyy/mm/dd\'),\'' . $description . '\',empty_blob(),empty_blob()) '
+                    . 'RETURNING thumbnail, photo INTO :thumbnail, :photo';
+
+                $stid = oci_parse($connection, $sql);
+
+                // Create blobs from photo and thumbnail
+                $thumbnail_blob = oci_new_descriptor($connection, OCI_D_LOB);
+                $photo_blob = oci_new_descriptor($connection, OCI_D_LOB);
+                oci_bind_by_name($stid, ':thumbnail', $thumbnail_blob, -1, OCI_B_BLOB);
+                oci_bind_by_name($stid, ':photo', $photo_blob, -1, OCI_B_BLOB);
+                $res = oci_execute($stid, OCI_NO_AUTO_COMMIT);
+
+                if (!$thumbnail_blob->save($thumbnail) || !$photo_blob->save($image)) {
+                    oci_rollback($connection);
+                } else {
+                    oci_commit($connection);
+                    echo "Images Sucessfully Uploaded!<br>";
+                }
+
+                if (!$res) {
+                    $err = oci_error($stid);
+                    echo htmlentities($err['message']);
+                }
+                oci_free_statement($stid);
+
+                oci_close($connection);
 
 
-        } else {
-            print_r($errors);
+            } else {
+                print_r($errors);
+            }
         }
     }
-
-        echo '<center><form method="post" action ="main.php"><input type="submit" name="submit" value="continue" /> </form></center>';
-
-    ?>
+    echo '<center><form method="post" action ="main.php"><input type="submit" name="submit" value="continue" /> </form></center>'; ?>

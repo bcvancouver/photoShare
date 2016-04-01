@@ -2,10 +2,12 @@
 <html lang="en">
 <?php
 session_start();
-/*if (!isset($_SESSION['admin'] ) ){
-    echo "You are kicked out because you are not admin.";
+$user=$_SESSION['login_user'];
+
+if ($user!="admin"){
+    echo "You are kicked out because you are not admin. GG.";
 	die();
-}*/
+}
 
 include("PHPconnectionDB.php");
 
@@ -57,7 +59,6 @@ function getTotalUserNum(){
 }
 
 function getTotalPersonNum(){
-    //session_start();
     $connect=connect();
 
     $sql='SELECT COUNT(*) AS NUMBER_OF_ROWS FROM persons';
@@ -67,7 +68,6 @@ function getTotalPersonNum(){
     oci_fetch($stmt);
 
     oci_free_statement($stmt);
-    //oci_close($connect);
     return $number_of_rows;
 }
 function getres($sql,$connect) {
