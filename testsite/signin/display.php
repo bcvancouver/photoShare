@@ -194,17 +194,6 @@
                 oci_close($conn);
                 ?>
         </form>
-        <br>
-        <div id="pie">
-            <div id="pie_l">
-                <ul>
-                    <li><a href="mainpage.php">HOME</a></li>
-                </ul>
-            </div>
-            <div id="pie_r">
-                <a href="#">UP <span class="up">↑</span></a>
-            </div>
-        </div>
     </div>
 </body>
 </html>
