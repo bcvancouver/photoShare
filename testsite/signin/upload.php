@@ -9,6 +9,9 @@
         echo "Please Sign In!";
         header("Location: signin.html");
         exit;
+    }elseif (count($_FILES['image']['name'])==0){
+        echo "Cannot Upload Empty Picture!<br>";
+        header("Location: uploadfronted.php");
     }
 
     //Function to turn picture into thumbnail
