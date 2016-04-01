@@ -103,12 +103,12 @@
             }
             $user_name = $_SESSION['login-user'];                    		
                 try {//COUNTS DISTINCT USER VIEWS
-                    $query = "select * from photo_count where user_name = '$user_name' and photo_id = '$id'";
+                    $query = "select * from photo_visit where owner_name = '$user_name' and photo_id = '$id'";
                     $stmt = oci_parse ($conn, $query);              
                     oci_execute($stmt);
                     $res = oci_fetch_array($stmt);
                     if (!$res['PHOTO_ID']) {
-                        $query = "INSERT into photo_count(user_name,photo_id) 
+                        $query = "INSERT into photo_visit(owner_name,photo_id) 
                         values ( '$user_name','$id')";
                         $stmt = oci_parse ($conn, $query);              
                         oci_execute($stmt);                
