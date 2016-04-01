@@ -167,14 +167,13 @@
 					</select>
                 </div>
                 <?php
-                        session_start(); // Starting Session
 						$sql = "select * from images where photo_id = '$id' and owner_name = '$user_name' ";
  					 	$stmt = oci_parse ($conn, $sql);
             		$res = oci_execute($stmt); 
             		      $user_name = $_SESSION['login-user'];
  						$res = oci_fetch_array($stmt, OCI_ASSOC);  
                         
-						if ($res['OWNER_NAME'] == $user_name ) {
+						if ($res) {
                 	 echo '<button type="submit" name="edit" value="true" class="btn btn-primary">Submit</button>';
                             print("i'm here");
                             print($user_name);
