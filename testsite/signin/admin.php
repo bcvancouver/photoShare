@@ -2,9 +2,10 @@
 <html lang="en">
 <?php
 session_start();
-/*if (!isset($_SESSION['admin'] ) ){
+if (!isset($_SESSION['admin'] ) ){
+    echo "You are kicked out because you are not admin.";
 	die();
-}*/
+}
 
 include("PHPconnectionDB.php");
 
@@ -18,7 +19,7 @@ function getTotalImageNum(){
     $stmt = oci_parse($connect, $sql);
     oci_define_by_name($stmt, 'NUMBER_OF_ROWS', $number_of_rows);
     oci_execute($stmt);
-    oci_fetch($stmt);
+    oci_fetch($stmt, $number_of_rows);
 
     oci_free_statement($stmt);
     //oci_close($connect);
