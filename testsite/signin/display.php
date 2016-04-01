@@ -176,7 +176,7 @@
                 	 echo '<button type="submit" name="edit" value="true" class="btn btn-primary">Submit</button>';
                             print("i'm here");
                 }
-                elseif ($_SESSION['admin']) {
+                elseif ($user_name == "admin") {
                 	 echo '<button type="submit" name="edit" value="true" class="btn btn-primary">Submit</button>';
                     print("i'm here1");
                 }
@@ -190,7 +190,7 @@
                 	 echo '<button type="submit" name="delete" value="true" class="btn btn-primary">Delete Photo</button>';
                 	 oci_free_statement($stmt);
                 }
-         elseif ($_SESSION['admin']) {
+         elseif ($user_name == "admin") {
                 	 echo '<button type="submit" name="delete" value="true" class="btn btn-primary">Submit</button>';
                 }
                 oci_close($conn);
