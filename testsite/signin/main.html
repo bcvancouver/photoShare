@@ -70,20 +70,20 @@
 
       <h1><font color="white">Main Page<br></font></h1>
         <form action="uploadfrontend.php">
-            <input type="submit" value="Upload a picture">
+            <input type="submit" value="Upload a picture"><br/>
         </form>
-        <div id="profile-info"> 
-               <h3> <form method="post" action="updateinfo.php">
-                <?php echo "Username: $username"; ?><br>
-                <?php echo "First name: <input name='first' value='$firstname'></input>"; ?> <br>
-                <?php echo "Last name: <input name='last' value='$lastname'></input>"; ?>   <br>         
-                <?php echo "Address: <input name='addr' value='$address'></input>"; ?>  <br>             
-                <?php echo "Email: <input name='email' value='$email'></input>"; ?>  <br> 
-                <?php echo "Phone: <input name='phone' value='$phone'></input>"; ?>   <br> 
-                <input type="submit" name="update" value="Update Info"> </form> <br>
+        <form name="updateinfo" method="post" action="updateinfo.php" autocomplete="off">
+            Username : <input type="text" name="username"/> <br/><!-- not name=null value --> 
+            Password : <input type="text" name="password"/><br/>
+            First Name : <input type="text" name="firstname"/><br/>
+            Last Name : <input type="text" name="lastname"/><br/>
+            Address : <input type="text" name="address"/><br/>
+            Email : <input type="text" name="email"/><br/>
+            Phone Number : <input type="text" name="phonenumber"/><br/>
+            <input type="submit" name="validate" value="Update Info"/>
+        </form>
                 <?php echo "<a href='admin.php'>Admin</a>" ?>   <br> 
-                </h3>           
-                 </div>
+            
 
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
