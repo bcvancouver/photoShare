@@ -105,7 +105,8 @@
                     <input type="submit" name="update" value="Update Info"> </form><br>
                     </h3>
                 <?php
-                    echo "<a href='admin.php'>Admin</a><br>";
+                    if($_SESSION['admin']){
+                    echo "<a href='admin.php'>Admin</a><br>";}
                 ?>
             
 

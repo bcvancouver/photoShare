@@ -1,3 +1,4 @@
+<?php include("loggedIn.php"); ?> 
 <?php
 
 function getGroups(){
