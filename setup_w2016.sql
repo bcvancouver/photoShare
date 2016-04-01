@@ -10,7 +10,6 @@ DROP TABLE groups;
 DROP TABLE persons;
 DROP TABLE users;
 
-<<<<<<< HEAD
 DROP SEQUENCE seq_group_id;
 
 drop index image_subject_idx;
@@ -18,8 +17,6 @@ drop index image_place_idx;
 drop index image_desc_idx;
 
 
-=======
->>>>>>> 357c701efb418e667f61af621043018fdbcb80cd
 CREATE TABLE users (
    user_name varchar(24),
    password  varchar(24),
