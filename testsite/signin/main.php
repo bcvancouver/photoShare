@@ -1,6 +1,6 @@
 <?php
       //////////////////////get user's information///////////////////////////
-			include("PHPCONNECTIONDB.php");
+			include("PHPconnectionDB.php");
 			session_start();
 	      $conn=connect();
            $user=$_SESSION['login_name'];
@@ -120,7 +120,8 @@
         <form action="uploadfrontend.php">
             <input type="submit" value="Upload a picture">
         </form>
-               <h2> <form method="post">
+        <div id="profile-info"> 
+               <h3> <form method="post">
                 <?php echo "Username: $username"; ?><br>
                 <?php echo "First name: <input name='first' value='$firstname'></input>"; ?> <br>
                 <?php echo "Last name: <input name='last' value='$lastname'></input>"; ?>   <br>         
@@ -129,7 +130,8 @@
                 <?php echo "Phone: <input name='phone' value='$phone'></input>"; ?>   <br> 
                 <input type="submit" name="update" value="Update Info"> </form> <br>
                 <?php echo "<a href='admin.php'>Admin</a>" ?>   <br> 
-                </h2>           
+                </h3>           
+                 </div>
 
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
