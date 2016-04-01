@@ -178,7 +178,7 @@
                      echo '<button type="submit" name="edit" value="true" class="btn btn-primary">Submit</button>';
                             
                 }
-                elseif ($res['OWNER_NAME'] == 'admin') {
+                elseif ($user_name == 'admin') {
                      echo '<button type="submit" name="edit" value="true" class="btn btn-primary">Submit</button>';
                 }
                 ?>
@@ -192,7 +192,7 @@
                      echo '<button type="submit" name="delete" value="true" class="btn btn-primary">Delete Photo</button>';
                      oci_free_statement($stmt);
                 }
-         elseif ($res['OWNER_NAME'] == 'admin') {
+         elseif ($$user_name == 'admin') {
                      echo '<button type="submit" name="delete" value="true" class="btn btn-primary">Submit</button>';
                 }
                 oci_close($conn);
