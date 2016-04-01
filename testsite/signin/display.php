@@ -171,7 +171,8 @@
  					 	$stmt = oci_parse ($conn, $sql);
             		$res = oci_execute($stmt); 
             		                     
- 						$res = oci_fetch_array($stmt, OCI_ASSOC);    
+ 						$res = oci_fetch_array($stmt, OCI_ASSOC);  
+                        print($res['OWNER_NAME']);
 						if ($res['OWNER_NAME'] == $user_name ) {
                 	 echo '<button type="submit" name="edit" value="true" class="btn btn-primary">Submit</button>';
                             print("i'm here");
