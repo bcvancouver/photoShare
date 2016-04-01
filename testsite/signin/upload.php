@@ -13,10 +13,10 @@
         </script>";
     }elseif (count($_FILES['image']['name'])==0){
         //Reference: http://stackoverflow.com/questions/11869662/display-alert-message-and-redirect-after-click-on-accept
-        echo "<script>
+        /*echo "<script>
             alert('No images found!');
             location='uploadfrontend.php';
-        </script>";
+        </script>";*/
     }
 
     //Function to turn picture into thumbnail
