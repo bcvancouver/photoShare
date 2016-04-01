@@ -220,8 +220,7 @@ function getOptions($sql) {
                         </li>
                         <li class="divider"></li>-->
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
-                                <?php header("Location: signin.html");?>
+                            <input type="button" onclick=document.location.href="Location: signin.html;" value="Redirect">
                         </li>
                     </ul>
                 </li>
