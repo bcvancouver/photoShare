@@ -74,7 +74,7 @@ function getres($sql,$connect) {
     $stid = oci_parse($connect,$sql);
     oci_execute($stid);
     while (($row = oci_fetch_array($stid, OCI_ASSOC))) {
-        foreach($row as$item)   {
+        foreach($row as $item)   {
             echo '<option>'.$item.'</option>';
         }
     }
@@ -387,7 +387,7 @@ function getres($sql,$connect) {
                                             <select id="user" class="form-control">
                                                 <option>All</option>
                                                 <option>None</option>
-                                                <?php getres("select user_name from users",$connect); ?>
+                                                <?php echo getres("select user_name from users",$connect); ?>
                                             </select>
                                         </div>
                                     <div class="form-group col-lg-4">
@@ -395,7 +395,7 @@ function getres($sql,$connect) {
                                             <select id="subj" class="form-control">
                                                 <option>All</option>
                                                 <option>None</option>
-                                                <?php getres("select distinct subject from images",$connect); ?>
+                                                <?php echo getres("select distinct subject from images",$connect); ?>
                                             </select>
                                         </div>
                                     <div class="form-group col-lg-4">
