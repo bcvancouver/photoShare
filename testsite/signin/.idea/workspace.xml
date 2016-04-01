@@ -52,15 +52,15 @@
       <file leaf-file-name="admin.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/admin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
+            <state relative-caret-position="330">
+              <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
               <folding>
-                <marker date="1459499724000" expanded="true" signature="302:347" placeholder="SELECT COUNT... images" />
-                <marker date="1459499724000" expanded="true" signature="696:741" placeholder="SELECT COUNT... groups" />
-                <marker date="1459499724000" expanded="true" signature="1072:1116" placeholder="SELECT COUNT... users" />
-                <marker date="1459499724000" expanded="true" signature="1449:1495" placeholder="SELECT COUNT... persons" />
-                <marker date="1459499724000" expanded="true" signature="18291:18318" placeholder="select user_... users" />
-                <marker date="1459499724000" expanded="true" signature="18854:18889" placeholder="select disti... images" />
+                <marker date="1459499783000" expanded="true" signature="302:347" placeholder="SELECT COUNT... images" />
+                <marker date="1459499783000" expanded="true" signature="725:770" placeholder="SELECT COUNT... groups" />
+                <marker date="1459499783000" expanded="true" signature="1101:1145" placeholder="SELECT COUNT... users" />
+                <marker date="1459499783000" expanded="true" signature="1478:1524" placeholder="SELECT COUNT... persons" />
+                <marker date="1459499783000" expanded="true" signature="18320:18347" placeholder="select user_... users" />
+                <marker date="1459499783000" expanded="true" signature="18883:18918" placeholder="select disti... images" />
               </folding>
             </state>
           </provider>
@@ -227,12 +227,12 @@
       <workItem from="1459419322654" duration="688000" />
       <workItem from="1459489699125" duration="483000" />
       <workItem from="1459494151044" duration="1143000" />
-      <workItem from="1459495813795" duration="2618000" />
+      <workItem from="1459495813795" duration="2677000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10672000" />
+    <option name="totallyTimeSpent" value="10731000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1600" height="873" extended-state="6" />
@@ -282,12 +282,12 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1459499724000" expanded="true" signature="302:347" placeholder="SELECT COUNT... images" />
-            <marker date="1459499724000" expanded="true" signature="696:741" placeholder="SELECT COUNT... groups" />
-            <marker date="1459499724000" expanded="true" signature="1072:1116" placeholder="SELECT COUNT... users" />
-            <marker date="1459499724000" expanded="true" signature="1449:1495" placeholder="SELECT COUNT... persons" />
-            <marker date="1459499724000" expanded="true" signature="18291:18318" placeholder="select user_... users" />
-            <marker date="1459499724000" expanded="true" signature="18854:18889" placeholder="select disti... images" />
+            <marker date="1459499783000" expanded="true" signature="302:347" placeholder="SELECT COUNT... images" />
+            <marker date="1459499783000" expanded="true" signature="725:770" placeholder="SELECT COUNT... groups" />
+            <marker date="1459499783000" expanded="true" signature="1101:1145" placeholder="SELECT COUNT... users" />
+            <marker date="1459499783000" expanded="true" signature="1478:1524" placeholder="SELECT COUNT... persons" />
+            <marker date="1459499783000" expanded="true" signature="18320:18347" placeholder="select user_... users" />
+            <marker date="1459499783000" expanded="true" signature="18883:18918" placeholder="select disti... images" />
           </folding>
         </state>
       </provider>
@@ -648,15 +648,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/admin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="7" selection-end-column="3" />
+        <state relative-caret-position="330">
+          <caret line="22" column="25" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
           <folding>
-            <marker date="1459499724000" expanded="true" signature="302:347" placeholder="SELECT COUNT... images" />
-            <marker date="1459499724000" expanded="true" signature="696:741" placeholder="SELECT COUNT... groups" />
-            <marker date="1459499724000" expanded="true" signature="1072:1116" placeholder="SELECT COUNT... users" />
-            <marker date="1459499724000" expanded="true" signature="1449:1495" placeholder="SELECT COUNT... persons" />
-            <marker date="1459499724000" expanded="true" signature="18291:18318" placeholder="select user_... users" />
-            <marker date="1459499724000" expanded="true" signature="18854:18889" placeholder="select disti... images" />
+            <marker date="1459499783000" expanded="true" signature="302:347" placeholder="SELECT COUNT... images" />
+            <marker date="1459499783000" expanded="true" signature="725:770" placeholder="SELECT COUNT... groups" />
+            <marker date="1459499783000" expanded="true" signature="1101:1145" placeholder="SELECT COUNT... users" />
+            <marker date="1459499783000" expanded="true" signature="1478:1524" placeholder="SELECT COUNT... persons" />
+            <marker date="1459499783000" expanded="true" signature="18320:18347" placeholder="select user_... users" />
+            <marker date="1459499783000" expanded="true" signature="18883:18918" placeholder="select disti... images" />
           </folding>
         </state>
       </provider>
