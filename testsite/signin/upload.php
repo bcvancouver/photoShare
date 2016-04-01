@@ -10,8 +10,8 @@
         header("Location: signin.html");
         exit;
     }elseif (count($_FILES['image[]']['name'])==0){
-        echo "Cannot Upload Empty Picture!<br>";
-        header("Location: uploadfrontend.php");
+        echo "<script>alert('Cannot Upload Empty Picture!');</script>";
+        http_redirect("uploadfrontend.php");
     }
 
     //Function to turn picture into thumbnail
