@@ -345,7 +345,7 @@ function getres($sql,$connect) {
                                             <select id="user" class="form-control">
                                                 <option>All</option>
                                                 <option>None</option>
-                                                <?php echo getres('SELECT user_name FROM users',$connect); ?>
+                                                <?php getres('SELECT user_name FROM users',$connect); ?>
                                             </select>
                                         </div>
                                     <div class="form-group col-lg-4">
@@ -353,7 +353,7 @@ function getres($sql,$connect) {
                                             <select id="subj" class="form-control">
                                                 <option>All</option>
                                                 <option>None</option>
-                                                <?php echo getres('SELECT DISTINCT subject FROM images',$connect); ?>
+                                                <?php getres('SELECT DISTINCT subject FROM images',$connect); ?>
                                             </select>
                                         </div>
                                     <div class="form-group col-lg-4">
