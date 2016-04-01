@@ -1,4 +1,6 @@
 <?php 
+include("loggedIn.php"); 
+
 		function reformat_keywords($keywordsraw){
 		    //get the input
 
@@ -15,7 +17,8 @@
 		    return $keywords;
 		}
 
-		function createsearchquery($order, $start, $end){
+		function createsearchquery($keywords, $order, $start, $end){
+			$username = "'".$_SESSION['login_user']."'";
 
 
 			switch ($order) {
@@ -72,11 +75,13 @@
 
 
 
+include("loggedIn.php"); 
 include('PHPconnectionDB.php');
 session_start();
+
 	if (isset ($_POST['validate'])){
-		
-		$username = $_SESSION['login_user'];
+		$username = "'".$_SESSION['login_user']."'";
+
 
 		print_r($_POST["keywords"]."<br>".$_POST["order"]."<br>".$username."<br>");
 
@@ -98,11 +103,11 @@ session_start();
         }
     
         //sql command
-        $sql = createsearchquery($_POST["order"], $_POST["start"], $_POST["end"]);
+        $sql = createsearchquery($keywords, $_POST["order"], $_POST["start"], $_POST["end"]);
 
-		print_r("<br>".$keywords."<br>".$sql."<br>");
+		print_r("<br>".$keywords."<br>".$sql.";<br><br>");
         //Prepare sql using conn and returns the statement identifier
-        $stid = oci_parse($conn, $sql );
+        $stid = oci_parse($conn, $sql);
 /*
         //bind the variables for the pl/sql procedure
         oci_bind_by_name($stid, ':username', $username);
@@ -112,20 +117,13 @@ session_start();
 		oci_execute($stid);
         
         print_r($sql);
-        echo "<table border='1'>\n";
-		while (($row = oci_fetch_array($stid, OCI_ASSOC))) {
-		    $rc = $row['MFRC'];
-		    oci_execute($rc);  // returned column value from the query is a ref cursor
-		    print_r($rc.'<br>');
-		    while (($rc_row = oci_fetch_array($rc, OCI_ASSOC))) {   
-		        echo "<tr>";
-		        echo"<td>" . $rc_row['SUBJECT'] . "</td>";
-		        echo"</tr>";
-		    }
-		    oci_free_statement($rc);
+		
+		while ($arr = oci_fetch_array($stid, OCI_ASSOC)){
+			$id = $arr['PHOTO_ID'];
+			print_r($id. ", ");
+			//echo '<a href="display.php?id='.$id.'"><img src="getimage.php?id='.$id.'&type=thumbnail" width="200" height="200" /></a>';
 		}
-		echo "</table>\n";
-
+		print_r($arr);
 
 /**/
          
