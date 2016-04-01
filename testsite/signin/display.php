@@ -41,12 +41,12 @@
   </script>
         <script type="text/javascript">
             function fivethumb(str) {
-                $("#chickenbutt").html("");
+                $("#demo").html("");
                 var xmlhttp = new XMLHttpRequest();
                 xmlhttp.onreadystatechange = function() {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                         var txt = xmlhttp.responseText;
-                        $("#chickenbutt").html(txt);
+                        $("#demo").html(txt);
                     }
                 };
                 xmlhttp.open("GET", "thumb.php?freq=" + str, true);
