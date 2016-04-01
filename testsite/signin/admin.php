@@ -24,7 +24,6 @@ function getTotalImageNum(){
     oci_fetch($stmt);
 
     oci_free_statement($stmt);
-    //oci_close($connect);
     return $number_of_rows;
 }
 
@@ -39,7 +38,6 @@ function getTotalGroupNum(){
     oci_fetch($stmt);
 
     oci_free_statement($stmt);
-    //oci_close($connect);
     return $number_of_rows;
 }
 
@@ -54,7 +52,6 @@ function getTotalUserNum(){
     oci_fetch($stmt);
 
     oci_free_statement($stmt);
-    //oci_close($connect);
     return $number_of_rows;
 }
 
@@ -124,7 +121,7 @@ function getres($sql,$connect) {
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Photoshare Admin</a>
+                <a class="navbar-brand" href="index.html">ExclusivePic Admin</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -425,7 +422,7 @@ function getres($sql,$connect) {
                     </div>
                 </div>
                 <!-- /.row -->
-                
+
         </div>
         <!-- /#page-wrapper -->
 
