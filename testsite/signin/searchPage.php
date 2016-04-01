@@ -1,4 +1,4 @@
-<form name="searchbar" method="post" action="phptesting.php">
+<form name="searchbar" method="get" action="searchFunction.php">
           <input type="text" name="keywords"/> <br>
           <input type="radio" name="order" value="norm" checked />Normal<br>
           <input type="radio" name="order" value="new" />Newest<br>
