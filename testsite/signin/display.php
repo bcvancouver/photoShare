@@ -178,7 +178,7 @@
                      echo '<button type="submit" name="edit" value="true" class="btn btn-primary">Submit</button>';
                             
                 }
-                elseif ($res['OWNER_NAME'] == 'admin']) {
+                elseif ($res['OWNER_NAME'] == 'admin') {
                      echo '<button type="submit" name="edit" value="true" class="btn btn-primary">Submit</button>';
                 }
                 ?>

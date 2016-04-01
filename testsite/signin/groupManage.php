@@ -57,7 +57,7 @@
         <br>
         <font color='white'><br>Delete a Member from a Group you made:<br></font>
         <form name="delmember" method="post" action="groupDelMember.php">
-            <font color='white'>Group Name : </font><input type="text" name="group_name"/> <br/><
+            <font color='white'>Group Name : </font><input type="text" name="group_name"/> <br/>
             <font color='white'>New Member : </form><input type="text" name="member_name"/> <br/>
           <input type="submit" name="validate" value="OK"/>
         </form>
