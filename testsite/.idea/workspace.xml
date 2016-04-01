@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c5f7aa9d-6a7c-4f03-98fa-b09b24321a03" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/signin/upload.php" afterPath="$PROJECT_DIR$/signin/upload.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/signin/uploadfrontend.php" afterPath="$PROJECT_DIR$/signin/uploadfrontend.php" />
     </list>
     <ignored path="testsite.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,14 +25,76 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="upload.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="upload.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/signin/upload.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1319">
-              <caret line="41" column="10" selection-start-line="41" selection-start-column="10" selection-end-line="41" selection-end-column="10" />
+<<<<<<< HEAD
+            <state relative-caret-position="270">
+              <caret line="18" column="23" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="23" />
               <folding>
-                <marker date="1459397942000" expanded="true" signature="5083:5428" placeholder="INSERT INTO images... " />
+                <marker date="1459457057000" expanded="true" signature="4086:4431" placeholder="INSERT INTO images... " />
+=======
+            <state relative-caret-position="1245">
+              <caret line="83" column="34" selection-start-line="83" selection-start-column="34" selection-end-line="83" selection-end-column="34" />
+              <folding>
+                <marker date="1459464327000" expanded="true" signature="4261:4594" placeholder="INSERT INTO images... " />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="uploadfrontend.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/signin/uploadfrontend.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="151">
+              <caret line="103" column="44" selection-start-line="103" selection-start-column="44" selection-end-line="103" selection-end-column="44" />
+              <folding>
+                <marker date="1459462791000" expanded="true" signature="212:270" placeholder="SELECT g.gro... groups" />
+                <marker date="1459462791000" expanded="true" signature="395:577" placeholder="SELECT g.gro... groups" />
+>>>>>>> 84999acdfb5a42ad584e92518ff465f99a52e7fa
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="thumb.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/signin/thumb.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="380">
+              <caret line="39" column="12" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
+              <folding>
+                <marker date="1459457057000" expanded="true" signature="175:202" placeholder="SELECT photo... images" />
+                <marker date="1459457057000" expanded="true" signature="255:314" placeholder="select photo... images" />
+                <marker date="1459457057000" expanded="true" signature="593:620" placeholder="SELECT photo... images" />
+                <marker date="1459457057000" expanded="true" signature="902:929" placeholder="SELECT photo... images" />
+                <marker date="1459457057000" expanded="true" signature="1225:1340" placeholder="select photo... photo_count" />
+                <marker date="1459457057000" expanded="true" signature="1596:1810" placeholder="select photo... images" />
+                <marker date="1459457057000" expanded="true" signature="1690:1748" placeholder="select group... group_lists" />
+                <marker date="1459457057000" expanded="true" signature="1755:1808" placeholder="select group... groups" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="uploadfrontend.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/signin/uploadfrontend.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1680">
+              <caret line="112" column="43" selection-start-line="112" selection-start-column="43" selection-end-line="112" selection-end-column="43" />
+              <folding>
+                <marker date="1459459407000" expanded="true" signature="212:270" placeholder="SELECT g.gro... groups" />
+                <marker date="1459459407000" expanded="true" signature="395:577" placeholder="SELECT g.gro... groups" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="logout.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/signin/logout.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -46,7 +109,9 @@
       <list>
         <option value="$PROJECT_DIR$/signin/display.html" />
         <option value="$PROJECT_DIR$/signin/getimage.php" />
+        <option value="$PROJECT_DIR$/signin/uploadfrontend.php" />
         <option value="$PROJECT_DIR$/signin/upload.php" />
+        <option value="$PROJECT_DIR$/signin/uploadfrontend.php" />
       </list>
     </option>
   </component>
@@ -59,10 +124,19 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
   </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
+<<<<<<< HEAD
+    <option name="y" value="23" />
     <option name="width" value="1280" />
+    <option name="height" value="709" />
+=======
+    <option name="width" value="638" />
     <option name="height" value="800" />
+>>>>>>> 84999acdfb5a42ad584e92518ff465f99a52e7fa
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -89,51 +163,24 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="testsite" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="testsite" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="testsite" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="testsite" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="testsite" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="signin" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
+        <subPane />
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="FullScreen" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -143,18 +190,31 @@
       <option name="presentableId" value="Default" />
       <updated>1459370394052</updated>
       <workItem from="1459370395822" duration="34000" />
+<<<<<<< HEAD
+      <workItem from="1459386213460" duration="1836000" />
+      <workItem from="1459457122995" duration="624000" />
+=======
       <workItem from="1459386213460" duration="1739000" />
+      <workItem from="1459459468987" duration="4101000" />
+>>>>>>> 84999acdfb5a42ad584e92518ff465f99a52e7fa
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1773000" />
+<<<<<<< HEAD
+    <option name="totallyTimeSpent" value="2494000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <frame x="0" y="23" width="1280" height="709" extended-state="0" />
+=======
+    <option name="totallyTimeSpent" value="5874000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="638" height="800" extended-state="0" />
+>>>>>>> 84999acdfb5a42ad584e92518ff465f99a52e7fa
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Grunt " active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -175,6 +235,14 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
@@ -183,38 +251,105 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/signin/display.html">
+    <entry file="file://$PROJECT_DIR$/signin/upload.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+<<<<<<< HEAD
+            <marker date="1459457057000" expanded="true" signature="4086:4431" placeholder="INSERT INTO images... " />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/signin/display.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-379">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/signin/display.html" />
+    <entry file="file://$PROJECT_DIR$/signin/display.html" />
     <entry file="file://$PROJECT_DIR$/signin/getimage.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/signin/logout.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+            <marker date="1459464327000" expanded="true" signature="4261:4594" placeholder="INSERT INTO images... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/signin/display.html" />
+    <entry file="file://$PROJECT_DIR$/signin/display.html" />
+    <entry file="file://$PROJECT_DIR$/signin/getimage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/signin/upload.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="34" column="49" selection-start-line="34" selection-start-column="49" selection-end-line="34" selection-end-column="49" />
+>>>>>>> 84999acdfb5a42ad584e92518ff465f99a52e7fa
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/signin/thumb.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="39" column="12" selection-start-line="39" selection-start-column="12" selection-end-line="39" selection-end-column="12" />
           <folding>
-            <marker date="1459397453000" expanded="true" signature="138:185" placeholder="SELECT PHOTO... images" />
+            <marker date="1459457057000" expanded="true" signature="175:202" placeholder="SELECT photo... images" />
+            <marker date="1459457057000" expanded="true" signature="255:314" placeholder="select photo... images" />
+            <marker date="1459457057000" expanded="true" signature="593:620" placeholder="SELECT photo... images" />
+            <marker date="1459457057000" expanded="true" signature="902:929" placeholder="SELECT photo... images" />
+            <marker date="1459457057000" expanded="true" signature="1225:1340" placeholder="select photo... photo_count" />
+            <marker date="1459457057000" expanded="true" signature="1596:1810" placeholder="select photo... images" />
+            <marker date="1459457057000" expanded="true" signature="1690:1748" placeholder="select group... group_lists" />
+            <marker date="1459457057000" expanded="true" signature="1755:1808" placeholder="select group... groups" />
+=======
+    <entry file="file://$PROJECT_DIR$/signin/uploadfrontend.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="103" column="44" selection-start-line="103" selection-start-column="44" selection-end-line="103" selection-end-column="44" />
+          <folding>
+            <marker date="1459462791000" expanded="true" signature="212:270" placeholder="SELECT g.gro... groups" />
+            <marker date="1459462791000" expanded="true" signature="395:577" placeholder="SELECT g.gro... groups" />
+>>>>>>> 84999acdfb5a42ad584e92518ff465f99a52e7fa
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/signin/upload.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1319">
-          <caret line="41" column="10" selection-start-line="41" selection-start-column="10" selection-end-line="41" selection-end-column="10" />
+<<<<<<< HEAD
+        <state relative-caret-position="270">
+          <caret line="18" column="23" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="23" />
           <folding>
-            <marker date="1459397942000" expanded="true" signature="5083:5428" placeholder="INSERT INTO images... " />
+            <marker date="1459457057000" expanded="true" signature="4086:4431" placeholder="INSERT INTO images... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/signin/uploadfrontend.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1680">
+          <caret line="112" column="43" selection-start-line="112" selection-start-column="43" selection-end-line="112" selection-end-column="43" />
+          <folding>
+            <marker date="1459459407000" expanded="true" signature="212:270" placeholder="SELECT g.gro... groups" />
+            <marker date="1459459407000" expanded="true" signature="395:577" placeholder="SELECT g.gro... groups" />
+=======
+        <state relative-caret-position="1245">
+          <caret line="83" column="34" selection-start-line="83" selection-start-column="34" selection-end-line="83" selection-end-column="34" />
+          <folding>
+            <marker date="1459464327000" expanded="true" signature="4261:4594" placeholder="INSERT INTO images... " />
+>>>>>>> 84999acdfb5a42ad584e92518ff465f99a52e7fa
           </folding>
         </state>
       </provider>
