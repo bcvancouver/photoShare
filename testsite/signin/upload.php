@@ -69,7 +69,7 @@
         return $final_image;
     }
 
-    echo count($_FILES['image']['name']);
+    echo count($_FILES['image[]']['name']);
     for ($i=0; $i<count($_FILES['image']['name']); $i++) {
 
         //Check each image file
