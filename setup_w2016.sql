@@ -10,6 +10,12 @@ DROP TABLE groups;
 DROP TABLE persons;
 DROP TABLE users;
 
+DROP SEQUENCE seq_group_id;
+
+drop index image_subject_idx;
+drop index image_place_idx;
+drop index image_desc_idx;
+
 
 CREATE TABLE users (
    user_name varchar(24),
@@ -83,6 +89,7 @@ BEGIN
    INSERT INTO groups values(newId,username,groupname,sysdate);
    INSERT INTO group_lists VALUES(newId,username,sysdate, null);
 END;
+/
 
 /*
 Add Group Member
@@ -100,6 +107,7 @@ BEGIN
      and g.user_name= username;
    INSERT INTO group_lists VALUES(groupId,membername,sysdate, null);
 END;
+/
 
 --Delete Group Member Procedure
 CREATE OR REPLACE PROCEDURE DELGROUPMEMBERPROC 
@@ -114,3 +122,9 @@ BEGIN
    WHERE gl.group_id = groupId
      AND gl.friend_id = membername;
 END;
+/
+
+CREATE INDEX image_subject_idx ON images (subject) indextype is ctxsys.context parameters ('sync (on commit)');
+CREATE INDEX image_place_idx ON images (place) indextype is ctxsys.context parameters ('sync (on commit)');
+CREATE INDEX image_desc_idx ON images (description) indextype is ctxsys.context parameters ('sync (on commit)');
+
