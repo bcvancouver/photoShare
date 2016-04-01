@@ -134,7 +134,7 @@ function getOptions($sql) {
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="signin.html" ><i class="fa fa-fw fa-gear"></i>Log Out</a>
+                            <a href="signin.html" ><i class="fa fa-fw fa-gear" onclick="<?php session_destroy();?>"></i>Log Out</a>
                         </li>
                     </ul>
                 </li>
