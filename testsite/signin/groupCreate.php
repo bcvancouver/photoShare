@@ -39,7 +39,7 @@ include("PHPconnectionDB.php");
         echo htmlentities($err['message']);
           }
           else{
-        header("location:main.html");
+        header("location:main.php");
           }
         
         // Free the statement identifier when closing the connection
