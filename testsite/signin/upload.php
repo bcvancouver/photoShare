@@ -141,6 +141,6 @@
         }
     }
 
-        echo '<center><form method="post" action ="main.html"><input type="submit" name="submit" value="continue" /> </form></center>';
+        echo '<center><form method="post" action ="main.php"><input type="submit" name="submit" value="continue" /> </form></center>';
 
     ?>

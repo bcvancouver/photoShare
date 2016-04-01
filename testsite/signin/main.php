@@ -1,9 +1,9 @@
 <?php
       //////////////////////get user's information///////////////////////////
-			include("PHPCONNECTIONDB.php");
+			include("PHPconnectionDB.php");
 			session_start();
 	      $conn=connect();
-           $user=$_SESSION['login_name'];
+           $user=$_SESSION['login_user'];
           $up = $_POST['update'];
           $a = $_POST['first'];
           $b = $_POST['last'];
@@ -46,7 +46,6 @@
 	    oci_close($conn);			
 	    /////////////////////end get user's info///////////////////////////////
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -116,20 +115,24 @@
     <div class="container">
 
 
-      <h1><font color="white">Main Page<br></font></h1>
+      <h1><font color="white">My Exclusive Pic<br></font></h1>
         <form action="uploadfrontend.php">
-            <input type="submit" value="Upload a picture">
+            <input type="submit" value="Upload a picture"><br/>
         </form>
-               <h2> <form method="post">
-                <?php echo "Username: $username"; ?><br>
-                <?php echo "First name: <input name='first' value='$firstname'></input>"; ?> <br>
-                <?php echo "Last name: <input name='last' value='$lastname'></input>"; ?>   <br>         
-                <?php echo "Address: <input name='addr' value='$address'></input>"; ?>  <br>             
-                <?php echo "Email: <input name='email' value='$email'></input>"; ?>  <br> 
-                <?php echo "Phone: <input name='phone' value='$phone'></input>"; ?>   <br> 
-                <input type="submit" name="update" value="Update Info"> </form> <br>
-                <?php echo "<a href='admin.php'>Admin</a>" ?>   <br> 
-                </h2>           
+        <h3> <form method="post">
+                <?php
+                    echo "<font color='white'>Welcome Back $user !</font>";
+                    echo "<br><font color='white'>First name: </font><input name='first' value='$firstname'>";
+                    echo "<br><font color='white'>Last name: </font><input name='last' value='$lastname'>";
+                    echo "<br><font color='white'>Address: </font><input name='addr' value='$address'>";
+                    echo "<br><font color='white'>Email: </font><input name='email' value='$email'>";
+                    echo "<br><font color='white'>Phone: </font><input name='phone' value='$phone'>";?>
+                    <input type="submit" name="update" value="Update Info"> </form><br>
+                    </h3>
+                <?php
+                    echo "<a href='admin.php'>Admin</a><br>";
+                ?>
+            
 
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>

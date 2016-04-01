@@ -20,7 +20,7 @@ while ($row=oci_fetch_array($query,OCI_BOTH)){$r= $row[0];}
 	    if ($r!='0'){ $result=TRUE;}
 	    if ($result){
         $_SESSION['login_user']=$username; // Initializing Session  
-                header("location:main.html");
+                header("location:main.php");
 	    }
         else {
         print("not working");
