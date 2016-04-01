@@ -43,6 +43,7 @@
 	    //$row=oci_fetch_array($stid,OCI_BOTH)
 	    oci_free_statement($stid);
 	    oci_close($conn);			
-	    header("location: main.php");// Redirecting back to log in page
+	    
+//header("location: main.php");// Redirecting back to log in page
         
 ?>
