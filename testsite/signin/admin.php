@@ -19,7 +19,7 @@ function getTotalImageNum(){
     $stmt = oci_parse($connect, $sql);
     oci_define_by_name($stmt, 'NUMBER_OF_ROWS', $number_of_rows);
     oci_execute($stmt);
-    $number_of_rows=oci_fetch_all($stmt);
+    $number_of_rows=oci_fetch_all($stmt,$result);
     echo $number_of_rows;
     oci_free_statement($stmt);
     //oci_close($connect);
