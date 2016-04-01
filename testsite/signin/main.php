@@ -1,3 +1,4 @@
+<?php include("loggedIn.php"); ?> 
 <?php
       //////////////////////get user's information///////////////////////////
 			include("PHPconnectionDB.php");
@@ -104,7 +105,8 @@
                     <input type="submit" name="update" value="Update Info"> </form><br>
                     </h3>
                 <?php
-                    echo "<a href='admin.php'>Admin</a><br>";
+                    if($user == 'admin'){
+                    echo "<a href='admin.php'>Admin</a><br>";}
                 ?>
             
 
@@ -152,14 +154,14 @@
             //popularity of an image is specified by the number of distinct users that have ever viewed the image
         </script>
 
-  <h2>Image Gallery</h2>   
+        <font color='white'><h2>Image Gallery</h2></font>   
         <form id="gform" action="thumb.php" method="get" name="jumpto">
                     <select name="c" onchange="javascript: loadDoc2(this.value);">
                     <option value="0">Own photos</option>
                     <option value="1">Most Recent</option>
                     <option value="2">Oldest</option>
                     <option value="3">Top Five</option>
-                    <option value="admin">Admin</option>
+                    <option value="admin">Admin--only admin will work</option>
             </select>
       </form>
   <div id="demo" class="column">

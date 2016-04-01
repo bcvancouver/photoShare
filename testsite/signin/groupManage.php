@@ -40,25 +40,25 @@
       <?php include("navi.php"); ?> 
     <div class="container">
 
-        Create a Group:<br>
+        <font color='white'>Create a Group:<br></font>
 	      <form name="creategroup" method="post" action="groupCreate.php">
-          New Group Name : <input type="text" name="group_name"/> <br/>
+              <font color='white'>New Group Name : </font><input type="text" name="group_name"/> <br/>
           <input type="submit" name="validate" value="OK"/>
         </form>
 
         <br>
-        <br>Add a Member to a Group you made:<br>
+        <font color='white'><br>Add a Member to a Group you made:<br></font>
         <form name="addmember" method="post" action="groupAddMember.php">
-          Group Name : <input type="text" name="group_name"/> <br/>
-          New Member : <input type="text" name="member_name"/> <br/>
+            <font color='white'>Group Name : </font><input type="text" name="group_name"/> <br/>
+            <font color='white'>New Member : </font><input type="text" name="member_name"/> <br/>
           <input type="submit" name="validate" value="OK"/>
         </form>
         
         <br>
-        <br>Delete a Member from a Group you made:<br>
+        <font color='white'><br>Delete a Member from a Group you made:<br></font>
         <form name="delmember" method="post" action="groupDelMember.php">
-          Group Name : <input type="text" name="group_name"/> <br/>
-          New Member : <input type="text" name="member_name"/> <br/>
+            <font color='white'>Group Name : </font><input type="text" name="group_name"/> <br/>
+            <font color='white'>New Member : </form><input type="text" name="member_name"/> <br/>
           <input type="submit" name="validate" value="OK"/>
         </form>
         
