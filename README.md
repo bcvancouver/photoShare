@@ -1,3 +1,6 @@
+Source Code Location:
+/testsite/signin/
+
 Installation instructions:
 
 1.cd to the file's current directory run @setup_w2016.sql
